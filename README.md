@@ -13,7 +13,7 @@
    - /deleteStudentById
    - /updateStudent
 
-3    Done With the Batches Api
+3  . Done With the Batches Api
 
    - /saveBatches
    - /getAllBatchesData
@@ -21,16 +21,23 @@
    - /deleteBatches/{id}
    - /getBatchesDataById/{id}
 
-4    Done With the Role Api
+4  .  Done With the Role Api
 
    - /saveRoles
    - /getRolesData
    - /getRolesDataById/{id}
    - /editRoles/{id}
 
-5    Done With the Teacher Api
+5  .  Done With the Teacher Api
 
    - /saveTeacher
    - /updateTeacher/{id}
    - /deleteTeacher/{id}
    - /getAllTeacher
+
+6  .  Done With the Course Api
+
+   - /courses
+   - /courses/{id}
+   - /saveCourse
+   - /deleteCourse/{id}
