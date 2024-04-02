@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="css/admin.css">
 <script src="https://kit.fontawesome.com/ae73087723.js"
 	crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <style>
 .Container {
@@ -168,25 +169,27 @@
 	</section>
 	<section id="content">
 		<nav class="navcont">
-            <i class="fa-solid fa-bars toggle-sidebar"></i>
-            <div class="subnav">
-                <ul>
-                    <li><a href="#"><img src="uploadfiles/logo.png" style="width: 300px; margin-top: 10px;" /></a></li>
-                </ul>
-            </div>
-
-            <div class="profile">
-                <img src="uploadfiles/profile.jpg" class="profimg" alt="profile-photo">
-                <div>
-                    <ul class="profile-link">
-                        <li
-                            style="text-transform: uppercase; font-size: 10.5px; margin-left: 10px; padding: .4rem; font-weight: 600;">
-                            Welcome!</li>
-                        <li><a href="#"><i class="fa-solid fa-person-running icon"></i>Logout</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+			<i class="fa-solid fa-bars toggle-sidebar"></i>
+			<div class="subnav">
+				<ul>
+					<li><a href="#"><img src="uploadfiles/logo.png"
+							style="width: 300px; margin-top: 10px;" /></a></li>
+				</ul>
+			</div>
+			<div class="profile">
+				<img src="uploadfiles/profile.jpg" class="profimg"
+					alt="profile-photo">
+				<div>
+					<ul class="profile-link">
+						<li
+							style="text-transform: uppercase; font-size: 10.5px; margin-left: 10px; padding: .4rem; font-weight: 600;">
+							Welcome!</li>
+						<li><a href="#"><i
+								class="fa-solid fa-person-running icon"></i>Logout</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
 		<main>
 			<div class="Container">
 				<h1
@@ -207,7 +210,7 @@
 								</tr>
 							</thead>
 							<tbody class='tablebody'>
-								<tr>
+								<!-- <tr>
 									<td>1</td>
 									<td>Prajwal</td>
 									<td>Amdare</td>
@@ -217,7 +220,7 @@
 									<td><a><i class="fa-regular fa-pen-to-square"
 											style="color: #12e068; padding-right: 10px"></i></a> <a><i
 											class="fa-solid fa-trash" style="color: #eb070f"></i></a></td>
-								</tr>
+								</tr> -->
 							</tbody>
 						</table>
 					</div>
@@ -230,6 +233,85 @@
 			</div>
 		</main>
 	</section>
+	<script>
+    $(document).ready(function() {
+        // Fetch all teachers when the page loads
+        fetchAllTeachers();
+
+        function fetchAllTeachers() {
+            $.ajax({
+                url: "getAllTeacher",
+                type: "GET",
+                contentType: "application/json",
+                success: function(response) {
+                    if (response.status === "SUCCESS") {
+                        populateTable(response.data);
+                    } else {
+                        alert(response.message);
+                    }
+                },
+                error: function(error) {
+                    alert("Failed to fetch teachers data");
+                }
+            });
+        }
+
+        function populateTable(teachers) {
+            var tableBody = $(".tablebody");
+            tableBody.empty(); // Clear existing rows
+
+            teachers.forEach(function(teacher, index) {
+                var row = $("<tr>");
+                row.append($("<td>").text(index + 1)); // SrNo
+                row.append($("<td>").text(teacher.firstName)); // First Name
+                row.append($("<td>").text(teacher.lastName)); // Last Name
+                row.append($("<td>").text(teacher.courses)); // Select Course
+                row.append($("<td>").text(teacher.batch)); // Select Batch
+                row.append($("<td>").text(teacher.emailId)); // Email Id
+                
+                var actionCell = $("<td>");
+                
+                var updateIcon = $("<i>").addClass("fa-regular fa-pen-to-square").css("color", "#12e068").css("cursor", "pointer").click(function() {
+                    editTeacher(teacher.id);
+                });
+                
+                var deleteIcon = $("<i>").addClass("fa-solid fa-trash").css("color", "#eb070f").css("cursor", "pointer").click(function() {
+                    deleteTeacher(teacher.id);
+                });
+                
+                actionCell.append(updateIcon).append(" "); // Add a space between icons
+                actionCell.append(deleteIcon);
+
+                row.append(actionCell); // Action
+
+                tableBody.append(row);
+            });
+        }
+
+        function editTeacher(id) {
+            window.location.href = "editTeacher?id=" + id;
+        }
+
+        function deleteTeacher(id) {
+            $.ajax({
+                url: "deleteTeacher/" + id,
+                type: "DELETE",
+                contentType: "application/json",
+                success: function(response) {
+                    if (response.status === "SUCCESS") {
+                        fetchAllTeachers(); // Refresh the table after deletion
+                        alert(response.message);
+                    } else {
+                        alert(response.message);
+                    }
+                },
+                error: function(error) {
+                    alert("Failed to delete teacher");
+                }
+            });
+        }
+    });
+	</script>
 	<script src="js/adminscript.js"></script>
 </body>
 </html>
