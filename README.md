@@ -1,4 +1,4 @@
-- ## Added  the Frontend
+- ## Backend Api Details                                                                                                    
 
 
 1 . DONE WITH  Login and Regiter Api
@@ -41,3 +41,10 @@
    - /courses/{id}
    - /saveCourse
    - /deleteCourse/{id}
+
+
+
+
+ - ## Fronted Module
+
+   1  .  Done With the Teacher Module (All Operation.) 
