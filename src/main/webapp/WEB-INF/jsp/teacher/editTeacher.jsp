@@ -160,10 +160,14 @@
 			</div>
 		</nav>
 		<main>
+		<form action="" method="PUT">
 			<div class="Container">
 				<h1
-					style="margin-bottom: 30px; text-align: center; font-weight: 600; font-size: 30px">CREATE
+					style="margin-bottom: 30px; text-align: center; font-weight: 600; font-size: 30px">UPDATE
 					TEACHER</h1>
+				<input type="hidden" id="id" name="id">
+				<input type="hidden" id="date" name="date">
+				<input type="hidden" id="uniqueId" name="uniqueId">
 				<div class="container2"
 					style="padding-left: 20px; padding-right: 20px">
 					<div style="display: flex; flex-direction: column;">
@@ -189,7 +193,7 @@
 						<label style="font-size: 13px; margin-bottom: 7px">Select
 							Batch</label> <select id="batch" name="batch"
 							style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8;">
-							<option>Select Batch</option>
+							<option value="">Select Batch</option>
 							<!-- <option>Permission</option>
 							<option>Roles</option> -->
 						</select>
@@ -209,70 +213,124 @@
 					style="display: flex; justify-content: center; gap: 50px; margin-top: 30px">
 					<button
 						style="cursor: pointer; background-color: #59f7f1; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none" id="saveButton">
-						Save</button>
-					<a href="manageteacher">
-						<button
-							style="cursor: pointer; background-color: #12e068; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none">Manage</button>
-					</a>
+						Update</button>
 				</div>
 			</div>
 		</main>
+		</form>
 	</section>
-	<script>
-    $(document).ready(function() {
-        $("#saveButton").click(function() {
-            var firstName = $("#firstName").val();
-            var lastName = $("#lastName").val();
-            var courses = $("#courses").val();
-            var batch = $("#batch").val();
-            var emailId = $("#emailId").val();
-            var password = $("#password").val();
-
-            var teacher = {
-                firstName: firstName,
-                lastName: lastName,
-                courses: courses,
-                batch: batch,
-                emailId: emailId,
-                password: password
-            };
-
-            $.ajax({
-                url: "saveTeacher",
-                type: "POST",
-                contentType: "application/json",
-                data: JSON.stringify(teacher),
-                success: function(response) {
-                    alert(response.message);
-                    window.location.href = "addteacher";
-                },
-                error: function(error) {
-                    alert("Failed to save teacher information");
-                }
-            });
-        });
-    });
-	</script>
 	<script type="text/javascript">
-	function getBatch() {
-		$.ajax({
-			type: "get",
-			contentType: "application/json",
-			url: 'getAllBatchesData',
-			asynch: false,
-			success: function (data) {
-				var appenddata1 = "";
-				//var jsonData1 = JSON.parse(data1.d);
-				for (var i = 0; i < data.length; i++) {
-					appenddata1 += "<option value='" + data[i].batchName + "'>" + data[i].batchName + "</option>";
-				}
-				$("#batch").append(appenddata1);
-			},
-			error: function () {
-				alert("Device control failed");
-			}
-		});
-	}
+	$(document).ready(function() {
+	    var teacherId = getUrlParameter('id');
+	    
+	    if (teacherId) {
+	        getTeacherDetails(teacherId);
+	    } else {
+	        alert("Teacher ID is missing");
+	    }
+
+	    function getTeacherDetails(id) {
+	        $.ajax({
+	            url: "teacher/" + id,
+	            type: "GET",
+	            contentType: "application/json",
+	            success: function(response) {
+	                console.log("Response Data:", response);  // Log the entire response data
+	                if (response.status === "SUCCESS") {
+	                    populateForm(response.data);
+	                } else {
+	                    alert(response.message);
+	                }
+	            },
+	            error: function(error) {
+	                alert("Failed to fetch teacher data");
+	            }
+	        });
+	    }
+
+	    function populateForm(teacher) {
+	        $("#id").val(teacher.id);
+	        $("#date").val(teacher.date);
+	        $("#uniqueId").val(teacher.uniqueId);
+	        $("#firstName").val(teacher.firstName);
+	        $("#lastName").val(teacher.lastName);
+	        $("#courses").val(teacher.courses);
+	        $("#emailId").val(teacher.emailId);
+	        $("#password").val(teacher.password);
+	        
+	        // Fetch and populate batch dropdown
+	        getBatch(function() {
+	            $("#batch").val(teacher.batch);  // Set selected value after populating options
+	        });
+	    }
+
+	    function getBatch(callback) {
+	        $.ajax({
+	            type: "get",
+	            contentType: "application/json",
+	            url: 'getAllBatchesData',
+	            async: false,  // Changed 'asynch' to 'async'
+	            success: function(data) {
+	                var appenddata1 = "";
+	                for (var i = 0; i < data.length; i++) {
+	                    appenddata1 += "<option value='" + data[i].batchName + "'>" + data[i].batchName + "</option>";
+	                }
+	                $("#batch").append(appenddata1);
+	                
+	                if (typeof callback === "function") {
+	                    callback();
+	                }
+	            },
+	            error: function() {
+	                alert("Device control failed");
+	            }
+	        });
+	    }
+
+	    $("#saveButton").click(function(event) {
+	        event.preventDefault();
+	        var teacherData = {
+	            id: $("#id").val(),
+	            date: $("#date").val(),
+	            uniqueId: $("#uniqueId").val(),
+	            firstName: $("#firstName").val(),
+	            lastName: $("#lastName").val(),
+	            courses: $("#courses").val(),
+	            batch: $("#batch").val(),
+	            emailId: $("#emailId").val(),
+	            password: $("#password").val()
+	        };
+
+	        updateTeacher(teacherData);
+	    });
+
+	    function updateTeacher(data) {
+	        $.ajax({
+	            url: "updateTeacher/" + data.id,
+	            type: "PUT",
+	            contentType: "application/json",
+	            data: JSON.stringify(data),
+	            success: function(response) {
+	                if (response.status === "SUCCESS") {
+	                    alert(response.message);
+	                    window.location.href = "manageteacher"; // Redirect to the correct URL
+	                } else {
+	                    alert(response.message);
+	                }
+	            },
+	            error: function(error) {
+	                alert("Failed to update teacher information");
+	            }
+	        });
+	    }
+
+	    function getUrlParameter(name) {
+	        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+	        var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+	        var results = regex.exec(location.search);
+	        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+	    }
+	});
 	</script>
 	<script src="js/adminscript.js"></script>
 </body>
