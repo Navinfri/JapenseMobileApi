@@ -10,5 +10,9 @@ import com.japanese.appliaction.model.Category;
 @Repository
 public interface CategoryRepo extends JpaRepository<Category, Integer>{
 
-	Optional<Category> findById(Category category);
+	Optional<Category> findById(Integer id);
+	
+	boolean existsById(Integer id);
+	
+	void deleteById(Integer id);
 }
