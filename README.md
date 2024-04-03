@@ -42,6 +42,14 @@
    - /saveCourse
    - /deleteCourse/{id}
 
+7  .  Done With the Category Api
+
+   - /saveCategoryData
+   - /listCategory
+   - /categoryFindById/{id}
+   - /updateCategory
+   - /deleteCategory/{id}
+
 
 
 
