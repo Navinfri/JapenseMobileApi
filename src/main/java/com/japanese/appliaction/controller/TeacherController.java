@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -130,6 +131,44 @@ public class TeacherController {
 
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
         }
+	}
+	
+	// FETCH TEACHER BY ID
+	@GetMapping("/teacher/{id}")
+	public ResponseEntity<Object> getTeacherById(@PathVariable Long id) {
+		try {
+			Optional<Teacher> optional = teacherServiceImpl.getTeacherById(id);
+			if (optional.isPresent()) {
+				Teacher teacher = optional.get();
+
+				// Construct a success response
+				Map<String, Object> response = new HashMap<>();
+				response.put("status", Constant.SUCCESS_RESPONSE_STATUS);
+				response.put("statusCode", Constant.SUCCESS_RESPONSE_CODE);
+				response.put("message", "Teacher fetched successfully");
+				response.put("data", teacher);
+
+				return ResponseEntity.status(HttpStatus.OK).body(response);
+			} else {
+				// Construct an error response if the course is not found
+				Map<String, Object> response = new HashMap<>();
+				response.put("status", Constant.ERROR_RESPONSE_STATUS);
+				response.put("statusCode", Constant.ERROR_RESPONSE_CODE);
+				response.put("message", "Teacher not found with ID: " + id);
+				response.put("data", Collections.emptyList());
+
+				return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+			}
+		} catch (Exception e) {
+			// Construct an error response
+			Map<String, Object> response = new HashMap<>();
+			response.put("status", Constant.ERROR_RESPONSE_STATUS);
+			response.put("statusCode", Constant.ERROR_RESPONSE_CODE);
+			response.put("message", "Failed to fetch teachers data");
+			response.put("data", Collections.emptyList());
+
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
+		}
 	}
 	
 }
