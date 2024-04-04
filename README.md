@@ -50,6 +50,14 @@
    - /updateCategory
    - /deleteCategory/{id}
 
+8  .  Done With the Material Api
+
+   - /saveAddMaterial
+   - /findMaterialById/{id}
+   - /updatematerial
+   - /deleteAddMaterial/{id}
+   - /getAddMaterial
+
 
 
 
