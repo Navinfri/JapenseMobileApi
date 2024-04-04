@@ -28,7 +28,7 @@
 	}
 }
 </style>
-<body onload="getBatch();">
+<body onload="getBatch(); getCourse();">
 	<section id="sidebar">
 		<div class="brandHead">
 			<a href="/" class="brand" style="color: rgb(16, 8, 92);"><img
@@ -181,8 +181,8 @@
 							Course</label> <select id="courses" name="courses"
 							style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8;">
 							<option>Select Course</option>
-							<option>Permission</option>
-							<option>Roles</option>
+							<!-- <option>Permission</option>
+							<option>Roles</option> -->
 						</select>
 					</div>
 					<div style="display: flex; flex-direction: column;">
@@ -272,6 +272,25 @@
 				alert("Device control failed");
 			}
 		});
+	}
+	
+	function getCourse() {
+	    $.ajax({
+	        type: "get",
+	        contentType: "application/json",
+	        url: 'course',
+	        async: false,
+	        success: function (response) {
+	            var appenddata1 = "";
+	            for (var i = 0; i < response.data.length; i++) {
+	                appenddata1 += "<option value='" + response.data[i].courses + "'>" + response.data[i].courses + "</option>";
+	            }
+	            $("#courses").append(appenddata1);
+	        },
+	        error: function () {
+	            alert("Device control failed");
+	        }
+	    });
 	}
 	</script>
 	<script src="js/adminscript.js"></script>

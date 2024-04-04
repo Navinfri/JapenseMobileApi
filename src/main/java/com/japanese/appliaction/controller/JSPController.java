@@ -31,6 +31,11 @@ public class JSPController {
 		return "teacher/manageteacher";
 	}
 	
+	@GetMapping("/editTeacher") 
+	public String geteditTeacher() {
+		return "teacher/editTeacher";
+	}
+	
 	@GetMapping("/manageuserlist") 
 	public String getmanageuser() {
 		return "user/manageuserlist";

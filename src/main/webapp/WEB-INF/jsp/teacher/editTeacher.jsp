@@ -28,7 +28,7 @@
 	}
 }
 </style>
-<body onload="getBatch();">
+<body onload="getBatch(); getCourse();">
 	<section id="sidebar">
 		<div class="brandHead">
 			<a href="/" class="brand" style="color: rgb(16, 8, 92);"><img
@@ -185,8 +185,8 @@
 							Course</label> <select id="courses" name="courses"
 							style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8;">
 							<option>Select Course</option>
-							<option>Permission</option>
-							<option>Roles</option>
+							<!-- <option>Permission</option>
+							<option>Roles</option> -->
 						</select>
 					</div>
 					<div style="display: flex; flex-direction: column;">
@@ -235,9 +235,10 @@
 	            type: "GET",
 	            contentType: "application/json",
 	            success: function(response) {
-	                console.log("Response Data:", response);  // Log the entire response data
+	                console.log("Response Data:", response);
 	                if (response.status === "SUCCESS") {
 	                    populateForm(response.data);
+	                    //getCourse();  // Call getCourse() here
 	                } else {
 	                    alert(response.message);
 	                }
@@ -254,13 +255,17 @@
 	        $("#uniqueId").val(teacher.uniqueId);
 	        $("#firstName").val(teacher.firstName);
 	        $("#lastName").val(teacher.lastName);
-	        $("#courses").val(teacher.courses);
 	        $("#emailId").val(teacher.emailId);
 	        $("#password").val(teacher.password);
 	        
 	        // Fetch and populate batch dropdown
 	        getBatch(function() {
 	            $("#batch").val(teacher.batch);  // Set selected value after populating options
+	        });
+
+	        // Fetch and populate course dropdown
+	        getCourse(function() {
+	            $("#courses").val(teacher.courses);  // Set selected course after populating options
 	        });
 	    }
 
@@ -269,7 +274,7 @@
 	            type: "get",
 	            contentType: "application/json",
 	            url: 'getAllBatchesData',
-	            async: false,  // Changed 'asynch' to 'async'
+	            async: false,  
 	            success: function(data) {
 	                var appenddata1 = "";
 	                for (var i = 0; i < data.length; i++) {
@@ -283,6 +288,34 @@
 	            },
 	            error: function() {
 	                alert("Device control failed");
+	            }
+	        });
+	    }
+	    
+	    function getCourse(callback) {
+	        // Clear existing options
+	        $("#courses").empty();
+
+	        // Fetch new courses
+	        $.ajax({
+	            type: "get",
+	            contentType: "application/json",
+	            url: 'course',
+	            async: false,  
+	            success: function (response) {
+	                console.log("Course Response:", response);
+	                var appenddata1 = "";
+	                for (var i = 0; i < response.data.length; i++) {
+	                    appenddata1 += "<option value='" + response.data[i].courses + "'>" + response.data[i].courses + "</option>";
+	                }
+	                $("#courses").append(appenddata1);
+	                
+	                if (typeof callback === "function") {
+	                    callback();
+	                }
+	            },
+	            error: function () {
+	                alert("Failed to fetch courses");
 	            }
 	        });
 	    }

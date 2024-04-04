@@ -1,6 +1,7 @@
 package com.japanese.appliaction.service.serviceInterface;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.japanese.appliaction.model.Teacher;
 
@@ -13,5 +14,7 @@ public interface TeacherService {
 	void deleteTeacher(Long id);
 	
 	List<Teacher> getAllTeacher();
+	
+	Optional<Teacher> getTeacherById(Long id);
 
 }
