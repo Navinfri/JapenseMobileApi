@@ -76,6 +76,11 @@ public class JSPController {
 		return "courses/managecourse";
 	}
 	
+	@GetMapping("/editCourse") 
+	public String geteditCourse() {
+		return "courses/editCourse";
+	}
+	
 	@GetMapping("/batches") 
 	public String getbatch() {
 		return "batch/batch";

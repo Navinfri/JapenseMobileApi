@@ -4,8 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Manage Course</title>
-<link rel="stylesheet" href="css/admin.css" />
+<title>Add Course</title>
 <link rel="stylesheet" href="css/admin.css">
 <script src="https://kit.fontawesome.com/ae73087723.js"
 	crossorigin="anonymous"></script>
@@ -15,48 +14,18 @@
 .Container {
 	width: 100%;
 	height: 100vh;
-	margin-top: 50px
 }
 
 .container2 {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-gap: 30px;
 }
 
-.TableContainer {
-	margin-top: 20px;
-	background: #fff;
-	border-radius: 7px;
-	border: 1.5px solid #e8e8e8;
-	padding: 20px;
-	cursor: pointer;
-}
-
-.MainTable {
-	border-collapse: collapse;
-	text-align: center;
-	overflow: hidden;
-	cursor: pointer;
-	width: 100%;
-}
-
-.tableheading {
-	border-bottom: 1px solid rgb(208, 208, 208);
-}
-
-.tableheading th {
-	padding: 1rem;
-	text-transform: capitalize;
-	letter-spacing: 0.1rem;
-	font-size: 0.9rem;
-	font-weight: 600;
-	color: rgb(56, 56, 56);
-}
-
-.tablebody {
-	padding: 1rem 1.8rem;
-	font-weight: 500;
-	font-size: 13.5px;
+@media screen and (max-width: 1000px) {
+	.container2 {
+		grid-template-columns: 1fr;
+	}
 }
 </style>
 <body>
@@ -169,73 +138,73 @@
 	</section>
 	<section id="content">
 		<nav class="navcont">
-            <i class="fa-solid fa-bars toggle-sidebar"></i>
-            <div class="subnav">
-                <ul>
-                    <li><a href="#"><img src="uploadfiles/logo.png" style="width: 300px; margin-top: 10px;" /></a></li>
-                </ul>
-            </div>
+			<i class="fa-solid fa-bars toggle-sidebar"></i>
+			<div class="subnav">
+				<ul>
+					<li><a href="#"><img src="uploadfiles/logo.png"
+							style="width: 300px; margin-top: 10px;" /></a></li>
+				</ul>
+			</div>
 
-            <div class="profile">
-                <img src="uploadfiles/profile.jpg" class="profimg" alt="profile-photo">
-                <div>
-                    <ul class="profile-link">
-                        <li
-                            style="text-transform: uppercase; font-size: 10.5px; margin-left: 10px; padding: .4rem; font-weight: 600;">
-                            Welcome!</li>
-                        <li><a href="#"><i class="fa-solid fa-person-running icon"></i>Logout</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+			<div class="profile">
+				<img src="uploadfiles/profile.jpg" class="profimg"
+					alt="profile-photo">
+				<div>
+					<ul class="profile-link">
+						<li
+							style="text-transform: uppercase; font-size: 10.5px; margin-left: 10px; padding: .4rem; font-weight: 600;">
+							Welcome!</li>
+						<li><a href="#"><i
+								class="fa-solid fa-person-running icon"></i>Logout</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
 		<main>
-			<div class="Container">
+		<form action="" method="PUT">
+			<div>
 				<h1
-					style="margin-bottom: 30px; text-align: center; font-weight: 600; font-size: 30px">MANAGE
+					style="margin-bottom: 30px; text-align: center; font-weight: 600; font-size: 30px">UPDATE
 					COURSE</h1>
-				<div class='TableContainer'>
-					<div class="tablestyle">
-						<table class='MainTable'>
-							<thead class='tableheading'>
-								<tr>
-									<th style="width: 100px">SrNo</th>
-									<th>Course Name</th>
-									<th>Action</th>
-								</tr>
-							</thead>
-							<tbody class='tablebody'>
-								<!-- <tr>
-									<td>1</td>
-									<td>Java</td>
-									<td><a><i class="fa-regular fa-pen-to-square"
-											style="color: #12e068; padding-right: 10px"></i></a> <a><i
-											class="fa-solid fa-trash" style="color: #eb070f"></i></a></td>
-								</tr> -->
-							</tbody>
-						</table>
+				<input type="hidden" id="id" name="id">
+				<input type="hidden" id="date" name="date">
+				<div class="container2"
+					style="margin-left: 20px; margin-right: 20px">
+					<div style="display: flex; flex-direction: column;">
+						<label style="font-size: 13px; margin-bottom: 7px">Enter
+							Course</label> <input id="courses" name="courses" type="text" required="required"
+							style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8">
 					</div>
 				</div>
 				<div
-					style="display: flex; justify-content: center; margin-top: 20px">
-					<!-- <button
-						style="cursor: pointer; background-color: green; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none">Update</button> -->
+					style="display: flex; justify-content: center; gap: 50px; margin-top: 30px">
+					<button
+						style="cursor: pointer; background-color: #59f7f1; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none" id="saveButton">
+						Update</button>
 				</div>
 			</div>
+		</form>
 		</main>
 	</section>
-	<script>
+	<script type="text/javascript">
     $(document).ready(function() {
-        // Fetch all courses when the page loads
-        fetchAllCourse();
+        var courseId = getUrlParameter('id');
+        
+        if (courseId) {
+            getCourseDetails(courseId);
+        } else {
+            alert("Course ID is missing");
+        }
 
-        function fetchAllCourse() {
+        function getCourseDetails(id) {
             $.ajax({
-                url: "course",
+                url: "courses/" + id,
                 type: "GET",
                 contentType: "application/json",
                 success: function(response) {
+                    console.log("Response Data:", response);
                     if (response.status === "SUCCESS") {
-                        populateTable(response.data);
+                        populateForm(response.data);
                     } else {
                         alert(response.message);
                     }
@@ -246,55 +215,48 @@
             });
         }
 
-        function populateTable(course) {
-            var tableBody = $(".tablebody");
-            tableBody.empty(); // Clear existing rows
-
-            course.forEach(function(course, index) {
-                var row = $("<tr>");
-                row.append($("<td>").text(index + 1)); // SrNo
-                row.append($("<td>").text(course.courses)); // Course
-
-                var actionCell = $("<td>");
-
-                var updateIcon = $("<i>").addClass("fa-regular fa-pen-to-square").css("color", "#12e068").css("cursor", "pointer").click(function() {
-                    editCourse(course.id);
-                });
-
-                var deleteIcon = $("<i>").addClass("fa-solid fa-trash").css("color", "#eb070f").css("cursor", "pointer").click(function() {
-                    deleteCourse(course.id);
-                });
-
-                actionCell.append(updateIcon).append(" "); // Add a space between icons
-                actionCell.append(deleteIcon);
-
-                row.append(actionCell); // Action
-
-                tableBody.append(row);
-            });
+        function populateForm(course) {
+            $("#id").val(course.id);
+            $("#date").val(course.date);
+            $("#courses").val(course.courses);
         }
 
-        function editCourse(id) {
-            window.location.href = "editCourse?id=" + id;
-        }
+        $("#saveButton").click(function(event) {
+            event.preventDefault();
+            var courseData = {
+                id: $("#id").val(),
+                date: $("#date").val(),
+                courses: $("#courses").val()
+            };
 
-        function deleteCourse(id) {
+            updateCourse(courseData);
+        });
+
+        function updateCourse(data) {
             $.ajax({
-                url: "deleteCourse/" + id,
-                type: "DELETE",
+                url: "updateCourse/" + data.id,
+                type: "PUT",
                 contentType: "application/json",
+                data: JSON.stringify(data),
                 success: function(response) {
                     if (response.status === "SUCCESS") {
-                        fetchAllCourse(); // Refresh the table after deletion
                         alert(response.message);
+                        window.location.href = "managecourse"; // Redirect to the correct URL
                     } else {
                         alert(response.message);
                     }
                 },
                 error: function(error) {
-                    alert("Failed to delete course");
+                    alert("Failed to update course information");
                 }
             });
+        }
+
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
         }
     });
 	</script>
