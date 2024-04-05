@@ -30,7 +30,7 @@ public class CourseController {
 	CourseServiceImpl courseService;
 
 	// GET ALL COURSES
-	@GetMapping("/courses")
+	@GetMapping("/course")
 	public ResponseEntity<Object> getAllCourses() {
 		try {
 			List<Course> courses = courseService.getAllCourses();
@@ -165,7 +165,8 @@ public class CourseController {
 			Map<String, Object> response = new HashMap<>();
 			response.put("status", Constant.SUCCESS_RESPONSE_STATUS);
 			response.put("statusCode", Constant.SUCCESS_RESPONSE_CODE);
-			response.put("message", "Course with ID: " + id + " has been deleted successfully.");
+			//response.put("message", "Course with ID: " + id + " has been deleted successfully.");
+			response.put("message", "Course deleted successfully");
 
 			return ResponseEntity.status(HttpStatus.OK).body(response);
 		} catch (EmptyResultDataAccessException e) {

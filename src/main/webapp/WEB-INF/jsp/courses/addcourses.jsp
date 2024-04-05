@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="css/admin.css">
 <script src="https://kit.fontawesome.com/ae73087723.js"
 	crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <style>
 .Container {
@@ -137,25 +138,28 @@
 	</section>
 	<section id="content">
 		<nav class="navcont">
-            <i class="fa-solid fa-bars toggle-sidebar"></i>
-            <div class="subnav">
-                <ul>
-                    <li><a href="#"><img src="uploadfiles/logo.png" style="width: 300px; margin-top: 10px;" /></a></li>
-                </ul>
-            </div>
+			<i class="fa-solid fa-bars toggle-sidebar"></i>
+			<div class="subnav">
+				<ul>
+					<li><a href="#"><img src="uploadfiles/logo.png"
+							style="width: 300px; margin-top: 10px;" /></a></li>
+				</ul>
+			</div>
 
-            <div class="profile">
-                <img src="uploadfiles/profile.jpg" class="profimg" alt="profile-photo">
-                <div>
-                    <ul class="profile-link">
-                        <li
-                            style="text-transform: uppercase; font-size: 10.5px; margin-left: 10px; padding: .4rem; font-weight: 600;">
-                            Welcome!</li>
-                        <li><a href="#"><i class="fa-solid fa-person-running icon"></i>Logout</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+			<div class="profile">
+				<img src="uploadfiles/profile.jpg" class="profimg"
+					alt="profile-photo">
+				<div>
+					<ul class="profile-link">
+						<li
+							style="text-transform: uppercase; font-size: 10.5px; margin-left: 10px; padding: .4rem; font-weight: 600;">
+							Welcome!</li>
+						<li><a href="#"><i
+								class="fa-solid fa-person-running icon"></i>Logout</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
 		<main>
 			<div>
 				<h1
@@ -165,14 +169,14 @@
 					style="margin-left: 20px; margin-right: 20px">
 					<div style="display: flex; flex-direction: column;">
 						<label style="font-size: 13px; margin-bottom: 7px">Enter
-							Course</label> <input id="" name="" type="text" required="required"
+							Course</label> <input id="courses" name="courses" type="text" required="required"
 							style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8">
 					</div>
 				</div>
 				<div
 					style="display: flex; justify-content: center; gap: 50px; margin-top: 30px">
 					<button
-						style="cursor: pointer; background-color: #59f7f1; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none">Add</button>
+						style="cursor: pointer; background-color: #59f7f1; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none" id="saveButton">Add</button>
 					<a href="managecourse">
 						<button
 							style="cursor: pointer; background-color: #12e068; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none">Manage</button>
@@ -181,6 +185,35 @@
 			</div>
 		</main>
 	</section>
+	<script>
+	$(document).ready(function() {
+	    $("#saveButton").click(function() {
+	        var courses = $("#courses").val();
+
+	        var course = {
+	            courses: courses
+	        };
+
+	        $.ajax({
+	            url: "saveCourse",
+	            type: "POST",
+	            contentType: "application/json",
+	            data: JSON.stringify(course),
+	            success: function(response) {
+	                alert(response.message);
+	                window.location.href = "courses";
+	            },
+	            error: function(error) {
+	                if (error.responseJSON && error.responseJSON.message) {
+	                    alert(error.responseJSON.message);
+	                } else {
+	                    alert("Failed to save course information");
+	                }
+	            }
+	        });
+	    });
+	});
+	</script>
 	<script src="js/adminscript.js"></script>
 </body>
 </html>
