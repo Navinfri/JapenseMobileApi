@@ -42,6 +42,22 @@
    - /saveCourse
    - /deleteCourse/{id}
 
+7  .  Done With the Category Api
+
+   - /saveCategoryData
+   - /listCategory
+   - /categoryFindById/{id}
+   - /updateCategory
+   - /deleteCategory/{id}
+
+8  .  Done With the Material Api
+
+   - /saveAddMaterial
+   - /findMaterialById/{id}
+   - /updatematerial
+   - /deleteAddMaterial/{id}
+   - /getAddMaterial
+
 
 
 

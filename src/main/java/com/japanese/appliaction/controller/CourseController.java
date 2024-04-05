@@ -31,7 +31,7 @@ public class CourseController {
 
 	// GET ALL COURSES
 	@GetMapping("/course")
-	public ResponseEntity<Object> getAllCourses() {
+  public ResponseEntity<Object> getAllCourses() {
 		try {
 			List<Course> courses = courseService.getAllCourses();
 
