@@ -66,7 +66,8 @@ public class TeacherController {
 			Map<String, Object> response = new HashMap<>();
             response.put("status", Constant.SUCCESS_RESPONSE_STATUS);
             response.put("statusCode", Constant.SUCCESS_RESPONSE_CODE);
-            response.put("message", "Teacher information is updated successfully for Id : " + id);
+            //response.put("message", "Teacher information is updated successfully for Id : " + id);
+            response.put("message", "Teacher information is updated successfully");
             response.put("data", updateTeacher);
             
             return ResponseEntity.status(HttpStatus.CREATED).body(response);
@@ -93,6 +94,7 @@ public class TeacherController {
             response.put("status", Constant.SUCCESS_RESPONSE_STATUS);
             response.put("statusCode", Constant.SUCCESS_RESPONSE_CODE);
             response.put("message", "Teacher is deleted successfully for Id : " + id);
+            response.put("message", "Teacher is deleted successfully");
 
             return ResponseEntity.status(HttpStatus.OK).body(response);
 		}catch(Exception e) {
