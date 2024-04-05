@@ -227,8 +227,8 @@
 				</div>
 				<div
 					style="display: flex; justify-content: center; margin-top: 20px">
-					<button
-						style="cursor: pointer; background-color: green; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none">Update</button>
+					<!-- <button
+						style="cursor: pointer; background-color: green; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none">Update</button> -->
 				</div>
 			</div>
 		</main>
