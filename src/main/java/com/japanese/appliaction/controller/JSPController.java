@@ -145,5 +145,10 @@ public class JSPController {
 	public String getenroll() {
 		return "student/enroll";
 	}
+	
+	@GetMapping("/editBatch")
+	public String getEditbatch() {
+		return "batch/editBatch";
+	}
 }
 
