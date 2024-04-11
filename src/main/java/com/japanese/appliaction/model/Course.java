@@ -19,10 +19,15 @@ public class Course {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
 	private String courses;
+	private String category;
+	private String description;
 	private boolean flag;
+	
 	@CreationTimestamp
 	@Column(updatable = false)
 	private LocalDate date;
 	
 }
+	

@@ -198,8 +198,10 @@
 						<table class='MainTable'>
 							<thead class='tableheading'>
 								<tr>
-									<th style="width: 100px">SrNo</th>
+									<th style="width: 100px">Sr No.</th>
 									<th>Course Name</th>
+									<th>Category</th>
+									<th>Description</th>
 									<th>Action</th>
 								</tr>
 							</thead>
@@ -252,8 +254,10 @@
 
             course.forEach(function(course, index) {
                 var row = $("<tr>");
-                row.append($("<td>").text(index + 1)); // SrNo
+                row.append($("<td>").text(index + 1)); // Sr No.
                 row.append($("<td>").text(course.courses)); // Course
+                row.append($("<td>").text(course.category)); // Category
+                row.append($("<td>").text(course.description)); // Description
 
                 var actionCell = $("<td>");
 
