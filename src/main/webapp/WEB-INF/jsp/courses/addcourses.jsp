@@ -169,14 +169,37 @@
 					style="margin-left: 20px; margin-right: 20px">
 					<div style="display: flex; flex-direction: column;">
 						<label style="font-size: 13px; margin-bottom: 7px">Enter
-							Course</label> <input id="courses" name="courses" type="text" required="required"
+							Course Name</label> <input id="courses" name="courses" type="text"
+							required="required"
 							style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8">
+					</div>
+				</div>
+				<div class="container2"
+					style="margin-left: 20px; margin-right: 20px">
+					<div style="display: flex; flex-direction: column;">
+						<label style="font-size: 13px; margin-bottom: 7px">Category
+						</label> <select id="category" name="category"
+							style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8;">
+							<option>Select Category</option>
+							<option value="Enrolled Student">Enrolled Student</option>
+							<option value="Subscription Student">Subscription
+								Student</option>
+						</select>
+					</div>
+				</div>
+				<div class="container2"
+					style="margin-left: 20px; margin-right: 20px">
+					<div style="display: flex; flex-direction: column;">
+						<label style="font-size: 13px; margin-bottom: 7px">Description</label>
+						<textarea id="description" name="description" required="required"
+							style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8"></textarea>
 					</div>
 				</div>
 				<div
 					style="display: flex; justify-content: center; gap: 50px; margin-top: 30px">
 					<button
-						style="cursor: pointer; background-color: #59f7f1; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none" id="saveButton">Add</button>
+						style="cursor: pointer; background-color: #59f7f1; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none"
+						id="saveButton">Add</button>
 					<a href="managecourse">
 						<button
 							style="cursor: pointer; background-color: #12e068; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none">Manage</button>
@@ -186,33 +209,37 @@
 		</main>
 	</section>
 	<script>
-	$(document).ready(function() {
-	    $("#saveButton").click(function() {
-	        var courses = $("#courses").val();
+		$(document).ready(function() {
+			$("#saveButton").click(function() {
+				var courses = $("#courses").val();
+				var category = $("#category ").val();
+				var description = $("#description ").val();
 
-	        var course = {
-	            courses: courses
-	        };
+				var course = {
+					courses : courses,
+					category : category,
+					description : description
+				};
 
-	        $.ajax({
-	            url: "saveCourse",
-	            type: "POST",
-	            contentType: "application/json",
-	            data: JSON.stringify(course),
-	            success: function(response) {
-	                alert(response.message);
-	                window.location.href = "courses";
-	            },
-	            error: function(error) {
-	                if (error.responseJSON && error.responseJSON.message) {
-	                    alert(error.responseJSON.message);
-	                } else {
-	                    alert("Failed to save course information");
-	                }
-	            }
-	        });
-	    });
-	});
+				$.ajax({
+					url : "saveCourse",
+					type : "POST",
+					contentType : "application/json",
+					data : JSON.stringify(course),
+					success : function(response) {
+						alert(response.message);
+						window.location.href = "courses";
+					},
+					error : function(error) {
+						if (error.responseJSON && error.responseJSON.message) {
+							alert(error.responseJSON.message);
+						} else {
+							alert("Failed to save course information");
+						}
+					}
+				});
+			});
+		});
 	</script>
 	<script src="js/adminscript.js"></script>
 </body>
