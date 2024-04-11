@@ -27,6 +27,7 @@ public class Batches {
 	private String batchEndDate;
 	private String classesDay;
 	private String teacher;
+	private String batchFees;
 	private String zoomDetails;
 	
 	@CreationTimestamp

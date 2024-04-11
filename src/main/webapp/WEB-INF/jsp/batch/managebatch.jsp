@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="css/admin.css">
 <script src="https://kit.fontawesome.com/ae73087723.js"
 	crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <style>
 .Container {
@@ -199,8 +200,8 @@
 							<thead class='tableheading'>
 								<tr>
 									<th style="width: 100px">SrNo</th>
-									<th style="width: 180px">Batch Name</th>
-									<th style="width: 180px">Select Course</th>
+<!-- 									<th style="width: 180px">Batch Name</th> -->
+									<th style="width: 180px">Course</th>
 									<th style="width: 180px">Batch Name</th>
 									<th style="width: 180px">Demo Date</th>
 									<th style="width: 180px">Start Date</th>
@@ -209,40 +210,127 @@
 									<th style="width: 180px">Assign Teacher</th>
 									<th style="width: 180px">Batch Fee</th>
 									<th style="width: 180px">Zoom Details</th>
-									<th style="width: 180px">Add Students</th>
+<!-- 									<th style="width: 180px">Add Students</th> -->
 									<th>Action</th>
 								</tr>
 							</thead>
 							<tbody class='tablebody'>
-								<tr>
-									<td>1</td>
-									<td>Batch 1</td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td><a><i class="fa-regular fa-pen-to-square"
-											style="color: #12e068; padding-right: 10px"></i></a> <a><i
-											class="fa-solid fa-trash" style="color: #eb070f"></i></a></td>
-								</tr>
+<!-- 								<tr> -->
+<!-- 									<td>1</td> -->
+<!-- 									<td>Batch 1</td> -->
+<!-- 									<td></td> -->
+<!-- 									<td></td> -->
+<!-- 									<td></td> -->
+<!-- 									<td></td> -->
+<!-- 									<td></td> -->
+<!-- 									<td></td> -->
+<!-- 									<td></td> -->
+<!-- 									<td></td> -->
+<!-- 									<td></td> -->
+<!-- 									<td></td> -->
+<!-- 									<td><a><i class="fa-regular fa-pen-to-square" -->
+<!-- 											style="color: #12e068; padding-right: 10px"></i></a> <a><i -->
+<!-- 											class="fa-solid fa-trash" style="color: #eb070f"></i></a></td> -->
+<!-- 								</tr> -->
 							</tbody>
 						</table>
 					</div>
 				</div>
-				<div
-					style="display: flex; justify-content: center; margin-top: 20px">
-					<button
-						style="cursor: pointer; background-color: green; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none">Update</button>
-				</div>
+<!-- 				<div -->
+<!-- 					style="display: flex; justify-content: center; margin-top: 20px"> -->
+<!-- 					<button -->
+<!-- 						style="cursor: pointer; background-color: green; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none">Update</button> -->
+<!-- 				</div> -->
 			</div>
 		</main>
 	</section>
 	<script src="js/adminscript.js"></script>
+	<script>
+	$(document).ready(function() {
+	    fetchAllBatches();
+
+	    function fetchAllBatches() {
+	        $.ajax({
+	            url: "getAllBatchesData",
+	            type: "GET",
+	            contentType: "application/json",
+	            success: function(response) {
+	                if (response && response.length > 0) {
+	                    populateTable(response);
+	                } else {
+	                    alert("No data found");
+	                }
+	            },
+	            error: function(xhr, status, error) {
+	                console.error("Failed to fetch batch data:", error);
+	                alert("Failed to fetch batch data");
+	            }
+	        });
+	    }
+
+	    function populateTable(batches) {
+	        var tableBody = $(".tablebody");
+	        tableBody.empty();
+
+	        batches.forEach(function(batch, index) {
+	            var row = $("<tr>");
+	            row.append($("<td>").text(index + 1));
+	            row.append($("<td>").text(batch.course));
+	            row.append($("<td>").text(batch.batchName));
+	            row.append($("<td>").text(batch.batchDemoDate));
+	            row.append($("<td>").text(batch.batchStartDate));
+	            row.append($("<td>").text(batch.batchEndDate));
+	            row.append($("<td>").text(batch.classesDay));
+	            row.append($("<td>").text(batch.teacher));
+	            row.append($("<td>").text(batch.batchFees));
+	            row.append($("<td>").text(batch.zoomDetails));
+
+	            var actionCell = $("<td>");
+
+	            var updateIcon = $("<i>").addClass("fa-regular fa-pen-to-square").css("color", "#12e068").css("cursor", "pointer").click(function() {
+	                editBatch(batch.id);
+	            });
+
+	            var deleteIcon = $("<i>").addClass("fa-solid fa-trash").css("color", "#eb070f").css("cursor", "pointer").click(function() {
+	                deleteBatch(batch.id);
+	            });
+
+	            actionCell.append(updateIcon).append(" ");
+	            actionCell.append(deleteIcon);
+
+	            row.append(actionCell);
+
+	            tableBody.append(row);
+	        });
+	    }
+
+	    function editBatch(id) {
+	        window.location.href = "editBatch?id=" + id;
+	    }
+
+	    function deleteBatch(id) {
+	        $.ajax({
+	            url: "deleteBatches/" + id,
+	            type: "POST",
+	            contentType: "application/json",
+	            success: function(response) {
+	                if (response) {
+	                	
+	                    alert(response);
+	                    fetchAllBatches(); 
+	                    //window.location.href = "managebatch";
+	                } else {
+	                    alert(response);
+	                }
+	            },
+	            error: function(xhr, status, error) {
+	                console.error("Failed to delete batch:", error);
+	                alert("Failed to delete batch");
+	            }
+	        });
+	    }
+	});
+
+	</script>
 </body>
 </html>
