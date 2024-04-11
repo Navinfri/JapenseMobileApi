@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="css/admin.css">
 <script src="https://kit.fontawesome.com/ae73087723.js"
 	crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <style>
 .Container {
@@ -27,7 +28,7 @@
 	}
 }
 </style>
-<body>
+<body onload="getTeacher(); getPermission();">
 	<section id="sidebar">
 		<div class="brandHead">
 			<a href="/" class="brand" style="color: rgb(16, 8, 92);"><img
@@ -137,25 +138,27 @@
 	</section>
 	<section id="content">
 		<nav class="navcont">
-            <i class="fa-solid fa-bars toggle-sidebar"></i>
-            <div class="subnav">
-                <ul>
-                    <li><a href="#"><img src="uploadfiles/logo.png" style="width: 300px; margin-top: 10px;" /></a></li>
-                </ul>
-            </div>
-
-            <div class="profile">
-                <img src="uploadfiles/profile.jpg" class="profimg" alt="profile-photo">
-                <div>
-                    <ul class="profile-link">
-                        <li
-                            style="text-transform: uppercase; font-size: 10.5px; margin-left: 10px; padding: .4rem; font-weight: 600;">
-                            Welcome!</li>
-                        <li><a href="#"><i class="fa-solid fa-person-running icon"></i>Logout</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+			<i class="fa-solid fa-bars toggle-sidebar"></i>
+			<div class="subnav">
+				<ul>
+					<li><a href="#"><img src="uploadfiles/logo.png"
+							style="width: 300px; margin-top: 10px;" /></a></li>
+				</ul>
+			</div>
+			<div class="profile">
+				<img src="uploadfiles/profile.jpg" class="profimg"
+					alt="profile-photo">
+				<div>
+					<ul class="profile-link">
+						<li
+							style="text-transform: uppercase; font-size: 10.5px; margin-left: 10px; padding: .4rem; font-weight: 600;">
+							Welcome!</li>
+						<li><a href="#"><i
+								class="fa-solid fa-person-running icon"></i>Logout</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
 		<main>
 			<div class="Container">
 				<h1
@@ -165,21 +168,21 @@
 					style="padding-left: 20px; padding-right: 20px">
 					<div style="display: flex; flex-direction: column;">
 						<label style="font-size: 13px; margin-bottom: 7px">Select
-							Teacher</label> <select id="" name=""
+							Teacher</label> <select id="teacher" name="teacher"
 							style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8;">
-							<option>Select</option>
-							<option>Permission</option>
-							<option>Roles</option>
+							<option>Select Teacher</option>
+							<!-- <option>Permission</option>
+							<option>Roles</option> -->
 						</select>
 					</div>
 					<div></div>
 					<div style="display: flex; flex-direction: column;">
 						<label style="font-size: 13px; margin-bottom: 7px">Select
-							Permission</label> <select id="" name=""
+							Permission</label> <select id="permission" name="permission"
 							style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8;">
-							<option>Select</option>
-							<option>Permission</option>
-							<option>Roles</option>
+							<option>Select Permission</option>
+							<!-- <option>Permission</option>
+							<option>Roles</option> -->
 						</select>
 					</div>
 					<div></div>
@@ -187,11 +190,86 @@
 				<div
 					style="display: flex; justify-content: center; margin-top: 30px">
 					<button
-						style="cursor: pointer; background-color: #59f7f1; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none">Save</button>
+						style="cursor: pointer; background-color: #59f7f1; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none" id="saveButton">
+						Save</button>
 				</div>
 			</div>
 		</main>
 	</section>
+	<script type="text/javascript">
+    function getTeacher() {
+        $.ajax({
+            type: "get",
+            contentType: "application/json",
+            url: 'getAllTeacher',
+            async: false,
+            success: function (response) {
+                var appenddata1 = "";
+                for (var i = 0; i < response.data.length; i++) {
+                    appenddata1 += "<option value='" + response.data[i].firstName + " " + response.data[i].lastName + "'>" + response.data[i].firstName + " " + response.data[i].lastName + "</option>";
+                }
+                $("#teacher").append(appenddata1);
+            },
+            error: function () {
+                alert("Device control failed");
+            }
+        });
+    }
+    
+    function getPermission() {
+        $.ajax({
+            type: "get",
+            contentType: "application/json",
+            url: 'getRolesData',
+            async: false,
+            success: function (response) {
+                if (response && Array.isArray(response) && response.length > 0) {
+                    var appenddata1 = "";
+                    for (var i = 0; i < response.length; i++) {
+                        appenddata1 += "<option value='" + response[i].permissions + "'>" + response[i].permissions + "</option>";
+                    }
+                    $("#permission").append(appenddata1);
+                } else {
+                    alert("No data found or invalid response structure");
+                }
+            },
+            error: function () {
+                alert("Device control failed");
+            }
+        });
+    }
+	</script>
+	<script>
+	$(document).ready(function() {
+	    $("#saveButton").click(function() {
+	        var teacher = $("#teacher").val();
+	        var permission = $("#permission").val();
+
+	        var role = {
+	            teacher: teacher,
+	            permission: permission
+	        };
+
+	        $.ajax({
+	            url: "saveTeacherRoleAndPermissson",
+	            type: "POST",
+	            contentType: "application/json",
+	            data: JSON.stringify(role),
+	            success: function(response) {
+	                if (response && response.length > 0) {
+	                    alert(response);
+	                    window.location.href = "rolespermission";
+	                } else {
+	                    alert("Failed to save teacher role & permission");
+	                }
+	            },
+	            error: function(error) {
+	                alert("Failed to save teacher role & permission");
+	            }
+	        });
+	    });
+	});
+	</script>
 	<script src="js/adminscript.js"></script>
 </body>
 </html>
