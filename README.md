@@ -65,6 +65,8 @@
 
  - Done With the Teacher Module (All Operation.)
  - Done With the Courses Module (All Operation.)
+ - Done With the Batch Module (All Operation.)
+ - Done With the Category Module (All Operation.)
 
   
 
