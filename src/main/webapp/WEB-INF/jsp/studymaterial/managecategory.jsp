@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="css/admin.css">
 <script src="https://kit.fontawesome.com/ae73087723.js"
 	crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <style>
 .Container {
@@ -199,30 +200,108 @@
 							<thead class='tableheading'>
 								<tr>
 									<th>SrNo</th>
-									<th>Category</th>
+									<th>Category Name</th>
 									<th>Action</th>
 								</tr>
 							</thead>
 							<tbody class='tablebody'>
-								<tr>
-									<td>1</td>
-									<td>Category 1</td>
-									<td><a><i class="fa-regular fa-pen-to-square"
-											style="color: #12e068; padding-right: 10px"></i></a> <a><i
-											class="fa-solid fa-trash" style="color: #eb070f"></i></a></td>
-								</tr>
+<!-- 								<tr> -->
+<!-- 									<td>1</td> -->
+<!-- 									<td>Category 1</td> -->
+<!-- 									<td><a><i class="fa-regular fa-pen-to-square" -->
+<!-- 											style="color: #12e068; padding-right: 10px"></i></a> <a><i -->
+<!-- 											class="fa-solid fa-trash" style="color: #eb070f"></i></a></td> -->
+<!-- 								</tr> -->
 							</tbody>
 						</table>
 					</div>
 				</div>
-				<div
-					style="display: flex; justify-content: center; margin-top: 20px">
-					<button
-						style="cursor: pointer; background-color: green; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none">Update</button>
-				</div>
+<!-- 				<div -->
+<!-- 					style="display: flex; justify-content: center; margin-top: 20px"> -->
+<!-- 					<button -->
+<!-- 						style="cursor: pointer; background-color: green; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none">Update</button> -->
+<!-- 				</div> -->
 			</div>
 		</main>
 	</section>
 	<script src="js/adminscript.js"></script>
+	<script>
+	$(document).ready(function() {
+		fetchAllCategory();
+
+	    function fetchAllCategory() {
+	        $.ajax({
+	            url: "listCategory",
+	            type: "GET",
+	            contentType: "application/json",
+	            success: function(response) {
+	                if (response && response.length > 0) {
+	                    populateTable(response);
+	                } else {
+	                    alert("No data found");
+	                }
+	            },
+	            error: function(xhr, status, error) {
+	                console.error("Failed to fetch category data:", error);
+	                alert("Failed to fetch category data");
+	            }
+	        });
+	    }
+
+	    function populateTable(batches) {
+	        var tableBody = $(".tablebody");
+	        tableBody.empty();
+
+	        batches.forEach(function(category, index) {
+	            var row = $("<tr>");
+	            row.append($("<td>").text(index + 1));
+	            row.append($("<td>").text(category.category));
+	           
+	            var actionCell = $("<td>");
+
+	            var updateIcon = $("<i>").addClass("fa-regular fa-pen-to-square").css("color", "#12e068").css("cursor", "pointer").click(function() {
+	                editCategory(category.id);
+	            });
+
+	            var deleteIcon = $("<i>").addClass("fa-solid fa-trash").css("color", "#eb070f").css("cursor", "pointer").click(function() {
+	                deleteCategory(category.id);
+	            });
+
+	            actionCell.append(updateIcon).append(" ");
+	            actionCell.append(deleteIcon);
+
+	            row.append(actionCell);
+
+	            tableBody.append(row);
+	        });
+	    }
+
+	    function editCategory(id) {
+	        window.location.href = "editcategory?id=" + id;
+	    }
+
+	    function deleteCategory(id) {
+	        $.ajax({
+	            url: "deleteCategory/" + id,
+	            type: "DELETE",
+	            contentType: "application/json",
+	            success: function(response) {
+	                if (response) {
+	                	
+	                    alert(response);
+	                    fetchAllCategory();
+	                } else {
+	                    alert(response);
+	                }
+	            },
+	            error: function(xhr, status, error) {
+	                console.error("Failed to delete category:", error);
+	                alert("Failed to delete category");
+	            }
+	        });
+	    }
+	});
+
+	</script>
 </body>
 </html>

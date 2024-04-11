@@ -155,5 +155,10 @@ public class JSPController {
 	public String getEditbatch() {
 		return "batch/editBatch";
 	}
+	
+	@GetMapping("/editcategory")
+	public String getEditcategory() {
+		return "studymaterial/editCategory";
+	}
 }
 
