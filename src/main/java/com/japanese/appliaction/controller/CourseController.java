@@ -31,7 +31,7 @@ public class CourseController {
 
 	// GET ALL COURSES
 	@GetMapping("/course")
-  public ResponseEntity<Object> getAllCourses() {
+	public ResponseEntity<Object> getAllCourses() {
 		try {
 			List<Course> courses = courseService.getAllCourses();
 
@@ -58,39 +58,39 @@ public class CourseController {
 	// GET ALL COURSES BY ID
 	@GetMapping("/courses/{id}")
 	public ResponseEntity<Object> getCourseById(@PathVariable Long id) {
-	    try {
-	        Optional<Course> optionalCourse = courseService.getCoursesById(id);
-	        if (optionalCourse.isPresent()) {
-	            Course course = optionalCourse.get();
-	            
-	            // Construct a success response
-	            Map<String, Object> response = new HashMap<>();
-	            response.put("status", Constant.SUCCESS_RESPONSE_STATUS);
-	            response.put("statusCode", Constant.SUCCESS_RESPONSE_CODE);
-	            response.put("message", "Course fetched successfully");
-	            response.put("data", course);
+		try {
+			Optional<Course> optionalCourse = courseService.getCoursesById(id);
+			if (optionalCourse.isPresent()) {
+				Course course = optionalCourse.get();
 
-	            return ResponseEntity.status(HttpStatus.OK).body(response);
-	        } else {
-	            // Construct an error response if the course is not found
-	            Map<String, Object> response = new HashMap<>();
-	            response.put("status", Constant.ERROR_RESPONSE_STATUS);
-	            response.put("statusCode", Constant.ERROR_RESPONSE_CODE);
-	            response.put("message", "Course not found with ID: " + id);
-	            response.put("data", Collections.emptyList());
+				// Construct a success response
+				Map<String, Object> response = new HashMap<>();
+				response.put("status", Constant.SUCCESS_RESPONSE_STATUS);
+				response.put("statusCode", Constant.SUCCESS_RESPONSE_CODE);
+				response.put("message", "Course fetched successfully");
+				response.put("data", course);
 
-	            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
-	        }
-	    } catch (Exception e) {
-	        // Construct an error response for unexpected errors
-	        Map<String, Object> response = new HashMap<>();
-	        response.put("status", Constant.ERROR_RESPONSE_STATUS);
-	        response.put("statusCode", Constant.ERROR_RESPONSE_CODE);
-	        response.put("message", "Failed to fetch course data");
-	        response.put("data", Collections.emptyList());
+				return ResponseEntity.status(HttpStatus.OK).body(response);
+			} else {
+				// Construct an error response if the course is not found
+				Map<String, Object> response = new HashMap<>();
+				response.put("status", Constant.ERROR_RESPONSE_STATUS);
+				response.put("statusCode", Constant.ERROR_RESPONSE_CODE);
+				response.put("message", "Course not found with ID: " + id);
+				response.put("data", Collections.emptyList());
 
-	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
-	    }
+				return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+			}
+		} catch (Exception e) {
+			// Construct an error response for unexpected errors
+			Map<String, Object> response = new HashMap<>();
+			response.put("status", Constant.ERROR_RESPONSE_STATUS);
+			response.put("statusCode", Constant.ERROR_RESPONSE_CODE);
+			response.put("message", "Failed to fetch course data");
+			response.put("data", Collections.emptyList());
+
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
+		}
 	}
 
 	// SAVE
@@ -103,7 +103,7 @@ public class CourseController {
 			Map<String, Object> response = new HashMap<>();
 			response.put("status", Constant.SUCCESS_RESPONSE_STATUS);
 			response.put("statusCode", Constant.SUCCESS_RESPONSE_CODE);
-			response.put("message", "Course saved successfully");
+			response.put("message", course.getCourses() + " course is saved successfully");
 			response.put("data", savedCourse);
 
 			return ResponseEntity.status(HttpStatus.CREATED).body(response);
@@ -129,7 +129,7 @@ public class CourseController {
 				Map<String, Object> response = new HashMap<>();
 				response.put("status", Constant.SUCCESS_RESPONSE_STATUS);
 				response.put("statusCode", Constant.SUCCESS_RESPONSE_CODE);
-				response.put("message", "Course updated successfully");
+				response.put("message", course.getCourses() + " course is updated successfully");
 				response.put("data", updatedCourse);
 
 				return ResponseEntity.status(HttpStatus.OK).body(response);
@@ -165,7 +165,6 @@ public class CourseController {
 			Map<String, Object> response = new HashMap<>();
 			response.put("status", Constant.SUCCESS_RESPONSE_STATUS);
 			response.put("statusCode", Constant.SUCCESS_RESPONSE_CODE);
-			//response.put("message", "Course with ID: " + id + " has been deleted successfully.");
 			response.put("message", "Course deleted successfully");
 
 			return ResponseEntity.status(HttpStatus.OK).body(response);
