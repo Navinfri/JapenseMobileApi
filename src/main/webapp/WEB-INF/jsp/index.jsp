@@ -136,6 +136,10 @@
 						style="color: rgb(16, 8, 92); font-weight: 500"><i
 							class="fa-solid fa-plus" style="margin-right: 15px"></i>Add
 							Category</a></li>
+					<li><a href="questype"
+						style="color: rgb(16, 8, 92); font-weight: 500"><i
+							class="fa-solid fa-book" style="margin-right: 15px"></i>Add Type
+							of Question</a></li>	
 					<li><a href="studymaterial"
 						style="color: rgb(16, 8, 92); font-weight: 500"><i
 							class="fa-solid fa-book" style="margin-right: 15px"></i>Study
