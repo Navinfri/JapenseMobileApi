@@ -243,7 +243,7 @@
                 data: JSON.stringify(categoryData),
                 success: function(response) {
                     alert(response);
-                    window.location.href = "addcategory";
+                    window.location.href = "managecategory";
                 },
                 error: function(error) {
                     alert("Failed to update category");
