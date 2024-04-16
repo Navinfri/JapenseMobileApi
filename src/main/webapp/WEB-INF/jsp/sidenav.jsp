@@ -79,14 +79,18 @@
 						style="color: rgb(16, 8, 92); font-weight: 500"><i
 							class="fa-solid fa-plus" style="margin-right: 15px"></i>Add
 							Category</a></li>
-					<li><a href="studymaterial"
+					<li><a href="questype"
 						style="color: rgb(16, 8, 92); font-weight: 500"><i
-							class="fa-solid fa-book" style="margin-right: 15px"></i>Study
-							Material</a></li>
+							class="fa-solid fa-book" style="margin-right: 15px"></i>Add Type
+							of Question</a></li>
 					<li><a href="addmaterial"
 						style="color: rgb(16, 8, 92); font-weight: 500"><i
 							class="fa-solid fa-address-book" style="margin-right: 15px"></i>Add
-							Material</a></li>
+							Study Material</a></li>
+					<li><a href="addquestion"
+						style="color: rgb(16, 8, 92); font-weight: 500"><i
+							class="fa-solid fa-address-book" style="margin-right: 15px"></i>Add
+							Question </a></li>
 				</ul></li>
 			<li><a href="#" style="color: rgb(16, 8, 92); font-weight: 500"><i
 					class="fa-solid fa-user icon"></i>Allotment to Study Material <i

@@ -322,7 +322,7 @@
                 data: JSON.stringify(batchData),
                 success: function(response) {
                     alert(response);
-                    window.location.href = "batches";
+                    window.location.href = "managebatch";
                 },
                 error: function(error) {
                     alert("Failed to Update Batch Details");

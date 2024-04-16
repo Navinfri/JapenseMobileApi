@@ -44,20 +44,50 @@ public class AddMaterialImp implements AddMaterialApi {
 	    if (existingMaterialOptional.isPresent()) {
 	        StudyMaterial existingStudyMaterial = existingMaterialOptional.get();
 
-	        if (studyMaterial.getCategory() != null) {
-	            existingStudyMaterial.setCategory(studyMaterial.getCategory());
-	        }
+	        
 
 	        if (studyMaterial.getTitle() != null) {
 	            existingStudyMaterial.setTitle(studyMaterial.getTitle());
 	        }
 
-	        if (studyMaterial.getDescription() != null) {
-	            existingStudyMaterial.setDescription(studyMaterial.getDescription());
+	        if (studyMaterial.getMeterialUsed() != null) {
+	            existingStudyMaterial.setMeterialUsed(studyMaterial.getMeterialUsed());
+	        }
+	        
+	        if (studyMaterial.getCategory() != null) {
+	            existingStudyMaterial.setCategory(studyMaterial.getCategory());
+	        }
+	        
+	        if (studyMaterial.getChapterName()!=null) {
+	        	existingStudyMaterial.setChapterName(studyMaterial.getChapterName());
 	        }
 
 	        if (studyMaterial.getTypeOfQuestion() != null) {
 	            existingStudyMaterial.setTypeOfQuestion(studyMaterial.getTypeOfQuestion());
+	        }
+	        
+	        if (studyMaterial.getTimeLimit() != null) {
+	            existingStudyMaterial.setTimeLimit(studyMaterial.getTimeLimit());
+	        }
+	        
+	        if (studyMaterial.getStartDate() != null) {
+	            existingStudyMaterial.setStartDate(studyMaterial.getStartDate());
+	        }
+	        
+	        if (studyMaterial.getEndDate() != null) {
+	            existingStudyMaterial.setEndDate(studyMaterial.getEndDate());
+	        }
+	        
+	        if (studyMaterial.getQueLimitToDisplay() != null) {
+	            existingStudyMaterial.setQueLimitToDisplay(studyMaterial.getQueLimitToDisplay());
+	        }
+	        
+	        if (studyMaterial.getScore() != null) {
+	            existingStudyMaterial.setScore(studyMaterial.getScore());
+	        }
+	        
+	        if (studyMaterial.getNote() != null) {
+	            existingStudyMaterial.setNote(studyMaterial.getNote());
 	        }
 
 	        
