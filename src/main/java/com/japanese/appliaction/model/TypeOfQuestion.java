@@ -14,19 +14,18 @@ import lombok.Data;
 
 @Entity
 @Data
-public class Category {
-	
-	@Id
+public class TypeOfQuestion {
+
+	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	
 	private Integer id;
 	
-	private String category;
+	private String typeOfQuestion;
 	
 	@CreationTimestamp
     @Column(updatable = false)
     private LocalDate date;
     private boolean Flag;
 	
-
 }
