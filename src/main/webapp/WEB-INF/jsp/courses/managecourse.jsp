@@ -73,11 +73,11 @@
 						<table class='MainTable'>
 							<thead class='tableheading'>
 								<tr>
-									<th style="width: 100px">Sr No.</th>
-									<th>Course Name</th>
-									<th>Category</th>
-									<th>Description</th>
-									<th>Action</th>
+									<th style="width: 100px; font-weight: 800;">Sr No.</th>
+									<th style="font-weight: 800;">Course Name</th>
+									<th style="font-weight: 800;">Category</th>
+									<th style="font-weight: 800;">Description</th>
+									<th style="font-weight: 800;">Action</th>
 								</tr>
 							</thead>
 							<tbody class='tablebody'>

@@ -40,9 +40,9 @@
 				<div class="container2"
 					style="padding-left: 20px; padding-right: 20px">
 					<div style="display: flex; flex-direction: column;">
-						<label style="font-size: 13px; margin-bottom: 7px">Select
+						<label style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Select
 							Teacher</label> <select id="teacher" name="teacher"
-							style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8;">
+							style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8;">
 							<option>Select Teacher</option>
 							<!-- <option>Permission</option>
 							<option>Roles</option> -->
@@ -50,9 +50,9 @@
 					</div>
 					<div></div>
 					<div style="display: flex; flex-direction: column;">
-						<label style="font-size: 13px; margin-bottom: 7px">Select
+						<label style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Select
 							Permission</label> <select id="permission" name="permission"
-							style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8;">
+							style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8;">
 							<option>Select Permission</option>
 							<!-- <option>Permission</option>
 							<option>Roles</option> -->
@@ -63,7 +63,7 @@
 				<div
 					style="display: flex; justify-content: center; margin-top: 30px">
 					<button
-						style="cursor: pointer; background-color: #59f7f1; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none" id="saveButton">
+						style="cursor: pointer; font-size: 14px; font-weight: 700; background-color: #59f7f1; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none" id="saveButton">
 						Save</button>
 				</div>
 			</div>

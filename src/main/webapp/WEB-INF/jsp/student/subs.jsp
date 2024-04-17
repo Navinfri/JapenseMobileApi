@@ -70,18 +70,18 @@
 						<table class='MainTable'>
 							<thead class='tableheading'>
 								<tr>
-									<th style="width: 100px">SrNo</th>
-									<th>Full Name</th>
-									<th>Action</th>
+									<th style="width: 100px; font-weight: 800;">SrNo</th>
+									<th style="font-weight: 800;">Full Name</th>
+									<th style="font-weight: 800;">Action</th>
 								</tr>
 							</thead>
 							<tbody class='tablebody'>
 								<tr>
-									<td>1</td>
-									<td>Prajwal</td>
-									<td><a><i class="fa-regular fa-pen-to-square"
-											style="color: #12e068; padding-right: 10px"></i></a> <a><i
-											class="fa-solid fa-trash" style="color: #eb070f"></i></a></td>
+									<td style="font-weight: 500;">1</td>
+									<td style="font-weight: 500;">Prajwal</td>
+									<td style="font-size: 20px;"><a><i class="fa-regular fa-pen-to-square"
+											style="color: #12e068; padding-right: 10px; font-weight: 900;"></i></a> <a><i
+											class="fa-solid fa-trash" style="color: #eb070f; font-weight: 900;"></i></a></td>
 								</tr>
 							</tbody>
 						</table>

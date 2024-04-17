@@ -44,33 +44,33 @@
 				<div class="container2"
 					style="padding-left: 20px; padding-right: 20px">
 					<div style="display: flex; flex-direction: column;">
-						<label style="font-size: 13px; margin-bottom: 7px">Enter
+						<label style="font-size: 14px; font-weight: 500; margin-bottom: 7px">Enter
 							Name</label> <input id="" name="" type="text" required="required"
-							style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8;">
+							style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8;">
 					</div>
 					<div style="display: flex; flex-direction: column;">
-						<label style="font-size: 13px; margin-bottom: 7px">Enter
+						<label style="font-size: 14px; font-weight: 500; margin-bottom: 7px">Enter
 							Email</label> <input id="" name="" type="email" required="required"
-							style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8;">
+							style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8;">
 					</div>
 					<div style="display: flex; flex-direction: column;">
-						<label style="font-size: 13px; margin-bottom: 7px">Enter
+						<label style="font-size: 14px; font-weight: 500; margin-bottom: 7px">Enter
 							Mobile Number (Optional)</label> <input id="" name="" type="number"
-							style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8">
+							style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8">
 					</div>
 					<div style="display: flex; flex-direction: column;">
-						<label style="font-size: 13px; margin-bottom: 7px">Enter
+						<label style="font-size: 14px; font-weight: 500; margin-bottom: 7px">Enter
 							Role</label> <input id="" name="" type="text" required="required"
-							style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8;">
+							style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8;">
 					</div>
 				</div>
 				<div
 					style="display: flex; justify-content: center; margin-top: 40px; gap: 50px;">
 					<a href="manageuserlist">
 						<button
-							style="width: 100px; cursor: pointer; background-color: #59f7f1; color: #ffffff; border-radius: 5px; padding: 12px; border: none">Save</button>
+							style="width: 100px; font-weight: 700; font-size: 14px; cursor: pointer; background-color: #59f7f1; color: #ffffff; border-radius: 5px; padding: 12px; border: none">Save</button>
 						<button
-							style="margin-left: 30px; width: 100px; cursor: pointer; background-color: #20d42c; color: #ffffff; border-radius: 5px; padding: 12px; border: none">Manage</button>
+							style="margin-left: 30px; font-weight: 700; font-size: 14px; width: 100px; cursor: pointer; background-color: #20d42c; color: #ffffff; border-radius: 5px; padding: 12px; border: none">Manage</button>
 					</a>
 				</div>
 			</div>

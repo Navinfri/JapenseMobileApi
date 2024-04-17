@@ -74,19 +74,19 @@
 						<table class='MainTable'>
 							<thead class='tableheading'>
 								<tr>
-									<th style="width: 100px">SrNo</th>
-<!-- 									<th style="width: 180px">Batch Name</th> -->
-									<th style="width: 180px">Course</th>
-									<th style="width: 180px">Batch Name</th>
-									<th style="width: 180px">Demo Date</th>
-									<th style="width: 180px">Start Date</th>
-									<th style="width: 180px">End Date</th>
-									<th style="width: 180px">Classes Days</th>
-									<th style="width: 180px">Assign Teacher</th>
-									<th style="width: 180px">Batch Fee</th>
-									<th style="width: 180px">Zoom Details</th>
+									<th style="width: 100px; font-weight: 800;">SrNo</th>
+<!-- 									<th style="width: 180px; font-weight: 800;">Batch Name</th> -->
+									<th style="width: 180px; font-weight: 800;">Course</th>
+									<th style="width: 180px; font-weight: 800;">Batch Name</th>
+									<th style="width: 180px; font-weight: 800;">Demo Date</th>
+									<th style="width: 180px; font-weight: 800;">Start Date</th>
+									<th style="width: 180px; font-weight: 800;">End Date</th>
+									<th style="width: 180px; font-weight: 800;">Classes Days</th>
+									<th style="width: 180px; font-weight: 800;">Assign Teacher</th>
+									<th style="width: 180px; font-weight: 800;">Batch Fee</th>
+									<th style="width: 180px; font-weight: 800;">Zoom Details</th>
 <!-- 									<th style="width: 180px">Add Students</th> -->
-									<th>Action</th>
+									<th style="font-weight: 800;">Action</th>
 								</tr>
 							</thead>
 							<tbody class='tablebody'>

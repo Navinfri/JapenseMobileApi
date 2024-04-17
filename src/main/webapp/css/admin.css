@@ -123,10 +123,16 @@ body {
 
 #sidebar .side-menu>li>a.active,
 #sidebar .side-menu>li>a.active:hover {
-    /* background-color: #f15240; */
-    /* background: #55d0ff; */
-    color: #000000;
+    background-color: #f15240;
+    background: #55d0ff;
+    color: white;
 }
+
+#sidebar ul li a:hover {
+	background-color: #55d0ff;
+	color: #ffffff;
+}
+
 
 #sidebar .side-dropdown {
     padding-left: 48px;
@@ -142,7 +148,7 @@ body {
 
 #sidebar .side-dropdown a:hover {
     /* color: #f15240; */
-    color: rgb(60, 60, 60);
+    color: #ffffff;
 
 }
 
@@ -700,9 +706,7 @@ body {
     color: white;
     cursor: pointer;
     font-size: 15px;
-}
 
-.wrapperform{
     width: 750px;
     border-radius: 10px;
     padding: 40px 35px 55px;
@@ -740,16 +744,6 @@ body {
     font-size: 18px;
 }
 
-#drop-area{
-    width: 500px;
-    height: 370px;
-    padding: 30px 60px;
-    background: #fff;
-    text-align: center;
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-}
 
 #img-view{
     width: 100%;

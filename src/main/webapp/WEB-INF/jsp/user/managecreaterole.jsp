@@ -11,7 +11,7 @@
 <style>
 .Container {
 	width: 100%;
-	height: 100vh;
+	height: 100%;
 	margin-top: 50px
 }
 
@@ -55,6 +55,60 @@
 	font-weight: 500;
 	font-size: 13.5px;
 }
+
+.iconmag {
+	position: absolute;
+	top: 12.5rem;
+	right: 12rem;
+}
+
+.btn1 {
+	background-color: #00f7e7;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border: none;
+	border-radius: 5px;
+	text-align: center;
+	color: #ffffff;
+	font-weight: 700;
+	font-size: 12px;
+}
+
+.btn2 {
+	background-color: #f7f300;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border: none;
+	border-radius: 5px;
+	text-align: center;
+	color: #ffffff;
+	font-weight: 700;
+	font-size: 12px;
+}
+
+.btn3 {
+	background-color: #2ff507;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border: none;
+	border-radius: 5px;
+	text-align: center;
+	color: #ffffff;
+	font-weight: 700;
+	font-size: 12px;
+}
+
+.btn4 {
+	background-color: #f71500;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border: none;
+	border-radius: 5px;
+	text-align: center;
+	color: #ffffff;
+	font-weight: 700;
+	font-size: 12px;
+}
 </style>
 <body>
 	<jsp:include page="../sidenav.jsp"></jsp:include>
@@ -67,26 +121,28 @@
 				</h1>
 				<div
 					style="display: flex; justify-content: space-between; flex-wrap: wrap;">
-					<div style="margin-left: 20px">
-						<select>
+					<div style="margin-left: 20px;">
+						<h6 style="display: inline-block; font-size: 14px">Records</h6>
+						<select
+							style="padding: 10px; width: 70px; border-radius: 7px; height: 40px">
 							<option>1</option>
 							<option>2</option>
 							<option>3</option>
 						</select>
-						<h6 style="display: inline-block">Records</h6>
 					</div>
 					<div style="margin-right: 20px;">
+						<div style="display: inline;">
+							<input type="text" placeholder="Search"
+								style="background: none; border: none; border-bottom: 2px solid grey; padding: 12px;">
+							<span class="fa-solid fa-magnifying-glass iconmag"></span>
+						</div>
 						<a href="createroles">
 							<button
-								style="margin-left: 50px; display: block; cursor: pointer; background-color: #20d42c; color: #ffffff; border-radius: 5px; padding: 12px; border: none">
+								style="margin-left: 30px; font-weight: 700; font-size: 14px; cursor: pointer; background-color: #20d42c; color: #ffffff; border-radius: 5px; padding: 12px; border: none">
 								<i style="margin-right: 5px" class="fa-solid fa-plus"></i>Add
 								New Role
 							</button>
 						</a>
-
-						<h6 style="display: inline-block; margin-top: 40px">Search</h6>
-						<input type="search"
-							style="border: 1px solid black; padding: 4px; border-radius: 5px">
 					</div>
 				</div>
 				<div class='TableContainer'>
@@ -94,33 +150,30 @@
 						<table class='MainTable'>
 							<thead class='tableheading'>
 								<tr>
-									<th style="width: 100px">SrNo</th>
-									<th>Name of the Role</th>
-									<th style="width: 350px">Permission</th>
-									<th>Action</th>
+									<th style="width: 100px; font-weight: 800">SrNo</th>
+									<th style="font-weight: 800">Name of the Role</th>
+									<th style="width: 350px; font-weight: 800">Permission</th>
+									<th style="font-weight: 800">Action</th>
 								</tr>
 							</thead>
 							<tbody class='tablebody'>
 								<tr>
-									<td>1</td>
-									<td>Ankit Nandanwar</td>
+									<td style="font-weight: 500">1</td>
+									<td style="font-weight: 500">Ankit Nandanwar</td>
 									<td>
 										<div
-											style="display: grid; grid-template-columns: 1fr 1fr 1fr; grid-gap: 10px">
-											<button
-												style="background-color: #4c8aed; width: auto; height: 30px; padding: 3px; border: none; border-radius: 5px; text-align: center; color: #ffffff; font-weight: 500; font-size: 10px">View</button>
-											<button
-												style="background-color: #4c8aed; width: auto; height: 30px; padding: 3px; border: none; border-radius: 5px; text-align: center; color: #ffffff; font-weight: 500; font-size: 10px">Edit</button>
-											<button
-												style="background-color: #4c8aed; width: auto; height: 30px; padding: 3px; border: none; border-radius: 5px; text-align: center; color: #ffffff; font-weight: 500; font-size: 10px">Create</button>
-											<button
-												style="background-color: #4c8aed; width: auto; height: 30px; padding: 3px; border: none; border-radius: 5px; text-align: center; color: #ffffff; font-weight: 500; font-size: 10px">Delete</button>
+											style="display: grid; grid-template-columns: 1fr 1fr 1fr; grid-gap: 15px">
+											<button class="btn1">View</button>
+											<button class="btn2">Edit</button>
+											<button class="btn3">Create</button>
+											<button class="btn4">Delete</button>
 										</div>
 									</td>
-									<td><a href="permission"><i
+									<td style="font-size: 20px"><a href="permission"><i
 											class="fa-regular fa-pen-to-square"
-											style="color: #12e068; padding-right: 10px"></i></a> <a><i
-											class="fa-solid fa-trash" style="color: #eb070f"></i></a></td>
+											style="font-weight: 900; color: #12e068; padding-right: 10px"></i></a>
+										<a><i class="fa-solid fa-trash"
+											style="font-weight: 900; color: #eb070f"></i></a></td>
 								</tr>
 							</tbody>
 						</table>
@@ -129,7 +182,7 @@
 				<div
 					style="display: flex; justify-content: center; margin-top: 20px">
 					<button
-						style="cursor: pointer; background-color: #4c8aed; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none">Update</button>
+						style="cursor: pointer; font-weight: 700; background-color: #4c8aed; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none">Update</button>
 				</div>
 			</div>
 		</main>

@@ -43,18 +43,18 @@
 					<div class="container2"
 						style="margin-left: 20px; margin-right: 20px">
 						<div style="display: flex; flex-direction: column;">
-							<label style="font-size: 13px; margin-bottom: 7px">Enter
+							<label style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Enter
 								Course</label> <input id="courses" name="courses" type="text"
 								required="required"
-								style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8">
+								style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8">
 						</div>
 					</div>
 					<div class="container2"
 						style="margin-left: 20px; margin-right: 20px">
 						<div style="display: flex; flex-direction: column;">
-							<label style="font-size: 13px; margin-bottom: 7px">Category
+							<label style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Category
 							</label> <select id="category" name="category"
-								style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8;">
+								style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8;">
 								<option>Select Category</option>
 								<option value="Enrolled Student">Enrolled Student</option>
 								<option value="Subscription Student">Subscription
@@ -65,9 +65,9 @@
 					<div class="container2"
 						style="margin-left: 20px; margin-right: 20px">
 						<div style="display: flex; flex-direction: column;">
-							<label style="font-size: 13px; margin-bottom: 7px">Description</label>
+							<label style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Description</label>
 							<textarea id="description" name="description" required="required"
-								style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8"></textarea>
+								style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8"></textarea>
 						</div>
 					</div>
 					<div

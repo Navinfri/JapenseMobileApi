@@ -72,26 +72,26 @@
 						<table class='MainTable'>
 							<thead class='tableheading'>
 								<tr>
-									<th style="width: 100px">SrNo</th>
-									<th>First Name</th>
-									<th>Last Name</th>
-									<th>Select Course</th>
-									<th>Select Batch</th>
-									<th style="width: 350px">Email Id</th>
-									<th>Action</th>
+									<th style="width: 100px; font-weight: 800;">SrNo</th>
+									<th style="font-weight: 800;">First Name</th>
+									<th style="font-weight: 800;">Last Name</th>
+									<th style="font-weight: 800;">Select Course</th>
+									<th style="font-weight: 800;">Select Batch</th>
+									<th style="width: 350px; font-weight: 800;">Email Id</th>
+									<th style="font-weight: 800;">Action</th>
 								</tr>
 							</thead>
 							<tbody class='tablebody'>
 								<tr>
-									<td>1</td>
-									<td>Prajwal</td>
-									<td>Amdare</td>
-									<td>Java</td>
-									<td>Batch 1</td>
-									<td>prajwalamdare@gmail.com</td>
-									<td><a><i class="fa-regular fa-pen-to-square"
-											style="color: #12e068; padding-right: 10px"></i></a> <a><i
-											class="fa-solid fa-trash" style="color: #eb070f"></i></a></td>
+									<td style="font-weight: 500;">1</td>
+									<td style="font-weight: 500;">Prajwal</td>
+									<td style="font-weight: 500;">Amdare</td>
+									<td style="font-weight: 500;">Java</td>
+									<td style="font-weight: 500;">Batch 1</td>
+									<td style="font-weight: 500;">prajwalamdare@gmail.com</td>
+									<td style="font-size: 20px;"><a><i class="fa-regular fa-pen-to-square"
+											style="color: #12e068; font-weight: 900; padding-right: 10px"></i></a> <a><i
+											class="fa-solid fa-trash" style="color: #eb070f; font-weight: 900;"></i></a></td>
 								</tr>
 							</tbody>
 						</table>

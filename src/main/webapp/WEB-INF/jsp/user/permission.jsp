@@ -65,25 +65,25 @@
 					ROLE FORM</h1>
 					<div class="container2">
 				<div style="display: flex; flex-direction: column; margin-left: 20px">
-					<label style="font-size: 13px; margin-bottom: 7px">Enter
+					<label style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Enter
 						Role Name</label> <input id="" name="" type="text"
-						style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8"></div>
+						style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8"></div>
 				</div>
 				<div class='TableContainer'>
 					<div class="tablestyle">
 					<div>
 					<input type="checkbox">
-					<label>SELECT ALL</label>
+					<label style="font-weight: 700;">SELECT ALL</label>
 					</div>
 						<table class='MainTable'>
 							<thead class='tableheading'>
 								<tr>
-									<th>Permission</th>
-									<th>View</th>
-									<th>Edit</th>
-									<th>Create</th>
-									<th>Delete</th>
-									<th>All Data <span style="text-transform: lowercase;">(all permission)</span></th>
+									<th style="font-weight: 800;">Permission</th>
+									<th style="font-weight: 800;">View</th>
+									<th style="font-weight: 800;">Edit</th>
+									<th style="font-weight: 800;">Create</th>
+									<th style="font-weight: 800;">Delete</th>
+									<th style="font-weight: 800;">All Data <span style="text-transform: lowercase;">(all permission)</span></th>
 								</tr>
 							</thead>
 							<tbody class='tablebody'>
@@ -95,21 +95,6 @@
 							</tr>
 								<tr>
 									<td style="font-weight: 500">List All Admin Users</td>
-									<td>
-									<input type="checkbox">
-									</td>
-									<td>
-									<input type="checkbox">
-									</td><td>
-									<input type="checkbox">
-									</td><td>
-									<input type="checkbox">
-									</td><td>
-									<input type="checkbox">
-									</td>
-								</tr>
-								<tr style="border-bottom: 1px solid rgb(208, 208, 208);">
-									<td style="font-weight: 500">Add Admin Users</td>
 									<td>
 									<input type="checkbox">
 									</td>
@@ -141,21 +126,6 @@
 									<input type="checkbox">
 									</td>
 								</tr>
-								<tr>
-									<td style="font-weight: 500">Add New Role</td>
-									<td>
-									<input type="checkbox">
-									</td>
-									<td>
-									<input type="checkbox">
-									</td><td>
-									<input type="checkbox">
-									</td><td>
-									<input type="checkbox">
-									</td><td>
-									<input type="checkbox">
-									</td>
-								</tr>
 							</tbody>
 						</table>
 					</div>
@@ -163,7 +133,7 @@
 				<div
 					style="display: flex; justify-content: center; margin-top: 20px">
 					<button
-						style="cursor: pointer; background-color: green; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none">Update</button>
+						style="cursor: pointer; font-weight: 700; font-size: 14px; background-color: green; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none">Update</button>
 				</div>
 			</div>
 		</main>

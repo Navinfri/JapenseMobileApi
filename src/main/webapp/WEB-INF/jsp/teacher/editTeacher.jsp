@@ -44,42 +44,42 @@
 				<div class="container2"
 					style="padding-left: 20px; padding-right: 20px">
 					<div style="display: flex; flex-direction: column;">
-						<label style="font-size: 13px; margin-bottom: 7px">Enter
+						<label style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Enter
 							First Name</label> <input id="firstName" name="firstName" type="text" required="required"
-							style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8;">
+							style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8;">
 					</div>
 					<div style="display: flex; flex-direction: column;">
-						<label style="font-size: 13px; margin-bottom: 7px">Enter
+						<label style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Enter
 							Last Name</label> <input id="lastName" name="lastName" type="text" required="required"
-							style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8;">
+							style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8;">
 					</div>
 					<div style="display: flex; flex-direction: column;">
-						<label style="font-size: 13px; margin-bottom: 7px">Select
+						<label style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Select
 							Course</label> <select id="courses" name="courses"
-							style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8;">
+							style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8;">
 							<option>Select Course</option>
 							<!-- <option>Permission</option>
 							<option>Roles</option> -->
 						</select>
 					</div>
 					<div style="display: flex; flex-direction: column;">
-						<label style="font-size: 13px; margin-bottom: 7px">Select
+						<label style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Select
 							Batch</label> <select id="batch" name="batch"
-							style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8;">
+							style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8;">
 							<option value="">Select Batch</option>
 							<!-- <option>Permission</option>
 							<option>Roles</option> -->
 						</select>
 					</div>
 					<div style="display: flex; flex-direction: column;">
-						<label style="font-size: 13px; margin-bottom: 7px">Enter
+						<label style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Enter
 							Email Id</label> <input id="emailId" name="emailId" type="text" required="required"
-							style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8;">
+							style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8;">
 					</div>
 					<div style="display: flex; flex-direction: column;">
-						<label style="font-size: 13px; margin-bottom: 7px">Enter
+						<label style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Enter
 							Password</label> <input id="password" name="password" type="text" required="required"
-							style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8;">
+							style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8;">
 					</div>
 				</div>
 				<div

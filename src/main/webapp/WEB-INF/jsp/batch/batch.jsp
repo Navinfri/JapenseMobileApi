@@ -46,53 +46,53 @@
 <!-- 							style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8"> -->
 <!-- 					</div> -->
 					<div style="display: flex; flex-direction: column;">
-						<label style="font-size: 13px; margin-bottom: 7px">Select
+						<label style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Select
 							Course</label> <select id="course" name="course"
-							style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8;">
+							style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8;">
 							<option>Select</option>
 <!-- 							<option>Permission</option> -->
 <!-- 							<option>Roles</option> -->
 						</select>
 					</div>
 					<div style="display: flex; flex-direction: column;">
-						<label style="font-size: 13px; margin-bottom: 7px">Enter
+						<label style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Enter
 							Batch Name</label> <input id="batchName" name="batchName" type="text" required="required"
-							style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8">
+							style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8">
 					</div>
 					<div style="display: flex; flex-direction: column;">
-						<label style="font-size: 13px; margin-bottom: 7px">Enter
+						<label style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Enter
 							Batch Demo Date</label> <input id="batchDemoDate" name="batchDemoDate" type="date" required="required"
-							style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8">
+							style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8">
 					</div>
 					<div style="display: flex; flex-direction: column;">
-						<label style="font-size: 13px; margin-bottom: 7px">Enter
+						<label style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Enter
 							Batch Start Date</label> <input id="batchStartDate" name="batchStartDate" type="date" required="required"
-							style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8">
+							style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8">
 					</div>
 					<div style="display: flex; flex-direction: column;">
-						<label style="font-size: 13px; margin-bottom: 7px">Enter
+						<label style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Enter
 							Batch End Date</label> <input id="batchEndDate" name="batchEndDate" type="date" required="required"
-							style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8">
+							style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8">
 					</div>
 					<div style="display: flex; flex-direction: column;">
-						<label style="font-size: 13px; margin-bottom: 7px">Enter
+						<label style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Enter
 							Classes Days</label> <input id="classesDay" name="classesDay" type="text" required="required"
-							style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8">
+							style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8">
 					</div>
 					<div style="display: flex; flex-direction: column;">
-						<label style="font-size: 13px; margin-bottom: 7px">Enter
+						<label style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Enter
 							Assign Teacher Name</label> <input id="teacher" name="teacher" type="text" required="required"
-							style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8">
+							style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8">
 					</div>
 					<div style="display: flex; flex-direction: column;">
-						<label style="font-size: 13px; margin-bottom: 7px">Enter
+						<label style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Enter
 							Batch Fee</label> <input id="batchFees" name="batchFees" type="text" required="required"
-							style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8">
+							style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8">
 					</div>
 					<div style="display: flex; flex-direction: column;">
-						<label style="font-size: 13px; margin-bottom: 7px">Enter
+						<label style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Enter
 							Zoom Details</label> <input id="zoomDetails" name="zoomDetails" type="text" required="required"
-							style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8">
+							style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8">
 					</div>
 <!-- 					<div style="display: flex; flex-direction: column;"> -->
 <!-- 						<label style="font-size: 13px; margin-bottom: 7px">Add -->

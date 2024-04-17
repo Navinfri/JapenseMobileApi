@@ -38,15 +38,15 @@
 					ROLE</h1>
 				<div class="container2">
 					<div style="display: flex; flex-direction: column;">
-						<label style="font-size: 13px; margin-bottom: 7px">Name of
+						<label style="font-size: 14px; font-weight: 500; margin-bottom: 7px">Name of
 							the Role</label> <input id="" name="" type="text" required="required"
-							style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8;">
+							style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8;">
 					</div>
 					<div></div>
 					<div style="display: flex; flex-direction: column;">
-						<label style="font-size: 13px; margin-bottom: 7px">Permissions</label>
+						<label style="font-size: 14px; font-weight: 500; margin-bottom: 7px">Permissions</label>
 						<select id="" name=""
-							style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8;">
+							style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8;">
 							<option>Select</option>
 							<option>Permission</option>
 							<option>Roles</option>
@@ -57,10 +57,10 @@
 				<div
 					style="margin-top: 50px; display: flex; justify-content: center; gap: 50px;">
 					<button
-						style="cursor: pointer; background-color: #59f7f1; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none">Save</button>
+						style="cursor: pointer; font-weight: 700; font-size: 14px; background-color: #59f7f1; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none">Save</button>
 					<a href="managecreaterole">
 						<button
-							style="cursor: pointer; background-color: #12e068; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none">Manage</button>
+							style="cursor: pointer; font-weight: 700; font-size: 14px; background-color: #12e068; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none">Manage</button>
 					</a>
 				</div>
 			</div>

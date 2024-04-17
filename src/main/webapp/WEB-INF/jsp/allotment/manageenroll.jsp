@@ -60,6 +60,7 @@
 }
 </style>
 <body>
+
 	<jsp:include page="../sidenav.jsp"></jsp:include>
 	<section id="content">
 		<jsp:include page="../header.jsp"></jsp:include>
