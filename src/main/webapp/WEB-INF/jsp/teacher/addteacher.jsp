@@ -28,7 +28,7 @@
 	}
 }
 </style>
-<body onload="getBatch(); getCourse();">
+<body>
 	<section id="sidebar">
 		<div class="brandHead">
 			<a href="/" class="brand" style="color: rgb(16, 8, 92);"><img
@@ -178,20 +178,11 @@
 					</div>
 					<div style="display: flex; flex-direction: column;">
 						<label style="font-size: 13px; margin-bottom: 7px">Select
-							Course</label> <select id="courses" name="courses"
+							Gender</label> <select id="gender" name="gender"
 							style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8;">
-							<option>Select Course</option>
-							<!-- <option>Permission</option>
-							<option>Roles</option> -->
-						</select>
-					</div>
-					<div style="display: flex; flex-direction: column;">
-						<label style="font-size: 13px; margin-bottom: 7px">Select
-							Batch</label> <select id="batch" name="batch"
-							style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8;">
-							<option>Select Batch</option>
-							<!-- <option>Permission</option>
-							<option>Roles</option> -->
+							<option>Select Gender</option>
+							<option value="male">Male</option>
+							<option value="female">Female</option>
 						</select>
 					</div>
 					<div style="display: flex; flex-direction: column;">
@@ -219,79 +210,46 @@
 		</main>
 	</section>
 	<script>
-    $(document).ready(function() {
-        $("#saveButton").click(function() {
-            var firstName = $("#firstName").val();
-            var lastName = $("#lastName").val();
-            var courses = $("#courses").val();
-            var batch = $("#batch").val();
-            var emailId = $("#emailId").val();
-            var password = $("#password").val();
+	$(document).ready(function() {
+	    $("#saveButton").click(function() {
+	        var firstName = $("#firstName").val();
+	        var lastName = $("#lastName").val();
+	        var gender = $("#gender").val();
+	        var emailId = $("#emailId").val();
+	        var password = $("#password").val();
 
-            var teacher = {
-                firstName: firstName,
-                lastName: lastName,
-                courses: courses,
-                batch: batch,
-                emailId: emailId,
-                password: password
-            };
+	        var teacher = {
+	            firstName: firstName,
+	            lastName: lastName,
+	            gender: gender,
+	            emailId: emailId,
+	            password: password
+	        };
 
-            $.ajax({
-                url: "saveTeacher",
-                type: "POST",
-                contentType: "application/json",
-                data: JSON.stringify(teacher),
-                success: function(response) {
-                    alert(response.message);
-                    window.location.href = "addteacher";
-                },
-                error: function(error) {
-                    alert("Failed to save teacher information");
-                }
-            });
-        });
-    });
-	</script>
-	<script type="text/javascript">
-	function getBatch() {
-		$.ajax({
-			type: "get",
-			contentType: "application/json",
-			url: 'getAllBatchesData',
-			asynch: false,
-			success: function (data) {
-				var appenddata1 = "";
-				//var jsonData1 = JSON.parse(data1.d);
-				for (var i = 0; i < data.length; i++) {
-					appenddata1 += "<option value='" + data[i].batchName + "'>" + data[i].batchName + "</option>";
-				}
-				$("#batch").append(appenddata1);
-			},
-			error: function () {
-				alert("Device control failed");
-			}
-		});
-	}
-	
-	function getCourse() {
-	    $.ajax({
-	        type: "get",
-	        contentType: "application/json",
-	        url: 'course',
-	        async: false,
-	        success: function (response) {
-	            var appenddata1 = "";
-	            for (var i = 0; i < response.data.length; i++) {
-	                appenddata1 += "<option value='" + response.data[i].courses + "'>" + response.data[i].courses + "</option>";
+	        $.ajax({
+	            url: "saveTeacher",
+	            type: "POST",
+	            contentType: "application/json",
+	            data: JSON.stringify(teacher),
+	            success: function(response) {
+	                if(response.statusCode === 200) {
+	                    alert(response.message);
+	                    window.location.href = "addteacher";
+	                } else {
+	                    alert(response.message); // Handle different status codes
+	                }
+	            },
+	            error: function(jqXHR, textStatus, errorThrown) {
+	                var response = jqXHR.responseJSON; // Parse JSON response
+	                if(response && response.statusCode === 4001) {
+	                    alert(response.message);
+	                } else {
+	                    alert("Failed to communicate with the server");
+	                }
 	            }
-	            $("#courses").append(appenddata1);
-	        },
-	        error: function () {
-	            alert("Device control failed");
-	        }
+	        });
 	    });
-	}
+	});
 	</script>
 	<script src="js/adminscript.js"></script>
 </body>

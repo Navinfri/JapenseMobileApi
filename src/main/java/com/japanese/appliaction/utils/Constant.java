@@ -7,5 +7,6 @@ public interface Constant {
 	public static final String FAILED_RESPONSE_STATUS = "FAILED";
 	public static final String SUCCESS_RESPONSE_STATUS = "SUCCESS";
 	public static final String ERROR_RESPONSE_STATUS = "SERVER";
-	public static final String UPLOAD_DIR = "C:\\Users\\HP\\eclipse-workspace\\greenvalley\\src\\main\\webapp\\images";
+	public static final int DUPLICATE_EMAIL_RESPONSE_CODE = 4001;
+	//public static final String UPLOAD_DIR = "C:\\Users\\HP\\eclipse-workspace\\greenvalley\\src\\main\\webapp\\images";
 }

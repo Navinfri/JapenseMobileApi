@@ -8,4 +8,6 @@ import com.japanese.appliaction.model.Teacher;
 @Repository
 public interface TeacherRepo extends JpaRepository<Teacher, Long> {
 
+	boolean existsByEmailId(String emailId);
+
 }
