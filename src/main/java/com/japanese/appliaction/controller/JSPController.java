@@ -187,5 +187,19 @@ public class JSPController {
 	}
 
 	
+	@GetMapping("/questype")
+	public String getQueType() {
+		return "studymaterial/quesType";
+	}
+	
+	@GetMapping("/managequestype")
+	public String getmanagequestype() {
+		return "studymaterial/managequestype";
+	}
+	
+	@GetMapping("/editquestype")
+	public String geteditquestype() {
+		return "studymaterial/editquestype";
+	}
 }
 

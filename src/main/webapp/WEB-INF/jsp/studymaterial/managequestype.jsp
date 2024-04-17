@@ -1,10 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<title>Manage Question Type</title>
+<link rel="stylesheet" href="css/admin.css" />
+<link rel="stylesheet" href="css/admin.css">
+<script src="https://kit.fontawesome.com/ae73087723.js"
+	crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <style>
 .Container {
@@ -47,6 +54,7 @@
 	font-size: 0.9rem;
 	font-weight: 600;
 	color: rgb(56, 56, 56);
+	text-align: center;
 }
 
 .tablebody {
@@ -59,6 +67,13 @@
 <jsp:include page="../sidenav.jsp"></jsp:include>
 	<section id="content">
 		<jsp:include page="../header.jsp"></jsp:include>
+	text-align: center;
+}
+</style>
+<body>
+	<jsp:include page="../sidenav.jsp"></jsp:include>
+	<section id="content">
+		<jsp:include page="../navbar.jsp"></jsp:include>
 		<main>
 			<div class="Container">
 				<h1
@@ -82,6 +97,7 @@
 											style="color: #12e068; padding-right: 10px"></i></a> <a><i
 											class="fa-solid fa-trash" style="color: #eb070f"></i></a></td>
 								</tr>
+								
 							</tbody>
 						</table>
 					</div>
@@ -91,9 +107,89 @@
 					<button
 						style="cursor: pointer; background-color: green; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none">Update</button>
 				</div>
+
+
 			</div>
 		</main>
 	</section>
 	<script src="js/adminscript.js"></script>
+	<script>
+	$(document).ready(function() {
+		fetchAllQuestions();
+
+	    function fetchAllQuestions() {
+	        $.ajax({
+	            url: "listAllQuestions",
+	            type: "GET",
+	            contentType: "application/json",
+	            success: function(response) {
+	                if (response && response.length > 0) {
+	                    populateTable(response);
+	                } else {
+	                    alert("No data found");
+	                }
+	            },
+	            error: function(xhr, status, error) {
+	                console.error("Failed to fetch questions type :", error);
+	                alert("Failed to questions type");
+	            }
+	        });
+	    }
+
+	    function populateTable(questions) {
+	        var tableBody = $(".tablebody");
+	        tableBody.empty();
+
+	        questions.forEach(function(question, index) {
+	            var row = $("<tr>");
+	            row.append($("<td>").text(index + 1));
+	            row.append($("<td>").text(question.typeOfQuestion));
+	           
+	            var actionCell = $("<td>");
+
+	            var updateIcon = $("<i>").addClass("fa-regular fa-pen-to-square").css("color", "#12e068").css("cursor", "pointer").click(function() {
+	                editQuestion(question.id);
+	            });
+
+	            var deleteIcon = $("<i>").addClass("fa-solid fa-trash").css("color", "#eb070f").css("cursor", "pointer").click(function() {
+	                deleteQuestion(question.id);
+	            });
+
+	            actionCell.append(updateIcon).append(" ");
+	            actionCell.append(deleteIcon);
+
+	            row.append(actionCell);
+
+	            tableBody.append(row);
+	        });
+	    }
+
+	    function editQuestion(id) {
+	        window.location.href = "editquestype?id=" + id;
+	    }
+
+	    function deleteQuestion(id) {
+	        $.ajax({
+	            url: "deleteQueType/" + id,
+	            type: "DELETE",
+	            contentType: "application/json",
+	            success: function(response) {
+	                if (response) {
+	                	
+	                    alert(response);
+	                    fetchAllQuestions();
+	                } else {
+	                    alert(response);
+	                }
+	            },
+	            error: function(xhr, status, error) {
+	                console.error("Failed to delete questions type:", error);
+	                alert("Failed to delete questions type");
+	            }
+	        });
+	    }
+	});
+
+	</script>
 </body>
 </html>

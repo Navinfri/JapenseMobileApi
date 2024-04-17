@@ -88,6 +88,8 @@
 							class="fa-solid fa-address-book" style="margin-right: 15px"></i>Add
 							Study Material</a></li>
 					<li><a href="addques"
+
+					<li><a href="addquestion"
 						style="color: rgb(16, 8, 92); font-weight: 500"><i
 							class="fa-solid fa-address-book" style="margin-right: 15px"></i>Add
 							Question </a></li>
