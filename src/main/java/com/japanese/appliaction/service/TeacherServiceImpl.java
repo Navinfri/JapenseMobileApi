@@ -17,12 +17,16 @@ import com.japanese.appliaction.service.serviceInterface.TeacherService;
 public class TeacherServiceImpl implements TeacherService {
 	
 	@Autowired
-	TeacherRepo teacherRepo;
+	private TeacherRepo teacherRepo;
 
 	@Override
 	public Teacher save(Teacher teacher) {
 		return teacherRepo.save(teacher);
 	}
+	
+	public boolean existsByEmailId(String emailId) {
+        return teacherRepo.existsByEmailId(emailId);
+    }
 
 	@Override
 	public Teacher update(Long id, Teacher teacher) {
@@ -34,8 +38,7 @@ public class TeacherServiceImpl implements TeacherService {
 		Teacher existingTeacher = optionalTeacher.get();
 		existingTeacher.setFirstName(teacher.getFirstName());
 		existingTeacher.setLastName(teacher.getLastName());
-		existingTeacher.setCourses(teacher.getCourses());
-		existingTeacher.setBatch(teacher.getBatch());
+		existingTeacher.setLastName(teacher.getGender());
 		existingTeacher.setEmailId(teacher.getEmailId());
 		existingTeacher.setPassword(teacher.getPassword());
 		existingTeacher.setUniqueId(teacher.getUniqueId());

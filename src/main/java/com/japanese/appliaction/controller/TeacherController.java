@@ -26,36 +26,51 @@ import com.japanese.appliaction.utils.Constant;
 public class TeacherController {
 
 	@Autowired
-	TeacherServiceImpl teacherServiceImpl;
+	private TeacherServiceImpl teacherServiceImpl;
 	
 	// SAVE	
 	@PostMapping("/saveTeacher")
-    public ResponseEntity<Object> saveTeacher(@RequestBody Teacher teacher) {
-        try {
-            // Generate uniqueId using UUID
-            teacher.setUniqueId(UUID.randomUUID().toString());
-            Teacher savedTeacher = teacherServiceImpl.save(teacher);
+	public ResponseEntity<Object> saveTeacher(@RequestBody Teacher teacher) {
+	    try {
+	        // Check if email ID already exists
+	        boolean emailExists = teacherServiceImpl.existsByEmailId(teacher.getEmailId());
 
-            // Construct a success response
-            Map<String, Object> response = new HashMap<>();
-            response.put("status", Constant.SUCCESS_RESPONSE_STATUS);
-            response.put("statusCode", Constant.SUCCESS_RESPONSE_CODE);
-            response.put("message", "Teacher information is saved successfully");
-            response.put("data", savedTeacher);
+	        if (emailExists) {
+	            
+	            // Construct an error response for duplicate email ID
+	            Map<String, Object> response = new HashMap<>();
+	            response.put("status", Constant.ERROR_RESPONSE_STATUS);
+	            response.put("statusCode", Constant.DUPLICATE_EMAIL_RESPONSE_CODE);
+	            response.put("message", "Email ID " + teacher.getEmailId() + " is already in use");
+	            response.put("data", Collections.emptyList());
 
-            return ResponseEntity.status(HttpStatus.CREATED).body(response);
-        } catch (Exception e) {
-            // Construct an error response
-            Map<String, Object> response = new HashMap<>();
-            response.put("status", Constant.ERROR_RESPONSE_STATUS);
-            response.put("statusCode", Constant.ERROR_RESPONSE_CODE);
-            response.put("message", "Failed to save teacher information");
-            response.put("data", Collections.emptyList());
+	            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+	        }
 
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
-        }
-    }
-	
+	        // Generate uniqueId using UUID
+	        teacher.setUniqueId(UUID.randomUUID().toString());
+	        Teacher savedTeacher = teacherServiceImpl.save(teacher);
+
+	        // Construct a success response
+	        Map<String, Object> response = new HashMap<>();
+	        response.put("status", Constant.SUCCESS_RESPONSE_STATUS);
+	        response.put("statusCode", Constant.SUCCESS_RESPONSE_CODE);
+	        response.put("message", "Teacher : " + teacher.getFirstName() + " " + teacher.getLastName() + " information is saved successfully");
+	        response.put("data", savedTeacher);
+
+	        return ResponseEntity.status(HttpStatus.CREATED).body(response);
+	    } catch (Exception e) {
+	        // Construct a generic error response for other exceptions
+	        Map<String, Object> response = new HashMap<>();
+	        response.put("status", Constant.ERROR_RESPONSE_STATUS);
+	        response.put("statusCode", Constant.ERROR_RESPONSE_CODE);
+	        response.put("message", "Failed to save teacher information");
+	        response.put("data", Collections.emptyList());
+
+	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
+	    }
+	}
+
 	// UPDATE
 	@PutMapping("/updateTeacher/{id}")
 	public ResponseEntity<Object> updateTeacherById(@PathVariable Long id, @RequestBody Teacher teacher){
