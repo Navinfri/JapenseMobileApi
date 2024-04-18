@@ -106,14 +106,24 @@ public class JSPController {
 		return "studymaterial/managecategory";
 	}
 	
-	@GetMapping("/studymaterial") 
-	public String getstudymaterial() {
-		return "studymaterial/studymaterial";
+	@GetMapping("/addques") 
+	public String getaddquestion() {
+		return "studymaterial/addques";
 	}
 	
-	@GetMapping("/managestudymaterial") 
-	public String getmanagestudymaterial() {
-		return "studymaterial/managestudymaterial";
+	@GetMapping("/manageaddques") 
+	public String getmanageaddquestion() {
+		return "studymaterial/manageaddques";
+	}
+	
+	@GetMapping("/questype") 
+	public String getaddquestiontype() {
+		return "studymaterial/questype";
+	}
+	
+	@GetMapping("/managequestype") 
+	public String getmanageaddquestiontype() {
+		return "studymaterial/managequestype";
 	}
 	
 	@GetMapping("/addmaterial") 
@@ -156,9 +166,26 @@ public class JSPController {
 		return "batch/editBatch";
 	}
 	
-	@GetMapping("/editcategory")
-	public String getEditcategory() {
-		return "studymaterial/editCategory";
+	@GetMapping("/permission")
+	public String getPermission() {
+		return "user/permission";
 	}
+	
+	@GetMapping("/manageenroll")
+	public String getmanageenroll() {
+		return "allotment/manageenroll";
+	}
+	
+	@GetMapping("/managesubs")
+	public String getmanagesubs() {
+		return "allotment/managesubs";
+	}
+	
+	@GetMapping("/enquiry")
+	public String getenquiry() {
+		return "enquiry/enquiry";
+	}
+
+	
 }
 
