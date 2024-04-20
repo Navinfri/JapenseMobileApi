@@ -14,18 +14,28 @@ import lombok.Data;
 
 @Data
 @Entity
-public class TeacherRoleAndPermissson {
-	
+public class TeacherRole {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	private String teacher;
-	private String permission;
-	private boolean flag;
 	
+	@Column(length = 5000)
+	private String courses;
+	
+	@Column(length = 5000)
+	private String batchName;
+
+	@Column(length = 5000)
+	private String permissions;
+
+	private String uniqueId;
+	private boolean flag;
+
 	@CreationTimestamp
 	@Column(updatable = false)
 	private LocalDate date;
-	
+
 }
