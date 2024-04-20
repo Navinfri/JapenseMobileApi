@@ -105,6 +105,8 @@
 					<a href="manageteacher">
 						<button
 							style="cursor: pointer; font-weight: 700; font-size: 14px; background-color: #12e068; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none">Manage</button>
+						<!-- <button
+							style="cursor: pointer; background-color: #12e068; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none">Manage</button> -->
 					</a>
 				</div>
 			</div>
