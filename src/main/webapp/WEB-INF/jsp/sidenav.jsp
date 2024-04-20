@@ -20,10 +20,10 @@
 					class="fa-solid fa-user icon"></i>Sub User <i
 					class="fa-solid fa-caret-down icon-right"></i></a>
 				<ul class="side-dropdown">
-					<li><a href="userlist"
+					<li><a href="manageuserlist"
 						style="color: rgb(16, 8, 92); font-weight: 500"><i
 							class="fa-solid fa-list" style="margin-right: 15px"></i>User List</a></li>
-					<li><a href="createroles"
+					<li><a href="managecreaterole"
 						style="color: rgb(16, 8, 92); font-weight: 500"><i
 							class="fa-regular fa-user" style="margin-right: 15px"></i>Create
 							Roles</a></li>
@@ -39,6 +39,10 @@
 					<li><a href="addteacher"
 						style="color: rgb(16, 8, 92); font-weight: 500"><i
 							class="fa-solid fa-plus" style="margin-right: 15px"></i>Create
+							Teacher</a></li>
+					<li><a href="manageteacher"
+						style="color: rgb(16, 8, 92); font-weight: 500"><i
+							class="fa-solid fa-plus" style="margin-right: 15px"></i>Manage
 							Teacher</a></li>
 					<li><a href="rolespermission"
 						style="color: rgb(16, 8, 92); font-weight: 500"><i
@@ -79,7 +83,7 @@
 						style="color: rgb(16, 8, 92); font-weight: 500"><i
 							class="fa-solid fa-plus" style="margin-right: 15px"></i>Add
 							Category</a></li>
-					<li><a href="questype"
+					<li><a href="questiontype"
 						style="color: rgb(16, 8, 92); font-weight: 500"><i
 							class="fa-solid fa-book" style="margin-right: 15px"></i>Add Type
 							of Question</a></li>
@@ -96,13 +100,17 @@
 					class="fa-solid fa-user icon"></i>Allotment to Study Material <i
 					class="fa-solid fa-caret-down icon-right"></i></a>
 				<ul class="side-dropdown">
-					<li><a href="allot"
-						style="color: rgb(16, 8, 92); font-weight: 500"><i
-							class="fa-regular fa-user" style="margin-right: 15px"></i>Add
-							Allotment</a></li>
 					<li><a href="addlist"
 						style="color: rgb(16, 8, 92); font-weight: 500"><i
 							class="fa-solid fa-list" style="margin-right: 15px"></i>Add List</a></li>
+					<li><a href="manageenroll"
+						style="color: rgb(16, 8, 92); font-weight: 500"><i
+							class="fa-solid  fa-bars-progress" style="margin-right: 15px"></i>Manage
+							Enrolled Student</a></li>
+					<li><a href="managesubs"
+						style="color: rgb(16, 8, 92); font-weight: 500"><i
+							class="fa-solid fa-people-roof" style="margin-right: 15px"></i>Manage
+							Subscription Student</a></li>
 				</ul></li>
 			<li><a href="attendance"
 				style="color: rgb(16, 8, 92); font-weight: 500"><i
@@ -121,43 +129,5 @@
 					style="margin-left: 30px">Logs</span></a></li>
 		</ul>
 	</section>
-	<script>
-
-	function asideMenu(){
-		// Get references to the <li> elements
-		
-		
-		var session = "<%=session.getAttribute("user")%>";
-		
-		
-		const enquiryFormLi = document.getElementById('admin');
-		const proposalOrderLi = document.getElementById('marketing');
-		const designOrderLi = document.getElementById('Design');
-		
-	 	enquiryFormLi.style.display = 'none';
-	 	proposalOrderLi.style.display = 'none';
-	 	designOrderLi.style.display = 'none';
-	 	
-	   
-
-
-		// Display the corresponding <li> based on the presence of the elements
-		if (session.includes("User Create")) {
-		    enquiryFormLi.style.display = 'block'; // Or use 'list-item' to display as a list item
-		} 
-		
-		if (session.includes("Enquiry Form")){
-			proposalOrderLi.style.display = 'block';		
-		}
-		
-		if (session.includes("Team Task")){
-			designOrderLi.style.display = 'block';
-		}
-
-	}
-
-
-
-	</script>
 </body>
 </html>
