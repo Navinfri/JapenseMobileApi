@@ -43,6 +43,7 @@
 
 .tableheading {
 	border-bottom: 1px solid rgb(208, 208, 208);
+	background-color: #36454f;
 }
 
 .tableheading th {
@@ -59,6 +60,12 @@
 	font-weight: 500;
 	font-size: 13.5px;
 }
+
+.iconmag {
+position: absolute;
+top: 12.5rem;
+right: 2rem;
+}
 </style>
 <body>
 	<jsp:include page="../sidenav.jsp"></jsp:include>
@@ -69,14 +76,33 @@
 				<h1
 					style="margin-bottom: 30px; text-align: center; font-weight: 600; font-size: 30px">MANAGE
 					CATEGORY</h1>
+					<div
+					style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+					<div style="margin-left: 20px;">
+						<h6 style="display: inline-block; font-size: 14px">Records</h6>
+						<select
+							style="padding: 10px; width: 70px; border-radius: 7px; height: 40px">
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+						</select>
+					</div>
+					<div style="margin-right: 20px;">
+						<div style="display: inline;">
+							<input type="text" placeholder="Search"
+								style="background: none; border: none; border-bottom: 2px solid grey; padding: 12px;">
+							<span class="fa-solid fa-magnifying-glass iconmag"></span>
+						</div>
+					</div>
+				</div>
 				<div class='TableContainer'>
 					<div class="tablestyle">
 						<table class='MainTable'>
 							<thead class='tableheading'>
 								<tr>
-									<th>SrNo</th>
-									<th>Category Name</th>
-									<th>Action</th>
+									<th style="color: white; font-weight: 800;">SrNo</th>
+									<th style="color: white; font-weight: 800;">Category Name</th>
+									<th style="color: white; font-weight: 800;">Action</th>
 								</tr>
 							</thead>
 							<tbody class='tablebody'>

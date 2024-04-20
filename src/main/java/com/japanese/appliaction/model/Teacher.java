@@ -15,14 +15,13 @@ import lombok.Data;
 @Data
 @Entity
 public class Teacher {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String firstName;
 	private String lastName;
-	private String courses;
-	private String batch;
+	private String gender;
 	private String emailId;
 	private String password;
 	private String uniqueId;

@@ -41,18 +41,18 @@
 				<div class="container2"
 					style="margin-left: 20px; margin-right: 20px">
 					<div style="display: flex; flex-direction: column;">
-						<label style="font-size: 13px; margin-bottom: 7px">Enter
+						<label style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Enter
 							Category Name</label> <input id="category" name="category" type="text" required="required"
-							style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8">
+							style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8">
 					</div>
 				</div>
 				<div
 					style="display: flex; justify-content: center; gap: 50px; margin-top: 30px">
 					<button id="saveButton"
-						style="cursor: pointer; background-color: #59f7f1; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none">Add</button>
+						style="cursor: pointer; font-size: 14px; font-weight: 700; background-color: #59f7f1; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none">Add</button>
 					<a href="managecategory">
 						<button
-							style="cursor: pointer; background-color: #12e068; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none">Manage</button>
+							style="cursor: pointer; font-size: 14px; font-weight: 700; background-color: #12e068; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none">Manage</button>
 					</a>
 				</div>
 

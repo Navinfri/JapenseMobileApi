@@ -96,9 +96,9 @@
                         </div>
                         <div style="display: flex; flex-direction: column;">
                             <label style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Enter
-                                Zoom Details</label> <input id="zoomDetails" name="zoomDetails" type="text"
+                                Zoom Details</label> <textarea id="zoomDetails" name="zoomDetails" type="text"
                                 required="required"
-                                style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8">
+                                style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8"></textarea>
                         </div>
                         <!-- 					<div style="display: flex; flex-direction: column;"> -->
                         <!-- 						<label style="font-size: 13px; margin-bottom: 7px">Add -->
@@ -108,7 +108,7 @@
                     </div>
                     <div style="display: flex; justify-content: center; gap: 50px; margin-top: 30px">
                         <button
-                            style="cursor: pointer; background-color: #59f7f1; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none"
+                            style="cursor: pointer; font-size: 14px; font-weight: 700; background-color: #59f7f1; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none"
                             id="saveButton">Update</button>
 
                     </div>

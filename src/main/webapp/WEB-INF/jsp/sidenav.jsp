@@ -40,6 +40,10 @@
 						style="color: rgb(16, 8, 92); font-weight: 500"><i
 							class="fa-solid fa-plus" style="margin-right: 15px"></i>Create
 							Teacher</a></li>
+					<li><a href="manageteacher"
+						style="color: rgb(16, 8, 92); font-weight: 500"><i
+							class="fa-solid fa-plus" style="margin-right: 15px"></i>Manage
+							Teacher</a></li>
 					<li><a href="rolespermission"
 						style="color: rgb(16, 8, 92); font-weight: 500"><i
 							class="fa-solid fa-person" style="margin-right: 15px"></i>Role/Permission</a></li>
@@ -79,7 +83,7 @@
 						style="color: rgb(16, 8, 92); font-weight: 500"><i
 							class="fa-solid fa-plus" style="margin-right: 15px"></i>Add
 							Category</a></li>
-					<li><a href="questype"
+					<li><a href="questiontype"
 						style="color: rgb(16, 8, 92); font-weight: 500"><i
 							class="fa-solid fa-book" style="margin-right: 15px"></i>Add Type
 							of Question</a></li>
@@ -87,7 +91,7 @@
 						style="color: rgb(16, 8, 92); font-weight: 500"><i
 							class="fa-solid fa-address-book" style="margin-right: 15px"></i>Add
 							Study Material</a></li>
-					<li><a href="addques"
+					<li><a href="addquestion"
 						style="color: rgb(16, 8, 92); font-weight: 500"><i
 							class="fa-solid fa-address-book" style="margin-right: 15px"></i>Add
 							Question </a></li>

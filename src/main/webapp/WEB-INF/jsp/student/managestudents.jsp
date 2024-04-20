@@ -41,6 +41,7 @@
 
 .tableheading {
 	border-bottom: 1px solid rgb(208, 208, 208);
+	background-color: #36454f;
 }
 
 .tableheading th {
@@ -57,6 +58,11 @@
 	font-weight: 500;
 	font-size: 13.5px;
 }
+.iconmag {
+position: absolute;
+top: 12.5rem;
+right: 2rem;
+}
 </style>
 <body>
 	<jsp:include page="../sidenav.jsp"></jsp:include>
@@ -67,18 +73,37 @@
 				<h1
 					style="margin-bottom: 30px; text-align: center; font-weight: 600; font-size: 30px">MANAGE
 					STUDENTS</h1>
+					<div
+					style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+					<div style="margin-left: 20px;">
+						<h6 style="display: inline-block; font-size: 14px">Records</h6>
+						<select
+							style="padding: 10px; width: 70px; border-radius: 7px; height: 40px">
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+						</select>
+					</div>
+					<div style="margin-right: 20px;">
+						<div style="display: inline;">
+							<input type="text" placeholder="Search"
+								style="background: none; border: none; border-bottom: 2px solid grey; padding: 12px;">
+							<span class="fa-solid fa-magnifying-glass iconmag"></span>
+						</div>
+					</div>
+				</div>
 				<div class='TableContainer'>
 					<div class="tablestyle">
 						<table class='MainTable'>
 							<thead class='tableheading'>
 								<tr>
-									<th style="width: 100px; font-weight: 800;">SrNo</th>
-									<th style="font-weight: 800;">First Name</th>
-									<th style="font-weight: 800;">Last Name</th>
-									<th style="font-weight: 800;">Select Course</th>
-									<th style="font-weight: 800;">Select Batch</th>
-									<th style="width: 350px; font-weight: 800;">Email Id</th>
-									<th style="font-weight: 800;">Action</th>
+									<th style="width: 100px; font-weight: 800; color: white;">SrNo</th>
+									<th style="font-weight: 800; color: white;">First Name</th>
+									<th style="font-weight: 800; color: white;">Last Name</th>
+									<th style="font-weight: 800; color: white;">Select Course</th>
+									<th style="font-weight: 800; color: white;">Select Batch</th>
+									<th style="width: 350px; font-weight: 800; color: white;">Email Id</th>
+									<th style="font-weight: 800; color: white;">Action</th>
 								</tr>
 							</thead>
 							<tbody class='tablebody'>
@@ -100,7 +125,7 @@
 				<div
 					style="display: flex; justify-content: center; margin-top: 20px">
 					<button
-						style="cursor: pointer; background-color: green; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none">Update</button>
+						style="cursor: pointer; font-size: 14px; font-weight: 700; background-color: green; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none">Update</button>
 				</div>
 			</div>
 		</main>

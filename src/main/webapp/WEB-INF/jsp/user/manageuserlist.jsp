@@ -40,6 +40,7 @@
 
 .tableheading {
 	border-bottom: 1px solid rgb(208, 208, 208);
+	background-color: #36454f;
 }
 
 .tableheading th {
@@ -103,12 +104,12 @@ right: 14.5rem;
 						<table class='MainTable'>
 							<thead class='tableheading'>
 								<tr style="font-weight: 900;">
-									<th style="width: 100px; font-weight: 800;">SrNo</th>
-									<th style="font-weight: 800;">Name</th>
-									<th style="width: 350px; font-weight: 800;">Email Id</th>
-									<th style="font-weight: 800;">Mobile Number</th>
-									<th style="font-weight: 800;">Role</th>
-									<th style="font-weight: 800;">Action</th>
+									<th style="width: 100px; font-weight: 800; color: white;">SrNo</th>
+									<th style="font-weight: 800; color: white;">Name</th>
+									<th style="width: 350px; font-weight: 800; color: white;">Email Id</th>
+									<th style="font-weight: 800; color: white;">Mobile Number</th>
+									<th style="font-weight: 800; color: white;">Role</th>
+									<th style="font-weight: 800; color: white;">Action</th>
 								</tr>
 							</thead>
 							<tbody class='tablebody'>
@@ -131,7 +132,7 @@ right: 14.5rem;
 				<div
 					style="display: flex; justify-content: center; margin-top: 20px">
 					<button
-						style="cursor: pointer; background-color: green; color: #ffffff; border-radius: 5px; font-size: 14px; font-weight: 700; padding: 15px; width: 100px; border: none">Update</button>
+						style="cursor: pointer; font-size: 14px; font-weight: 700; background-color: green; color: #ffffff; border-radius: 5px; font-size: 14px; font-weight: 700; padding: 15px; width: 100px; border: none">Update</button>
 				</div>
 			</div>
 		</main>

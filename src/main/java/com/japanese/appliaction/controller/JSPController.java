@@ -106,22 +106,22 @@ public class JSPController {
 		return "studymaterial/managecategory";
 	}
 	
-	@GetMapping("/addques") 
+	@GetMapping("/addquestion") 
 	public String getaddquestion() {
-		return "studymaterial/addques";
+		return "studymaterial/addquestion";
 	}
 	
-	@GetMapping("/manageaddques") 
+	@GetMapping("/manageaddquestion") 
 	public String getmanageaddquestion() {
-		return "studymaterial/manageaddques";
+		return "studymaterial/manageaddquestion";
 	}
 	
-	@GetMapping("/questype") 
+	@GetMapping("/questiontype") 
 	public String getaddquestiontype() {
-		return "studymaterial/questype";
+		return "studymaterial/questiontype";
 	}
 	
-	@GetMapping("/managequestype") 
+	@GetMapping("/managequestiontype") 
 	public String getmanageaddquestiontype() {
 		return "studymaterial/managequestype";
 	}
@@ -169,6 +169,7 @@ public class JSPController {
 	@GetMapping("/permission")
 	public String getPermission() {
 		return "user/permission";
+
 	}
 	
 	@GetMapping("/manageenroll")
@@ -187,5 +188,24 @@ public class JSPController {
 	}
 
 	
+	@GetMapping("/questype")
+	public String getQueType() {
+		return "studymaterial/quesType";
+	}
+	
+	@GetMapping("/managequestype")
+	public String getmanagequestype() {
+		return "studymaterial/managequestype";
+	}
+	
+	@GetMapping("/editquestype")
+	public String geteditquestype() {
+		return "studymaterial/editquestype";
+	}
+	
+	@GetMapping("/logs")
+	public String getlogs() {
+		return "logs/logs";
+	}
 }
 

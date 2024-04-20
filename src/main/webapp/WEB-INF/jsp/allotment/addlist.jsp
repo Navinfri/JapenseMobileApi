@@ -45,9 +45,9 @@
 				LIST</h1>
 			<div class="container2" style="margin-left: 20px; margin-right: 20px">
 				<div style="display: flex; flex-direction: column;">
-					<label style="font-size: 13px; margin-bottom: 7px">Select
+					<label style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Select
 						Course</label> <select id="myDropdown" name=""
-						style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8;">
+						style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8;">
 						<option>Select</option>
 						<option value="1">Enrolled Students</option>
 						<option value="2">Subscription Students</option>
@@ -62,57 +62,57 @@
 						<h4 class="modal-title">Enrolled Students</h4>
 					</div>
 					<div class="modal-body">
-						<div class="container3" style="">
+						<div class="container3" style="margin-right: 20px;">
 							<div style="display: flex; flex-direction: column;">
-								<label style="font-size: 13px; margin-bottom: 7px">Select
+								<label style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Select
 									Course</label> <select id="" name=""
-									style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8;">
+									style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8;">
 									<option>Select</option>
 									<option>Permission</option>
 									<option>Roles</option>
 								</select>
 							</div>
 							<div style="display: flex; flex-direction: column;">
-								<label style="font-size: 13px; margin-bottom: 7px">Select
+								<label style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Select
 									Batch</label> <select id="" name=""
-									style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8;">
+									style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8;">
 									<option>Select</option>
 									<option>Permission</option>
 									<option>Roles</option>
 								</select>
 							</div>
 							<div style="display: flex; flex-direction: column;">
-								<label style="font-size: 13px; margin-bottom: 7px">Select
+								<label style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Select
 									Study Material</label> <input id="" name="" type="text"
 									required="required"
-									style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8">
+									style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8">
 							</div>
 							<div style="display: flex; flex-direction: column;">
-								<label style="font-size: 13px; margin-bottom: 7px">Select
+								<label style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Select
 									Date</label> <input id="" name="" type="date" required="required"
-									style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8">
-							</div>
+									style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8">
+								</div>
 
 							<div style="display: flex; flex-direction: column;">
-								<label style="font-size: 13px; margin-bottom: 7px">Select
+								<label style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Select
 									Starting Time</label> <input id="" name="" type="text"
 									required="required"
-									style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8">
+									style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8">
 							</div>
 							<div style="display: flex; flex-direction: column;">
-								<label style="font-size: 13px; margin-bottom: 7px">Select
+								<label style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Select
 									Expire Date and Time</label> <input id="" name="" type="text"
 									required="required"
-									style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8">
+									style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8">
 							</div>
 						</div>
 						<div
 							style="display: flex; justify-content: center; gap: 50px; margin-top: 30px">
 							<button
-								style="cursor: pointer; background-color: #59f7f1; color: #ffffff; border-radius: 5px; padding: 10px; width: 100px; border: none">Submit</button>
+								style="cursor: pointer; font-size: 14px; font-weight: 700; background-color: #59f7f1; color: #ffffff; border-radius: 5px; padding: 10px; width: 100px; border: none">Submit</button>
 							<a href="manageaddmaterial">
 								<button type="button" data-dismiss="modal"
-									style="cursor: pointer; background-color: red; color: #ffffff; border-radius: 5px; padding: 10px; width: 100px; border: none">Close</button>
+									style="cursor: pointer; font-size: 14px; font-weight: 700; background-color: red; color: #ffffff; border-radius: 5px; padding: 10px; width: 100px; border: none">Close</button>
 							</a>
 						</div>
 					</div>
@@ -127,42 +127,42 @@
 						<h4 class="modal-title">Subscription Students</h4>
 					</div>
 					<div class="modal-body">
-						<div class="container3" style="">
+						<div class="container3" style="margin-right: 20px;">
 							<div style="display: flex; flex-direction: column;">
-								<label style="font-size: 13px; margin-bottom: 7px">Select
+								<label style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Select
 									Course</label> <select id="" name=""
-									style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8;">
+									style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8;">
 									<option>Select</option>
 									<option>Permission</option>
 									<option>Roles</option>
 								</select>
 							</div>
 							<div style="display: flex; flex-direction: column;">
-								<label style="font-size: 13px; margin-bottom: 7px">Select
+								<label style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Select
 									Date</label> <input id="" name="" type="date" required="required"
-									style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8">
-							</div>
+									style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8">
+								</div>
 
 							<div style="display: flex; flex-direction: column;">
-								<label style="font-size: 13px; margin-bottom: 7px">Select
+								<label style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Select
 									Starting Time</label> <input id="" name="" type="text"
 									required="required"
-									style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8">
+									style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8">
 							</div>
 							<div style="display: flex; flex-direction: column;">
-								<label style="font-size: 13px; margin-bottom: 7px">Select
+								<label style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Select
 									Expire Date and Time</label> <input id="" name="" type="text"
 									required="required"
-									style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8">
+									style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8">
 							</div>
 						</div>
 						<div
 							style="display: flex; justify-content: center; gap: 50px; margin-top: 30px">
 							<button
-								style="cursor: pointer; background-color: #59f7f1; color: #ffffff; border-radius: 5px; padding: 10px; width: 100px; border: none">Submit</button>
+								style="cursor: pointer; font-size: 14px; font-weight: 700; background-color: #59f7f1; color: #ffffff; border-radius: 5px; padding: 10px; width: 100px; border: none">Submit</button>
 							<a href="manageaddmaterial">
 								<button type="button" data-dismiss="modal"
-									style="cursor: pointer; background-color: red; color: #ffffff; border-radius: 5px; padding: 10px; width: 100px; border: none">Close</button>
+									style="cursor: pointer; font-size: 14px; font-weight: 700; background-color: red; color: #ffffff; border-radius: 5px; padding: 10px; width: 100px; border: none">Close</button>
 							</a>
 						</div>
 					</div>

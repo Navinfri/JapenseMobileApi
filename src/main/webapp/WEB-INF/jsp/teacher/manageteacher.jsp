@@ -42,6 +42,7 @@
 
 .tableheading {
 	border-bottom: 1px solid rgb(208, 208, 208);
+	background-color: #36454f;
 }
 
 .tableheading th {
@@ -98,13 +99,13 @@
 						<table class='MainTable'>
 							<thead class='tableheading'>
 								<tr>
-									<th style="width: 100px; font-weight: 800;">SrNo</th>
-									<th style="font-weight: 800;">First Name</th>
-									<th style="font-weight: 800;">Last Name</th>
-									<th style="font-weight: 800;">Select Course</th>
-									<th style="font-weight: 800;">Select Batch</th>
-									<th style="width: 350px; font-weight: 800;">Email Id</th>
-									<th style="font-weight: 800;">Action</th>
+									<th style="width: 100px; font-weight: 800; color: white;">SrNo</th>
+									<th style="width: 180px; font-weight: 800; color: white;">First Name</th>
+									<th style="width: 180px; font-weight: 800; color: white;">Last Name</th>
+									<th style="width: 220px; font-weight: 800; color: white;">Select Course</th>
+									<th style="width: 220px; font-weight: 800; color: white;">Select Batch</th>
+									<th style="width: 300px; font-weight: 800; color: white;">Email Id</th>
+									<th style="width: 100px; font-weight: 800; color: white;">Action</th>
 								</tr>
 							</thead>
 							<tbody class='tablebody'>

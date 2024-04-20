@@ -39,6 +39,7 @@
 
 .tableheading {
 	border-bottom: 1px solid rgb(208, 208, 208);
+	background-color: #36454f;
 }
 
 .tableheading th {
@@ -70,9 +71,9 @@
 						<table class='MainTable'>
 							<thead class='tableheading'>
 								<tr>
-									<th style="width: 100px; font-weight: 800;">SrNo</th>
-									<th style="font-weight: 800;">Full Name</th>
-									<th style="font-weight: 800;">Action</th>
+									<th style="width: 100px; font-weight: 800; color: white;">SrNo</th>
+									<th style="font-weight: 800; color: white;">Full Name</th>
+									<th style="font-weight: 800; color: white;">Action</th>
 								</tr>
 							</thead>
 							<tbody class='tablebody'>
