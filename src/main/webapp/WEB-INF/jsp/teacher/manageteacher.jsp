@@ -14,7 +14,7 @@
 <style>
 .Container {
 	width: 100%;
-	height: 100vh;
+	height: 100%;
 	margin-top: 50px
 }
 
@@ -42,6 +42,7 @@
 
 .tableheading {
 	border-bottom: 1px solid rgb(208, 208, 208);
+	background-color: #36454f;
 }
 
 .tableheading th {
@@ -58,155 +59,53 @@
 	font-weight: 500;
 	font-size: 13.5px;
 }
+
+.iconmag {
+	position: absolute;
+	top: 12.5rem;
+	right: 2rem;
+}
 </style>
 <body>
-	<section id="sidebar">
-		<div class="brandHead">
-			<a href="/" class="brand" style="color: rgb(16, 8, 92);"><img
-				src="uploadfiles/logo2.png" style="width: 50px; margin-right: 10px;" />Admin</a>
-		</div>
-		<ul class="side-menu">
-			<li><a href="#" style="color: rgb(16, 8, 92); font-weight: 500"><i
-					class="fa-solid fa-user icon"></i>Sub User <i
-					class="fa-solid fa-caret-down icon-right"></i></a>
-				<ul class="side-dropdown">
-					<li><a href="userlist"
-						style="color: rgb(16, 8, 92); font-weight: 500"><i
-							class="fa-solid fa-list" style="margin-right: 15px"></i>User List</a></li>
-					<li><a href="createroles"
-						style="color: rgb(16, 8, 92); font-weight: 500"><i
-							class="fa-regular fa-user" style="margin-right: 15px"></i>Create
-							Roles</a></li>
-					<li><a href="createuser"
-						style="color: rgb(16, 8, 92); font-weight: 500"><i
-							class="fa-solid fa-user-plus" style="margin-right: 15px"></i>Create
-							User</a></li>
-				</ul></li>
-			<li><a href="#" style="color: rgb(16, 8, 92); font-weight: 500"><i
-					class="fa-solid fa-clipboard-list icon"></i>Teacher <i
-					class="fa-solid fa-caret-down icon-right"></i></a>
-				<ul class="side-dropdown">
-					<li><a href="addteacher"
-						style="color: rgb(16, 8, 92); font-weight: 500"><i
-							class="fa-solid fa-plus" style="margin-right: 15px"></i>Create
-							Teacher</a></li>
-					<li><a href="rolespermission"
-						style="color: rgb(16, 8, 92); font-weight: 500"><i
-							class="fa-solid fa-person" style="margin-right: 15px"></i>Role/Permission</a></li>
-					<li><a href="attendanceofstudents"
-						style="color: rgb(16, 8, 92); font-weight: 500"><i
-							class="fa-solid fa-clipboard-user" style="margin-right: 15px"></i>Attendance
-							of Students</a></li>
-				</ul></li>
-			<li><a href="#" style="color: rgb(16, 8, 92); font-weight: 500"><i
-					class="fa-regular fa-user icon"></i>Student<i
-					class="fa-solid fa-caret-down icon-right"></i></a>
-				<ul class="side-dropdown">
-					<li><a href="addstudents"
-						style="color: rgb(16, 8, 92); font-weight: 500"><i
-							class="fa-solid fa-person-circle-plus" style="margin-right: 15px"></i>Add
-							Students</a></li>
-				</ul></li>
-			<li><a href="courses"
-				style="color: rgb(16, 8, 92); font-weight: 500"><i
-					class="fa-solid fa-book" style="margin-left: 12px; font-size: 15px"></i><span
-					style="margin-left: 30px">Courses</span></a></li>
-			<li><a href="batches"
-				style="color: rgb(16, 8, 92); font-weight: 500"><i
-					class="fa-solid fa-calendar-days"
-					style="margin-left: 12px; font-size: 15px"></i><span
-					style="margin-left: 30px">Batches</span></a></li>
-			<li><a href="subscription"
-				style="color: rgb(16, 8, 92); font-weight: 500"><i
-					class="fa-solid fa-cart-plus"
-					style="margin-left: 12px; font-size: 15px"></i><span
-					style="margin-left: 30px">Subscription</span></a></li>
-			<li><a href="#" style="color: rgb(16, 8, 92); font-weight: 500"><i
-					class="fa-solid fa-user icon"></i>Study Material<i
-					class="fa-solid fa-caret-down icon-right"></i></a>
-				<ul class="side-dropdown">
-					<li><a href="addcategory"
-						style="color: rgb(16, 8, 92); font-weight: 500"><i
-							class="fa-solid fa-plus" style="margin-right: 15px"></i>Add
-							Category</a></li>
-					<li><a href="studymaterial"
-						style="color: rgb(16, 8, 92); font-weight: 500"><i
-							class="fa-solid fa-book" style="margin-right: 15px"></i>Study
-							Material</a></li>
-					<li><a href="addmaterial"
-						style="color: rgb(16, 8, 92); font-weight: 500"><i
-							class="fa-solid fa-address-book" style="margin-right: 15px"></i>Add
-							Material</a></li>
-				</ul></li>
-			<li><a href="#" style="color: rgb(16, 8, 92); font-weight: 500"><i
-					class="fa-solid fa-user icon"></i>Allotment to Study Material <i
-					class="fa-solid fa-caret-down icon-right"></i></a>
-				<ul class="side-dropdown">
-					<li><a href="allot"
-						style="color: rgb(16, 8, 92); font-weight: 500"><i
-							class="fa-regular fa-user" style="margin-right: 15px"></i>Add
-							Allotment</a></li>
-					<li><a href="addlist"
-						style="color: rgb(16, 8, 92); font-weight: 500"><i
-							class="fa-solid fa-list" style="margin-right: 15px"></i>Add List</a></li>
-				</ul></li>
-			<li><a href="attendance"
-				style="color: rgb(16, 8, 92); font-weight: 500"><i
-					class="fa-solid fa-clipboard-user"
-					style="margin-left: 12px; font-size: 15px"></i><span
-					style="margin-left: 30px">Attendance of Students</span></a></li>
-			<li><a href="enquiry"
-				style="color: rgb(16, 8, 92); font-weight: 500"><i
-					class="fa-solid fa-phone"
-					style="margin-left: 12px; font-size: 15px"></i><span
-					style="margin-left: 30px">Enquiry</span></a></li>
-			<li><a href="logs"
-				style="color: rgb(16, 8, 92); font-weight: 500"><i
-					class="fa-solid fa-database"
-					style="margin-left: 12px; font-size: 15px"></i><span
-					style="margin-left: 30px">Logs</span></a></li>
-		</ul>
-	</section>
+	<jsp:include page="../sidenav.jsp"></jsp:include>
 	<section id="content">
-		<nav class="navcont">
-			<i class="fa-solid fa-bars toggle-sidebar"></i>
-			<div class="subnav">
-				<ul>
-					<li><a href="#"><img src="uploadfiles/logo.png"
-							style="width: 300px; margin-top: 10px;" /></a></li>
-				</ul>
-			</div>
-			<div class="profile">
-				<img src="uploadfiles/profile.jpg" class="profimg"
-					alt="profile-photo">
-				<div>
-					<ul class="profile-link">
-						<li
-							style="text-transform: uppercase; font-size: 10.5px; margin-left: 10px; padding: .4rem; font-weight: 600;">
-							Welcome!</li>
-						<li><a href="#"><i
-								class="fa-solid fa-person-running icon"></i>Logout</a></li>
-					</ul>
-				</div>
-			</div>
-		</nav>
+		<jsp:include page="../header.jsp"></jsp:include>
 		<main>
 			<div class="Container">
 				<h1
 					style="margin-bottom: 30px; text-align: center; font-weight: 600; font-size: 30px">MANAGE
 					TEACHER</h1>
+				<div
+					style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+					<div style="margin-left: 20px;">
+						<h6 style="display: inline-block; font-size: 14px">Records</h6>
+						<select
+							style="padding: 10px; width: 70px; border-radius: 7px; height: 40px">
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+						</select>
+					</div>
+					<div style="margin-right: 20px;">
+						<div style="display: inline;">
+							<input type="text" placeholder="Search"
+								style="background: none; border: none; border-bottom: 2px solid grey; padding: 12px;">
+							<span class="fa-solid fa-magnifying-glass iconmag"></span>
+						</div>
+					</div>
+				</div>
 				<div class='TableContainer'>
 					<div class="tablestyle">
 						<table class='MainTable'>
 							<thead class='tableheading'>
 								<tr>
-									<th style="width: 100px">SrNo</th>
-									<th>First Name</th>
-									<th>Last Name</th>
-									<th>Select Course</th>
-									<th>Select Batch</th>
-									<th style="width: 350px">Email Id</th>
-									<th>Action</th>
+									<th style="width: 100px; font-weight: 800; color: white;">SrNo</th>
+									<th style="width: 180px; font-weight: 800; color: white;">First Name</th>
+									<th style="width: 180px; font-weight: 800; color: white;">Last Name</th>
+									<th style="width: 220px; font-weight: 800; color: white;">Select Course</th>
+									<th style="width: 220px; font-weight: 800; color: white;">Select Batch</th>
+									<th style="width: 300px; font-weight: 800; color: white;">Email Id</th>
+									<th style="width: 100px; font-weight: 800; color: white;">Action</th>
 								</tr>
 							</thead>
 							<tbody class='tablebody'>
@@ -234,83 +133,90 @@
 		</main>
 	</section>
 	<script>
-    $(document).ready(function() {
-        // Fetch all teachers when the page loads
-        fetchAllTeachers();
+		$(document).ready(
+				function() {
+					// Fetch all teachers when the page loads
+					fetchAllTeachers();
 
-        function fetchAllTeachers() {
-            $.ajax({
-                url: "getAllTeacher",
-                type: "GET",
-                contentType: "application/json",
-                success: function(response) {
-                    if (response.status === "SUCCESS") {
-                        populateTable(response.data);
-                    } else {
-                        alert(response.message);
-                    }
-                },
-                error: function(error) {
-                    alert("Failed to fetch teachers data");
-                }
-            });
-        }
+					function fetchAllTeachers() {
+						$.ajax({
+							url : "getAllTeacher",
+							type : "GET",
+							contentType : "application/json",
+							success : function(response) {
+								if (response.status === "SUCCESS") {
+									populateTable(response.data);
+								} else {
+									alert(response.message);
+								}
+							},
+							error : function(error) {
+								alert("Failed to fetch teachers data");
+							}
+						});
+					}
 
-        function populateTable(teachers) {
-            var tableBody = $(".tablebody");
-            tableBody.empty(); // Clear existing rows
+					function populateTable(teachers) {
+						var tableBody = $(".tablebody");
+						tableBody.empty(); // Clear existing rows
 
-            teachers.forEach(function(teacher, index) {
-                var row = $("<tr>");
-                row.append($("<td>").text(index + 1)); // SrNo
-                row.append($("<td>").text(teacher.firstName)); // First Name
-                row.append($("<td>").text(teacher.lastName)); // Last Name
-                row.append($("<td>").text(teacher.courses)); // Select Course
-                row.append($("<td>").text(teacher.batch)); // Select Batch
-                row.append($("<td>").text(teacher.emailId)); // Email Id
-                
-                var actionCell = $("<td>");
-                
-                var updateIcon = $("<i>").addClass("fa-regular fa-pen-to-square").css("color", "#12e068").css("cursor", "pointer").click(function() {
-                    editTeacher(teacher.id);
-                });
-                
-                var deleteIcon = $("<i>").addClass("fa-solid fa-trash").css("color", "#eb070f").css("cursor", "pointer").click(function() {
-                    deleteTeacher(teacher.id);
-                });
-                
-                actionCell.append(updateIcon).append(" "); // Add a space between icons
-                actionCell.append(deleteIcon);
+						teachers.forEach(function(teacher, index) {
+							var row = $("<tr>");
+							row.append($("<td>").text(index + 1)); // SrNo
+							row.append($("<td>").text(teacher.firstName)); // First Name
+							row.append($("<td>").text(teacher.lastName)); // Last Name
+							row.append($("<td>").text(teacher.courses)); // Select Course
+							row.append($("<td>").text(teacher.batch)); // Select Batch
+							row.append($("<td>").text(teacher.emailId)); // Email Id
 
-                row.append(actionCell); // Action
+							var actionCell = $("<td>");
 
-                tableBody.append(row);
-            });
-        }
+							var updateIcon = $("<i>").addClass(
+									"fa-regular fa-pen-to-square").css("color",
+									"#12e068").css("cursor", "pointer").click(
+									function() {
+										editTeacher(teacher.id);
+									});
 
-        function editTeacher(id) {
-            window.location.href = "editTeacher?id=" + id;
-        }
+							var deleteIcon = $("<i>").addClass(
+									"fa-solid fa-trash")
+									.css("color", "#eb070f").css("cursor",
+											"pointer").click(function() {
+										deleteTeacher(teacher.id);
+									});
 
-        function deleteTeacher(id) {
-            $.ajax({
-                url: "deleteTeacher/" + id,
-                type: "DELETE",
-                contentType: "application/json",
-                success: function(response) {
-                    if (response.status === "SUCCESS") {
-                        fetchAllTeachers(); // Refresh the table after deletion
-                        alert(response.message);
-                    } else {
-                        alert(response.message);
-                    }
-                },
-                error: function(error) {
-                    alert("Failed to delete teacher");
-                }
-            });
-        }
-    });
+							actionCell.append(updateIcon).append(" "); // Add a space between icons
+							actionCell.append(deleteIcon);
+
+							row.append(actionCell); // Action
+
+							tableBody.append(row);
+						});
+					}
+
+					function editTeacher(id) {
+						window.location.href = "editTeacher?id=" + id;
+					}
+
+					function deleteTeacher(id) {
+						$.ajax({
+							url : "deleteTeacher/" + id,
+							type : "DELETE",
+							contentType : "application/json",
+							success : function(response) {
+								if (response.status === "SUCCESS") {
+									fetchAllTeachers(); // Refresh the table after deletion
+									alert(response.message);
+								} else {
+									alert(response.message);
+								}
+							},
+							error : function(error) {
+								alert("Failed to delete teacher");
+							}
+						});
+					}
+				});
 	</script>
 	<script src="js/adminscript.js"></script>
 </body>

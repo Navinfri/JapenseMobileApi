@@ -11,7 +11,7 @@
 <style>
 .Container {
 	width: 100%;
-	height: 100vh;
+	height: 100%;
 	margin-top: 50px
 }
 
@@ -26,6 +26,7 @@
 	border-radius: 7px;
 	border: 1.5px solid #e8e8e8;
 	padding: 20px;
+	overflow:scroll;
 	cursor: pointer;
 }
 
@@ -39,6 +40,7 @@
 
 .tableheading {
 	border-bottom: 1px solid rgb(208, 208, 208);
+	background-color: #36454f;
 }
 
 .tableheading th {
@@ -55,164 +57,73 @@
 	font-weight: 500;
 	font-size: 13.5px;
 }
+
+.iconmag {
+position: absolute;
+top: 12.5rem;
+right: 14.5rem;
+}
 </style>
 <body>
-	<section id="sidebar">
-		<div class="brandHead">
-			<a href="/" class="brand" style="color: rgb(16, 8, 92);"><img
-				src="uploadfiles/logo2.png" style="width: 50px; margin-right: 10px;" />Admin</a>
-		</div>
-		<ul class="side-menu">
-			<li><a href="#" style="color: rgb(16, 8, 92); font-weight: 500"><i
-					class="fa-solid fa-user icon"></i>Sub User <i
-					class="fa-solid fa-caret-down icon-right"></i></a>
-				<ul class="side-dropdown">
-					<li><a href="userlist"
-						style="color: rgb(16, 8, 92); font-weight: 500"><i
-							class="fa-solid fa-list" style="margin-right: 15px"></i>User List</a></li>
-					<li><a href="createroles"
-						style="color: rgb(16, 8, 92); font-weight: 500"><i
-							class="fa-regular fa-user" style="margin-right: 15px"></i>Create
-							Roles</a></li>
-					<li><a href="createuser"
-						style="color: rgb(16, 8, 92); font-weight: 500"><i
-							class="fa-solid fa-user-plus" style="margin-right: 15px"></i>Create
-							User</a></li>
-				</ul></li>
-			<li><a href="#" style="color: rgb(16, 8, 92); font-weight: 500"><i
-					class="fa-solid fa-clipboard-list icon"></i>Teacher <i
-					class="fa-solid fa-caret-down icon-right"></i></a>
-				<ul class="side-dropdown">
-					<li><a href="addteacher"
-						style="color: rgb(16, 8, 92); font-weight: 500"><i
-							class="fa-solid fa-plus" style="margin-right: 15px"></i>Create
-							Teacher</a></li>
-					<li><a href="rolespermission"
-						style="color: rgb(16, 8, 92); font-weight: 500"><i
-							class="fa-solid fa-person" style="margin-right: 15px"></i>Role/Permission</a></li>
-					<li><a href="attendanceofstudents"
-						style="color: rgb(16, 8, 92); font-weight: 500"><i
-							class="fa-solid fa-clipboard-user" style="margin-right: 15px"></i>Attendance
-							of Students</a></li>
-				</ul></li>
-			<li><a href="#" style="color: rgb(16, 8, 92); font-weight: 500"><i
-					class="fa-regular fa-user icon"></i>Student<i
-					class="fa-solid fa-caret-down icon-right"></i></a>
-				<ul class="side-dropdown">
-					<li><a href="addstudents"
-						style="color: rgb(16, 8, 92); font-weight: 500"><i
-							class="fa-solid fa-person-circle-plus" style="margin-right: 15px"></i>Add
-							Students</a></li>
-				</ul></li>
-			<li><a href="courses"
-				style="color: rgb(16, 8, 92); font-weight: 500"><i
-					class="fa-solid fa-book" style="margin-left: 12px; font-size: 15px"></i><span
-					style="margin-left: 30px">Courses</span></a></li>
-			<li><a href="batches"
-				style="color: rgb(16, 8, 92); font-weight: 500"><i
-					class="fa-solid fa-calendar-days"
-					style="margin-left: 12px; font-size: 15px"></i><span
-					style="margin-left: 30px">Batches</span></a></li>
-			<li><a href="subscription"
-				style="color: rgb(16, 8, 92); font-weight: 500"><i
-					class="fa-solid fa-cart-plus"
-					style="margin-left: 12px; font-size: 15px"></i><span
-					style="margin-left: 30px">Subscription</span></a></li>
-			<li><a href="#" style="color: rgb(16, 8, 92); font-weight: 500"><i
-					class="fa-solid fa-user icon"></i>Study Material<i
-					class="fa-solid fa-caret-down icon-right"></i></a>
-				<ul class="side-dropdown">
-					<li><a href="addcategory"
-						style="color: rgb(16, 8, 92); font-weight: 500"><i
-							class="fa-solid fa-plus" style="margin-right: 15px"></i>Add
-							Category</a></li>
-					<li><a href="studymaterial"
-						style="color: rgb(16, 8, 92); font-weight: 500"><i
-							class="fa-solid fa-book" style="margin-right: 15px"></i>Study
-							Material</a></li>
-					<li><a href="addmaterial"
-						style="color: rgb(16, 8, 92); font-weight: 500"><i
-							class="fa-solid fa-address-book" style="margin-right: 15px"></i>Add
-							Material</a></li>
-				</ul></li>
-			<li><a href="#" style="color: rgb(16, 8, 92); font-weight: 500"><i
-					class="fa-solid fa-user icon"></i>Allotment to Study Material <i
-					class="fa-solid fa-caret-down icon-right"></i></a>
-				<ul class="side-dropdown">
-					<li><a href="allot"
-						style="color: rgb(16, 8, 92); font-weight: 500"><i
-							class="fa-regular fa-user" style="margin-right: 15px"></i>Add
-							Allotment</a></li>
-					<li><a href="addlist"
-						style="color: rgb(16, 8, 92); font-weight: 500"><i
-							class="fa-solid fa-list" style="margin-right: 15px"></i>Add List</a></li>
-				</ul></li>
-			<li><a href="attendance"
-				style="color: rgb(16, 8, 92); font-weight: 500"><i
-					class="fa-solid fa-clipboard-user"
-					style="margin-left: 12px; font-size: 15px"></i><span
-					style="margin-left: 30px">Attendance of Students</span></a></li>
-			<li><a href="enquiry"
-				style="color: rgb(16, 8, 92); font-weight: 500"><i
-					class="fa-solid fa-phone"
-					style="margin-left: 12px; font-size: 15px"></i><span
-					style="margin-left: 30px">Enquiry</span></a></li>
-			<li><a href="logs"
-				style="color: rgb(16, 8, 92); font-weight: 500"><i
-					class="fa-solid fa-database"
-					style="margin-left: 12px; font-size: 15px"></i><span
-					style="margin-left: 30px">Logs</span></a></li>
-		</ul>
-	</section>
+	<jsp:include page="../sidenav.jsp"></jsp:include>
 	<section id="content">
-		<nav class="navcont">
-            <i class="fa-solid fa-bars toggle-sidebar"></i>
-            <div class="subnav">
-                <ul>
-                    <li><a href="#"><img src="uploadfiles/logo.png" style="width: 300px; margin-top: 10px;" /></a></li>
-                </ul>
-            </div>
-
-            <div class="profile">
-                <img src="uploadfiles/profile.jpg" class="profimg" alt="profile-photo">
-                <div>
-                    <ul class="profile-link">
-                        <li
-                            style="text-transform: uppercase; font-size: 10.5px; margin-left: 10px; padding: .4rem; font-weight: 600;">
-                            Welcome!</li>
-                        <li><a href="#"><i class="fa-solid fa-person-running icon"></i>Logout</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+		<jsp:include page="../header.jsp"></jsp:include>
 		<main>
 			<div class="Container">
 				<h1
-					style="margin-bottom: 30px; text-align: center; font-weight: 600; font-size: 30px">MANAGE
-					USER LIST</h1>
+					style="margin-bottom: 30px; text-align: center; font-weight: 600; font-size: 30px">LIST
+					ALL ADMIN USERS</h1>
+				<div
+					style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+					<div style="margin-left: 20px;">
+						<h6 style="display: inline-block; font-size: 14px">Records</h6>
+						<select
+							style="padding: 10px; width: 70px; border-radius: 7px; height: 40px">
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+						</select>
+					</div>
+					<div style="margin-right: 20px;">
+						<div style="display: inline;">
+						<input type="text" placeholder="Search"
+							style="background: none; border: none; border-bottom: 2px solid grey;  padding: 12px;">
+							<span class="fa-solid fa-magnifying-glass iconmag"></span>
+						</div>
+						<a href="userlist">
+							<button
+								style="margin-left: 30px; font-weight: 700; font-size: 14px; cursor: pointer; background-color: #20d42c; color: #ffffff; border-radius: 5px; padding: 12px; border: none">
+								<i style="margin-right: 5px" class="fa-solid fa-plus"></i>Add
+								New Admin User
+							</button>
+						</a>
+					</div>
+				</div>
 				<div class='TableContainer'>
 					<div class="tablestyle">
 						<table class='MainTable'>
 							<thead class='tableheading'>
-								<tr>
-									<th style="width: 100px">SrNo</th>
-									<th>Name</th>
-									<th style="width: 350px">Email Id</th>
-									<th>Mobile Number</th>
-									<th>Role</th>
-									<th>Action</th>
+								<tr style="font-weight: 900;">
+									<th style="width: 100px; font-weight: 800; color: white;">SrNo</th>
+									<th style="font-weight: 800; color: white;">Name</th>
+									<th style="width: 350px; font-weight: 800; color: white;">Email Id</th>
+									<th style="font-weight: 800; color: white;">Mobile Number</th>
+									<th style="font-weight: 800; color: white;">Role</th>
+									<th style="font-weight: 800; color: white;">Action</th>
 								</tr>
 							</thead>
 							<tbody class='tablebody'>
 								<tr>
-									<td>1</td>
-									<td>Niraj Ukey</td>
-									<td>nirajukey@gmail.com</td>
-									<td>9874561230</td>
-									<td>Admin</td>
-									<td><a><i class="fa-regular fa-pen-to-square"
-											style="color: #12e068; padding-right: 10px"></i></a> <a><i
-											class="fa-solid fa-trash" style="color: #eb070f"></i></a></td>
+									<td style="font-weight: 500;">1</td>
+									<td style="font-weight: 500;">Niraj Ukey</td>
+									<td style="font-weight: 500;">nirajukey@gmail.com</td>
+									<td style="font-weight: 500;">9874561230</td>
+									<td style="font-weight: 500;">Admin</td>
+									<td style="font-size: 20px;"><a><i
+											class="fa-regular fa-pen-to-square"
+											style="color: #12e068; font-weight: 900; padding-right: 10px"></i></a>
+										<a><i class="fa-solid fa-trash"
+											style="color: #eb070f; font-weight: 900;"></i></a></td>
 								</tr>
 							</tbody>
 						</table>
@@ -221,7 +132,7 @@
 				<div
 					style="display: flex; justify-content: center; margin-top: 20px">
 					<button
-						style="cursor: pointer; background-color: green; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none">Update</button>
+						style="cursor: pointer; font-size: 14px; font-weight: 700; background-color: green; color: #ffffff; border-radius: 5px; font-size: 14px; font-weight: 700; padding: 15px; width: 100px; border: none">Update</button>
 				</div>
 			</div>
 		</main>

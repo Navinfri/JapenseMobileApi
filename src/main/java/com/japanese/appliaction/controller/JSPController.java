@@ -106,14 +106,24 @@ public class JSPController {
 		return "studymaterial/managecategory";
 	}
 	
-	@GetMapping("/studymaterial") 
-	public String getstudymaterial() {
-		return "studymaterial/studymaterial";
+	@GetMapping("/addquestion") 
+	public String getaddquestion() {
+		return "studymaterial/addquestion";
 	}
 	
-	@GetMapping("/managestudymaterial") 
-	public String getmanagestudymaterial() {
-		return "studymaterial/managestudymaterial";
+	@GetMapping("/manageaddquestion") 
+	public String getmanageaddquestion() {
+		return "studymaterial/manageaddquestion";
+	}
+	
+	@GetMapping("/questiontype") 
+	public String getaddquestiontype() {
+		return "studymaterial/questiontype";
+	}
+	
+	@GetMapping("/managequestiontype") 
+	public String getmanageaddquestiontype() {
+		return "studymaterial/managequestype";
 	}
 	
 	@GetMapping("/addmaterial") 
@@ -156,10 +166,27 @@ public class JSPController {
 		return "batch/editBatch";
 	}
 	
-	@GetMapping("/editcategory")
-	public String getEditcategory() {
-		return "studymaterial/editCategory";
+	@GetMapping("/permission")
+	public String getPermission() {
+		return "user/permission";
+
 	}
+	
+	@GetMapping("/manageenroll")
+	public String getmanageenroll() {
+		return "allotment/manageenroll";
+	}
+	
+	@GetMapping("/managesubs")
+	public String getmanagesubs() {
+		return "allotment/managesubs";
+	}
+	
+	@GetMapping("/enquiry")
+	public String getenquiry() {
+		return "enquiry/enquiry";
+	}
+
 	
 	@GetMapping("/questype")
 	public String getQueType() {
@@ -174,6 +201,11 @@ public class JSPController {
 	@GetMapping("/editquestype")
 	public String geteditquestype() {
 		return "studymaterial/editquestype";
+	}
+	
+	@GetMapping("/logs")
+	public String getlogs() {
+		return "logs/logs";
 	}
 }
 
