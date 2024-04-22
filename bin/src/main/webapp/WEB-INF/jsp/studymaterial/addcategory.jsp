@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Question Type</title>
+<title>Add Category</title>
 <link rel="stylesheet" href="css/admin.css">
 <script src="https://kit.fontawesome.com/ae73087723.js"
 	crossorigin="anonymous"></script>
@@ -31,17 +31,18 @@
 <body>
 	<jsp:include page="../sidenav.jsp"></jsp:include>
 	<section id="content">
-		<jsp:include page="../navbar.jsp"></jsp:include>
+		<jsp:include page="../header.jsp"></jsp:include>
 		<main>
 			<div>
 				<h1
 					style="margin-bottom: 30px; text-align: center; font-weight: 600; font-size: 30px">ADD
-					QUESTION TYPE</h1>
+					CATEGORY</h1>
+
 				<div class="container2"
 					style="margin-left: 20px; margin-right: 20px">
 					<div style="display: flex; flex-direction: column;">
 						<label style="font-size: 13px; margin-bottom: 7px">Enter
-							Type Of Questions</label> <input id="typeOfQuestion" name="typeOfQuestion" type="text" required="required"
+							Category Name</label> <input id="category" name="category" type="text" required="required"
 							style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8">
 					</div>
 				</div>
@@ -49,11 +50,12 @@
 					style="display: flex; justify-content: center; gap: 50px; margin-top: 30px">
 					<button id="saveButton"
 						style="cursor: pointer; background-color: #59f7f1; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none">Add</button>
-					<a href="managequestype">
+					<a href="managecategory">
 						<button
 							style="cursor: pointer; background-color: #12e068; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none">Manage</button>
 					</a>
 				</div>
+
 			</div>
 		</main>
 	</section>
@@ -61,27 +63,29 @@
 	<script>
     $(document).ready(function() {
         $("#saveButton").click(function() {
-            var typeOfQuestion = $("#typeOfQuestion").val();
+            var category = $("#category").val();
            
-            var questionData = {
-                typeOfQuestion: typeOfQuestion
+            var categoryData = {
+                category: category
             };
 
             $.ajax({
-                url: "saveTypeOfQuestions",
+                url: "saveCategoryData",
                 type: "POST",
                 contentType: "application/json",
-                data: JSON.stringify(questionData),
+                data: JSON.stringify(categoryData),
                 success: function(response) {
                     alert(response);
-                    window.location.href = "questype";
+                    window.location.href = "addcategory";
                 },
                 error: function(error) {
-                    alert("Failed to save Question Type");
+                    alert("Failed to save category");
                 }
             });
         });
     });
 </script>
+
+	
 </body>
 </html>
