@@ -42,7 +42,7 @@
 							Teacher</a></li>
 					<li><a href="manageteacher"
 						style="color: rgb(16, 8, 92); font-weight: 500"><i
-							class="fa-solid fa-plus" style="margin-right: 15px"></i>Manage
+							class="fa-solid fa-cogs" style="margin-right: 15px"></i>Manage
 							Teacher</a></li>
 					<li><a href="rolespermission"
 						style="color: rgb(16, 8, 92); font-weight: 500"><i
@@ -61,10 +61,19 @@
 							class="fa-solid fa-person-circle-plus" style="margin-right: 15px"></i>Add
 							Students</a></li>
 				</ul></li>
-			<li><a href="courses"
-				style="color: rgb(16, 8, 92); font-weight: 500"><i
-					class="fa-solid fa-book" style="margin-left: 12px; font-size: 15px"></i><span
-					style="margin-left: 30px">Courses</span></a></li>
+			<li><a href="#" style="color: rgb(16, 8, 92); font-weight: 500">
+					<i class="fa-regular fa-book icon"></i>Course <i
+					class="fa-solid fa-caret-down icon-right"></i></a>
+				<ul class="side-dropdown">
+					<li><a href="courses"
+						style="color: rgb(16, 8, 92); font-weight: 500"><i
+							class="fa-solid fa-plus" style="margin-right: 15px"></i>Add
+							Course </a></li>
+					<li><a href="managecourse"
+						style="color: rgb(16, 8, 92); font-weight: 500"> <i
+							class="fa-solid fa-cogs" style="margin-right: 15px"></i>Manage
+							Course</a></li>
+				</ul></li>
 			<li><a href="batches"
 				style="color: rgb(16, 8, 92); font-weight: 500"><i
 					class="fa-solid fa-calendar-days"

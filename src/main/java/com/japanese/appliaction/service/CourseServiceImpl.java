@@ -48,4 +48,9 @@ public class CourseServiceImpl implements CourseService {
 		courseRepo.deleteById(id);
 	}
 
+	@Override
+	public Optional<Course> findByCourses(String courses) {
+		return courseRepo.findByCourses(courses);
+	}
+
 }

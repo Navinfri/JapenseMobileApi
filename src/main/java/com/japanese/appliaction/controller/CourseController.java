@@ -180,4 +180,15 @@ public class CourseController {
 		}
 	}
 
+	// GET ALL COURSES BY COURSENAme
+	@GetMapping("/course/{courses}")
+	public ResponseEntity<Object> getCourseName(@PathVariable String courses) {
+		Optional<Course> optional = courseService.findByCourses(courses);
+		if (optional.isPresent()) {
+			return new ResponseEntity<>(optional.get(), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>("Course not found", HttpStatus.NOT_FOUND);
+		}
+	}
+
 }
