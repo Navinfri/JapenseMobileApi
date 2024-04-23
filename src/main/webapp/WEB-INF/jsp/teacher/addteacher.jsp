@@ -40,72 +40,45 @@
 				<div class="container2"
 					style="padding-left: 20px; padding-right: 20px">
 					<div style="display: flex; flex-direction: column;">
-						<label
-							style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Enter
+						<label style="font-size: 13px; margin-bottom: 7px">Enter
 							First Name</label> <input id="firstName" name="firstName" type="text"
 							required="required"
-							style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8;">
+							style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8;">
 					</div>
 					<div style="display: flex; flex-direction: column;">
-						<label
-							style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Enter
+						<label style="font-size: 13px; margin-bottom: 7px">Enter
 							Last Name</label> <input id="lastName" name="lastName" type="text"
 							required="required"
-							style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8;">
+							style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8;">
 					</div>
 					<div style="display: flex; flex-direction: column;">
-						<label
-							style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Select
-							Course</label> <select id="courses" name="courses"
-							style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8;">
-							<option>Select Course</option>
-							<!-- <option>Permission</option>
-							<option>Roles</option> -->
-						</select>
-					</div>
-					<div style="display: flex; flex-direction: column;">
-						<label
-							style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Select
-							Batch</label> <select id="batch" name="batch"
-							style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8;">
-							<option>Select Batch</option>
-							<!-- <option>Permission</option>
-							<option>Roles</option> -->
-						</select>
-					</div>
-					<div style="display: flex; flex-direction: column;">
-						<label style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Select
+						<label style="font-size: 13px; margin-bottom: 7px">Select
 							Gender</label> <select id="gender" name="gender"
-							style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8;">
+							style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8;">
 							<option>Select Gender</option>
 							<option value="male">Male</option>
 							<option value="female">Female</option>
 						</select>
 					</div>
 					<div style="display: flex; flex-direction: column;">
-						<label
-							style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Enter
+						<label style="font-size: 13px; margin-bottom: 7px">Enter
 							Email Id</label> <input id="emailId" name="emailId" type="text"
 							required="required"
-							style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8;">
+							style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8;">
 					</div>
 					<div style="display: flex; flex-direction: column;">
-						<label
-							style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Enter
+						<label style="font-size: 13px; margin-bottom: 7px">Enter
 							Password</label> <input id="password" name="password" type="text"
 							required="required"
-							style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8;">
+							style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8;">
 					</div>
 				</div>
 				<div
 					style="display: flex; justify-content: center; gap: 50px; margin-top: 30px">
 					<button
-						style="cursor: pointer; font-weight: 700; font-size: 14px; background-color: #59f7f1; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none"
+						style="cursor: pointer; background-color: #59f7f1; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none"
 						id="saveButton">Save</button>
-					<a href="manageteacher">
-						<button
-							style="cursor: pointer; font-weight: 700; font-size: 14px; background-color: #12e068; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none">Manage</button>
-						<!-- <button
+					<a href="manageteacher"> <!-- <button
 							style="cursor: pointer; background-color: #12e068; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none">Manage</button> -->
 					</a>
 				</div>

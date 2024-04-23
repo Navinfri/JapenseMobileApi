@@ -5,207 +5,210 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class JSPController {
-	
-	@GetMapping("/userlist") 
-		public String getsubuser() {
-			return "user/userlist";
-		}
-	
-	@GetMapping("/createroles") 
+
+	@GetMapping("/userlist")
+	public String getsubuser() {
+		return "user/userlist";
+	}
+
+	@GetMapping("/createroles")
 	public String getroles() {
 		return "user/createroles";
 	}
-	
-	@GetMapping("/createuser") 
+
+	@GetMapping("/createuser")
 	public String getcreateroles() {
 		return "user/createuser";
 	}
-	
-	@GetMapping("/addteacher") 
+
+	@GetMapping("/addteacher")
 	public String getcreateteacher() {
 		return "teacher/addteacher";
 	}
-	
-	@GetMapping("/manageteacher") 
+
+	@GetMapping("/manageteacher")
 	public String getmanageteacher() {
 		return "teacher/manageteacher";
 	}
-	
-	@GetMapping("/editTeacher") 
+
+	@GetMapping("/editTeacher")
 	public String geteditTeacher() {
 		return "teacher/editTeacher";
 	}
-	
-	@GetMapping("/manageuserlist") 
+
+	@GetMapping("/manageuserlist")
 	public String getmanageuser() {
 		return "user/manageuserlist";
 	}
-	
-	@GetMapping("/managecreaterole") 
+
+	@GetMapping("/managecreaterole")
 	public String getmanagecreaterole() {
 		return "user/managecreaterole";
 	}
-	
-	@GetMapping("/managestudents") 
+
+	@GetMapping("/managestudents")
 	public String getmanagestudents() {
 		return "student/managestudents";
 	}
-	
-	@GetMapping("/rolespermission") 
+
+	@GetMapping("/rolespermission")
 	public String getrolespermission() {
 		return "teacher/role";
 	}
-	
-	@GetMapping("/attendanceofstudents") 
+
+	@GetMapping("/attendanceofstudents")
 	public String getattendance() {
 		return "teacher/attendanceofstudents";
 	}
-	
-	@GetMapping("/addstudents") 
+
+	@GetMapping("/addstudents")
 	public String getaddstudent() {
 		return "student/addstudents";
 	}
-	
-	@GetMapping("/courses") 
+
+	@GetMapping("/courses")
 	public String getaddcourse() {
 		return "courses/addcourses";
 	}
-	
-	@GetMapping("/managecourse") 
+
+	@GetMapping("/managecourse")
 	public String getmanagecourse() {
 		return "courses/managecourse";
 	}
-	
-	@GetMapping("/editCourse") 
+
+	@GetMapping("/editCourse")
 	public String geteditCourse() {
 		return "courses/editCourse";
 	}
 	
-	@GetMapping("/batches") 
+	@GetMapping("/viewCourses")
+	public String getviewCourses() {
+		return "courses/viewCourses";
+	}
+
+	@GetMapping("/batches")
 	public String getbatch() {
 		return "batch/batch";
 	}
-	
-	@GetMapping("/managebatch") 
+
+	@GetMapping("/managebatch")
 	public String getmanagebatch() {
 		return "batch/managebatch";
 	}
-	
-	@GetMapping("/subscription") 
+
+	@GetMapping("/subscription")
 	public String getsubscription() {
 		return "Subscription/subscription";
 	}
-	
-	@GetMapping("/addcategory") 
+
+	@GetMapping("/addcategory")
 	public String getaddcategory() {
 		return "studymaterial/addcategory";
 	}
-	
-	@GetMapping("/managecategory") 
+
+	@GetMapping("/managecategory")
 	public String getmanagecategory() {
 		return "studymaterial/managecategory";
 	}
-	
-	@GetMapping("/addquestion") 
+
+	@GetMapping("/addquestion")
 	public String getaddquestion() {
 		return "studymaterial/addquestion";
 	}
-	
-	@GetMapping("/manageaddquestion") 
+
+	@GetMapping("/manageaddquestion")
 	public String getmanageaddquestion() {
 		return "studymaterial/manageaddquestion";
 	}
-	
-	@GetMapping("/questiontype") 
+
+	@GetMapping("/questiontype")
 	public String getaddquestiontype() {
 		return "studymaterial/questiontype";
 	}
-	
-	@GetMapping("/managequestiontype") 
+
+	@GetMapping("/managequestiontype")
 	public String getmanageaddquestiontype() {
 		return "studymaterial/managequestype";
 	}
-	
-	@GetMapping("/addmaterial") 
+
+	@GetMapping("/addmaterial")
 	public String getaddmaterial() {
 		return "studymaterial/addmaterial";
 	}
-	
-	@GetMapping("/manageaddmaterial") 
+
+	@GetMapping("/manageaddmaterial")
 	public String getmanageaddmaterial() {
 		return "studymaterial/manageaddmaterial";
 	}
-	
-	@GetMapping("/addlist") 
+
+	@GetMapping("/addlist")
 	public String getaddlist() {
 		return "allotment/addlist";
 	}
-	
-	@GetMapping("/allot") 
+
+	@GetMapping("/allot")
 	public String getallotment() {
 		return "allotment/allot";
 	}
-	
-	@GetMapping("/manageallot") 
+
+	@GetMapping("/manageallot")
 	public String getmanageallotment() {
 		return "allotment/manageallot";
 	}
-	
-	@GetMapping("/subs") 
+
+	@GetMapping("/subs")
 	public String getsubs() {
 		return "student/subs";
 	}
-	
-	@GetMapping("/enroll") 
+
+	@GetMapping("/enroll")
 	public String getenroll() {
 		return "student/enroll";
 	}
-	
+
 	@GetMapping("/editBatch")
 	public String getEditbatch() {
 		return "batch/editBatch";
 	}
-	
+
 	@GetMapping("/permission")
 	public String getPermission() {
 		return "user/permission";
 
 	}
-	
+
 	@GetMapping("/manageenroll")
 	public String getmanageenroll() {
 		return "allotment/manageenroll";
 	}
-	
+
 	@GetMapping("/managesubs")
 	public String getmanagesubs() {
 		return "allotment/managesubs";
 	}
-	
+
 	@GetMapping("/enquiry")
 	public String getenquiry() {
 		return "enquiry/enquiry";
 	}
 
-	
 	@GetMapping("/questype")
 	public String getQueType() {
 		return "studymaterial/quesType";
 	}
-	
+
 	@GetMapping("/managequestype")
 	public String getmanagequestype() {
 		return "studymaterial/managequestype";
 	}
-	
+
 	@GetMapping("/editquestype")
 	public String geteditquestype() {
 		return "studymaterial/editquestype";
 	}
-	
+
 	@GetMapping("/logs")
 	public String getlogs() {
 		return "logs/logs";
 	}
 }
-

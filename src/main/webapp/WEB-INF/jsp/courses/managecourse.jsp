@@ -59,10 +59,11 @@
 	font-weight: 500;
 	font-size: 13.5px;
 }
+
 .iconmag {
 position: absolute;
 top: 12.5rem;
-right: 2rem;
+right: 12rem;
 }
 </style>
 <body>
@@ -77,20 +78,27 @@ right: 2rem;
 					<div
 					style="display: flex; justify-content: space-between; flex-wrap: wrap;">
 					<div style="margin-left: 20px;">
-						<h6 style="display: inline-block; font-size: 14px">Records</h6>
-						<select
+						<!-- <h6 style="display: inline-block; font-size: 14px">Records</h6> -->
+						<!-- <select
 							style="padding: 10px; width: 70px; border-radius: 7px; height: 40px">
 							<option>1</option>
 							<option>2</option>
 							<option>3</option>
-						</select>
+						</select> -->
 					</div>
 					<div style="margin-right: 20px;">
 						<div style="display: inline;">
-							<input type="text" placeholder="Search"
+							<input type="text" placeholder="Search" id="searchInput"
 								style="background: none; border: none; border-bottom: 2px solid grey; padding: 12px;">
 							<span class="fa-solid fa-magnifying-glass iconmag"></span>
 						</div>
+						<a href="courses">
+							<button
+								style="margin-left: 30px; font-weight: 700; font-size: 14px; cursor: pointer; background-color: #20d42c; color: #ffffff; border-radius: 5px; padding: 12px; border: none">
+								<i style="margin-right: 5px" class="fa-solid fa-plus"></i>Add
+								Course
+							</button>
+						</a>
 					</div>
 				</div>
 				<div class='TableContainer'>
@@ -126,81 +134,122 @@ right: 2rem;
 		</main>
 	</section>
 	<script>
-    $(document).ready(function() {
-        // Fetch all courses when the page loads
-        fetchAllCourse();
+	$(document).ready(function() {
+	    // Fetch all courses when the page loads
+	    fetchAllCourse();
 
-        function fetchAllCourse() {
-            $.ajax({
-                url: "course",
-                type: "GET",
-                contentType: "application/json",
-                success: function(response) {
-                    if (response.status === "SUCCESS") {
-                        populateTable(response.data);
-                    } else {
-                        alert(response.message);
-                    }
-                },
-                error: function(error) {
-                    alert("Failed to fetch course data");
-                }
-            });
-        }
+	    // Event listener for searchInput
+	    $("#searchInput").on("keydown", function(event) {
+    	// Check if the pressed key is Enter (keyCode 13)
+    	if (event.keyCode === 13) {
+        	var searchTerm = $(this).val();
+        	if (searchTerm) {
+            	fetchCourseByName(searchTerm);
+        	} else {
+            	fetchAllCourse(); // Fetch all courses if search input is empty
+        	}
+    	}
+		});
 
-        function populateTable(course) {
-            var tableBody = $(".tablebody");
-            tableBody.empty(); // Clear existing rows
+	    function fetchAllCourse() {
+	        $.ajax({
+	            url: "course",
+	            type: "GET",
+	            contentType: "application/json",
+	            success: function(response) {
+	                if (response.status === "SUCCESS") {
+	                    populateTable(response.data);
+	                } else {
+	                    alert(response.message);
+	                }
+	            },
+	            error: function(error) {
+	                alert("Failed to fetch course data");
+	            }
+	        });
+	    }
 
-            course.forEach(function(course, index) {
-                var row = $("<tr>");
-                row.append($("<td>").text(index + 1)); // Sr No.
-                row.append($("<td>").text(course.courses)); // Course
-                row.append($("<td>").text(course.category)); // Category
-                row.append($("<td>").text(course.description)); // Description
+	    function fetchCourseByName(courseName) {
+	        $.ajax({
+	            url: "course/" + encodeURIComponent(courseName),
+	            type: "GET",
+	            contentType: "application/json",
+	            success: function(response) {
+	                if (response.id) {
+	                    populateTable([response]); // Convert the single course object to an array and populate the table
+	                } else {
+	                    $(".tablebody").empty(); // Clear table if course not found
+	                    alert("Course not found");
+	                }
+	            },
+	            error: function(error) {
+	                alert("Failed to fetch course data");
+	            }
+	        });
+	    }
 
-                var actionCell = $("<td>");
+	    function populateTable(course) {
+	        var tableBody = $(".tablebody");
+	        tableBody.empty(); // Clear existing rows
 
-                var updateIcon = $("<i>").addClass("fa-regular fa-pen-to-square").css("color", "#12e068").css("cursor", "pointer").click(function() {
-                    editCourse(course.id);
-                });
+	        course.forEach(function(course, index) {
+	            var row = $("<tr>");
+	            row.append($("<td>").text(index + 1)); // Sr No.
+	            row.append($("<td>").text(course.courses)); // Course
+	            row.append($("<td>").text(course.category)); // Category
+	            row.append($("<td>").text(course.description)); // Description
 
-                var deleteIcon = $("<i>").addClass("fa-solid fa-trash").css("color", "#eb070f").css("cursor", "pointer").click(function() {
-                    deleteCourse(course.id);
-                });
+	            var actionCell = $("<td>");
 
-                actionCell.append(updateIcon).append(" "); // Add a space between icons
-                actionCell.append(deleteIcon);
+	            var viewIcon = $("<i>").addClass("fa-solid fa-eye").css("color", "#007BFF").css("cursor", "pointer").click(function() {
+	                viewCourseDetails(course.id);
+	            });
 
-                row.append(actionCell); // Action
+	            var updateIcon = $("<i>").addClass("fa-regular fa-pen-to-square").css("color", "#12e068").css("cursor", "pointer").click(function() {
+	                editCourse(course.id);
+	            });
 
-                tableBody.append(row);
-            });
-        }
+	            var deleteIcon = $("<i>").addClass("fa-solid fa-trash").css("color", "#eb070f").css("cursor", "pointer").click(function() {
+	                deleteCourse(course.id);
+	            });
 
-        function editCourse(id) {
-            window.location.href = "editCourse?id=" + id;
-        }
+	            actionCell.append(viewIcon).append(" "); // Add a space between icons
+	            actionCell.append(updateIcon).append(" "); // Add a space between icons
+	            actionCell.append(deleteIcon);
 
-        function deleteCourse(id) {
-            $.ajax({
-                url: "deleteCourse/" + id,
-                type: "DELETE",
-                contentType: "application/json",
-                success: function(response) {
-                    if (response.status === "SUCCESS") {
-                        fetchAllCourse(); // Refresh the table after deletion
-                        alert(response.message);
-                    } else {
-                        alert(response.message);
-                    }
-                },
-                error: function(error) {
-                    alert("Failed to delete course");
-                }
-            });
-        }
-    });
+	            row.append(actionCell); // Action
+
+	            tableBody.append(row);
+	        });
+	    }
+
+	    function viewCourseDetails(id) {
+	        window.location.href = "viewCourses?id=" + id;
+	    }
+
+	    function editCourse(id) {
+	        window.location.href = "editCourse?id=" + id;
+	    }
+
+	    function deleteCourse(id) {
+	        $.ajax({
+	            url: "deleteCourse/" + id,
+	            type: "DELETE",
+	            contentType: "application/json",
+	            success: function(response) {
+	                if (response.status === "SUCCESS") {
+	                    fetchAllCourse(); // Refresh the table after deletion
+	                    alert(response.message);
+	                } else {
+	                    alert(response.message);
+	                }
+	            },
+	            error: function(error) {
+	                alert("Failed to delete course");
+	            }
+	        });
+	    }
+	});
 	</script>
 	<script src="js/adminscript.js"></script>
 </body>
