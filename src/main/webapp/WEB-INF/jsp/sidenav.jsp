@@ -74,11 +74,19 @@
 							class="fa-solid fa-cogs" style="margin-right: 15px"></i>Manage
 							Course</a></li>
 				</ul></li>
-			<li><a href="batches"
-				style="color: rgb(16, 8, 92); font-weight: 500"><i
-					class="fa-solid fa-calendar-days"
-					style="margin-left: 12px; font-size: 15px"></i><span
-					style="margin-left: 30px">Batches</span></a></li>
+			<li><a href="#" style="color: rgb(16, 8, 92); font-weight: 500"><i
+					class="fa-solid fa-calendar-days icon"></i>Batches<i
+					class="fa-solid fa-caret-down icon-right"></i></a>
+				<ul class="side-dropdown">
+					<li><a href="batches"
+						style="color: rgb(16, 8, 92); font-weight: 500"><i
+							class="fa-solid fa-person-circle-plus" style="margin-right: 15px"></i>Add
+							Batch</a></li>
+					<li><a href="managebatch"
+						style="color: rgb(16, 8, 92); font-weight: 500"><i
+							class="fa-solid fa-people-roof" style="margin-right: 15px"></i>Manage
+							Batch</a></li>
+				</ul></li>		
 			<li><a href="subscription"
 				style="color: rgb(16, 8, 92); font-weight: 500"><i
 					class="fa-solid fa-cart-plus"
