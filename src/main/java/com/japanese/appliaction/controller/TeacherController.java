@@ -236,4 +236,29 @@ public class TeacherController {
 		}
 	}
 
+	// Delete Teacher & TeacherRole
+	@DeleteMapping("/deleteTeacherAndTeacherRole/{id}")
+	public ResponseEntity<?> deleteTeacher(@PathVariable Long id) {
+		try {
+			teacherServiceImpl.deleteTeacherRoleByTeacherId(id);
+			teacherServiceImpl.deleteTeacher(id);
+			return ResponseEntity.ok().body("Teacher and associated role deleted successfully");
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+					.body("Error deleting teacher : " + e.getMessage());
+		}
+	}
+
+	// Update data to TeacherRole table & Teacher table
+	@PutMapping("/updateTeacherDataInBothTable/{id}")
+	public ResponseEntity<Object> updateTeacher(@PathVariable("id") Long id,
+			@RequestBody Map<String, Object> teacherData) {
+		try {
+			teacherServiceImpl.updateTeacherAndPermissionBoth(id, teacherData);
+			return ResponseEntity.ok("Teacher updated successfully");
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to update teacher");
+		}
+	}
+
 }

@@ -2,8 +2,11 @@ package com.japanese.appliaction.service;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
+
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
@@ -48,7 +51,7 @@ public class TeacherServiceImpl implements TeacherService {
 		Teacher existingTeacher = optionalTeacher.get();
 		existingTeacher.setFirstName(teacher.getFirstName());
 		existingTeacher.setLastName(teacher.getLastName());
-		existingTeacher.setLastName(teacher.getGender());
+		existingTeacher.setGender(teacher.getGender());
 		existingTeacher.setEmailId(teacher.getEmailId());
 		existingTeacher.setPassword(teacher.getPassword());
 		existingTeacher.setUniqueId(teacher.getUniqueId());
@@ -59,6 +62,7 @@ public class TeacherServiceImpl implements TeacherService {
 	}
 
 	@Override
+	@Transactional
 	public void deleteTeacher(Long id) {
 		teacherRepo.deleteById(id);
 	}
@@ -118,6 +122,43 @@ public class TeacherServiceImpl implements TeacherService {
 			teacherRoleAndPermisssonRepo.save(teacherRoleAndPermission);
 		} catch (JsonProcessingException e) {
 			throw new RuntimeException("Error processing JSON", e);
+		}
+	}
+
+	@Override
+	@Transactional
+	public void deleteTeacherRoleByTeacherId(Long id) {
+		Teacher teacher = teacherRepo.findById(id).orElse(null);
+		if (teacher != null) {
+			String teacherName = teacher.getFirstName() + " " + teacher.getLastName();
+			teacherRoleAndPermisssonRepo.deleteByTeacher(teacherName);
+		}
+	}
+
+	@Override
+	public void updateTeacherAndPermissionBoth(Long id, Map<String, Object> teacherData) {
+		try {
+			Teacher teacher = teacherRepo.findById(id).orElseThrow(() -> new RuntimeException("Teacher not found"));
+
+			// Update Teacher entity
+			teacher.setFirstName((String) teacherData.get("firstName"));
+			teacher.setLastName((String) teacherData.get("lastName"));
+			teacher.setGender((String) teacherData.get("gender"));
+			teacher.setEmailId((String) teacherData.get("emailId"));
+			teacher.setPassword((String) teacherData.get("password"));
+			teacherRepo.save(teacher);
+
+			// Update TeacherRole entity
+			TeacherRole teacherRole = teacherRoleAndPermisssonRepo.findByUniqueId(teacher.getUniqueId())
+					.orElseThrow(() -> new RuntimeException("TeacherRole not found"));
+			teacherRole.setTeacher(teacher.getFirstName() + " " + teacher.getLastName());
+			teacherRoleAndPermisssonRepo.save(teacherRole);
+		} catch (Exception e) {
+			// Log the error
+			System.err.println("Error updating teacher and permission: " + e.getMessage());
+			// You can also throw a custom exception or handle the error based on your
+			// requirement
+			throw new RuntimeException("Failed to update teacher and permission", e);
 		}
 	}
 
