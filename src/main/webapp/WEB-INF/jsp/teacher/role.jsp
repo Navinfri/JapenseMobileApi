@@ -53,7 +53,7 @@
 						<label
 							style="font-size: 14px; font-weight: 500; margin-bottom: 7px">Select
 							Teacher</label> <select id="teacher" name="teacher"
-							style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8;">
+							style="padding: 8px; border-radius: 5px; border: 1px solid #bfb8b8;">
 							<option>Select Teacher</option>
 							<!-- <option>Permission</option>
 							<option>Roles</option> -->
@@ -73,7 +73,7 @@
 						<label
 							style="font-size: 14px; font-weight: 500; margin-bottom: 7px">Select
 							Course</label> <select id="courses" name="courses" multiple
-							style="width: 100%;">
+							style="width: padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8;">
 							<!-- Options will be populated dynamically -->
 						</select>
 					</div>
@@ -105,28 +105,28 @@
 						<div>
 							<input type="checkbox" style="width: 17px; height: 17px;" name="permissions" id="permission1" 
 							value="Category"/> <label
-								style="font-size: 14px; font-weight: 500;">Category</label>
+								style="font-size: 14px; font-weight: 500; background: none">Category</label>
 						</div>
 						<div>
 							<input type="checkbox" style="width: 17px; height: 17px;" name="permissions" id="permission2" 
 							value="Type Of Question"/> <label
-								style="font-size: 14px; font-weight: 500;">Type Of Question</label>
+								style="font-size: 14px; font-weight: 500; background: none">Type Of Question</label>
 						</div>
 						<div>
 							<input type="checkbox" style="width: 17px; height: 17px;" name="permissions" id="permission3"
 							 value="Study Material(Questions)"/> <label
-								style="font-size: 14px; font-weight: 500;">Study Material(Questions)
+								style="font-size: 14px; font-weight: 500; background: none">Study Material(Questions)
 								</label>
 						</div>
 						<div>
 							<input type="checkbox" style="width: 17px; height: 17px;" name="permissions" id="permission4"
 							value="Material(Question)-Info"/> <label
-								style="font-size: 14px; font-weight: 500;">Material(Question)-Info</label>
+								style="font-size: 14px; font-weight: 500; background: none">Material(Question)-Info</label>
 						</div>
 						<div>
 							<input type="checkbox" style="width: 17px; height: 17px;" name="permissions" id="permission5"
 							value="Add Questions"/> <label
-								style="font-size: 14px; font-weight: 500;">Add Questions</label>
+								style="font-size: 14px; font-weight: 500; background: none">Add Questions</label>
 						</div>
 					</div>
 				</div>
@@ -225,7 +225,7 @@
 	        url: 'getAllBatchesData',
 	        async: false,
 	        success: function(response) {
-	            console.log("Batches Response:", response);
+	            //console.log("Batches Response:", response);
 
 	            if (Array.isArray(response) && response.length > 0) {
 	                var batches = response;
