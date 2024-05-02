@@ -211,4 +211,9 @@ public class JSPController {
 	public String getlogs() {
 		return "logs/logs";
 	}
+	@GetMapping("/viewBatch")
+	public String viewBatch() {
+		return "batch/viewBatch";
+	}
+
 }
