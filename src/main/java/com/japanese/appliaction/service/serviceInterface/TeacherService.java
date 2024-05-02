@@ -5,6 +5,7 @@ import java.util.Optional;
 import java.util.Set;
 
 import com.japanese.appliaction.model.Teacher;
+import java.util.Map;
 
 public interface TeacherService {
 
@@ -22,5 +23,9 @@ public interface TeacherService {
 
 	void updateTeacherAndPermission(String uniqueId, List<String> courses, List<String> batchName,
 			Set<String> permissions);
-
+	
+	void deleteTeacherRoleByTeacherId(Long id);
+	
+	public void updateTeacherAndPermissionBoth(Long id, Map<String, Object> teacherData);
+	
 }

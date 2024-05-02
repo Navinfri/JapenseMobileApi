@@ -201,15 +201,15 @@ right: 12rem;
 
 	            var actionCell = $("<td>");
 
-	            var viewIcon = $("<i>").addClass("fa-solid fa-eye").css("color", "#007BFF").css("cursor", "pointer").click(function() {
+	            var viewIcon = $("<i>").addClass("fa-solid fa-eye").attr("title", "View").css("color", "#007BFF").css("cursor", "pointer").click(function() {
 	                viewCourseDetails(course.id);
 	            });
 
-	            var updateIcon = $("<i>").addClass("fa-regular fa-pen-to-square").css("color", "#12e068").css("cursor", "pointer").click(function() {
+	            var updateIcon = $("<i>").addClass("fa-regular fa-pen-to-square").attr("title", "Edit").css("color", "#12e068").css("cursor", "pointer").click(function() {
 	                editCourse(course.id);
 	            });
 
-	            var deleteIcon = $("<i>").addClass("fa-solid fa-trash").css("color", "#eb070f").css("cursor", "pointer").click(function() {
+	            var deleteIcon = $("<i>").addClass("fa-solid fa-trash").attr("title", "Delete").css("color", "#eb070f").css("cursor", "pointer").click(function() {
 	                deleteCourse(course.id);
 	            });
 
