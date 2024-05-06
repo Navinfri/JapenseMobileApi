@@ -26,16 +26,24 @@ public class MobileApiImpl implements MobileApi {
 		// TODO Auto-generated method stub
 		}
 
-	@Override
-	public void saveTheUser(User user) {
-		user.setRole("student");
-		userMobileRepo.save(user);
-}
+//	@Override
+//	public void saveTheUser(User user) {
+//		user.setRole("student");
+//		userMobileRepo.save(user);
+//}
 
 	@Override
 	public User checkTheEmailAndPassword(String email, String pass) {
 		// TODO Auto-generated method stub
 		return userMobileRepo.findByEmailAndPassword(email, pass);
+	}
+
+
+
+	@Override
+	public void saveTheUser(User user) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
