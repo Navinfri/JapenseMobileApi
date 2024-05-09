@@ -40,10 +40,22 @@ public class SecurityConfiguration {
 	private static final String VIEWER = "VIEWER";
 	
 	String [] delete = {"/createUser","/getAllUsers","/deleteUsers/**",
-			"/findUserById/**","/toggle-flag/**,/updateUser"};
-	String [] create = {};
-	String [] update = {};
-	String [] find = {};
+			"/findUserById/**","/toggle-flag/**,/updateUser","/deleteCourse/**","/deleteTeacher/**"
+			,"/deleteTeacherAndTeacherRole/**","/deleteBatches/**","/deleteCategory/**"
+			,"/deleteAddMaterial","/deleteQueType"};
+	
+	String [] create = {"/saveCourse","/saveTeacher/**","/saveBatches","/saveCategoryData"
+			,"/saveAddMaterial","/saveTypeOfQuestions","/saveRoles"};
+	
+	String [] update = {"/updateCourse/**","/updateTeacher/**","/updateRole"
+			,"/updateTeacherDataInBothTable/**","/editBatches/**","/updateCategory"
+			,"/updatematerial","/upadateQueType","/editRoles/**"};
+	
+	String [] find = {"/course/**","/courses/**","/getAllTeacher","/teacher/**"
+			,"/getTeacherByFullName","/getAllBatchesData","/getBatchesDataById/**"
+			,"/listCategory","/categoryFindById/**","/findMaterialById/**","/getAddMaterial"
+			,"/listAllQuestions","/questionFindById/**","/getRolesData","/getRolesDataById/**"
+			};
 	
 	
 	@Autowired
