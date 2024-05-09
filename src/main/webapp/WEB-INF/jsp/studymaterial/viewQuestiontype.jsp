@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Update Question Type</title>
+<title>View Question Type</title>
 <link rel="stylesheet" href="css/admin.css">
 <script src="https://kit.fontawesome.com/ae73087723.js"
 	crossorigin="anonymous"></script>
@@ -35,23 +35,18 @@
 		<main>
 			<div>
 				<h1
-					style="margin-bottom: 30px; text-align: center; font-weight: 600; font-size: 30px">UPDATE
+					style="margin-bottom: 30px; text-align: center; font-weight: 600; font-size: 30px">VIEW
 					QUESTION TYPE</h1>
 				<div class="container2"
 					style="margin-left: 20px; margin-right: 20px">
 					<input type="hidden" id="id" name="id">
 					<div style="display: flex; flex-direction: column;">
-						<label style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Enter
-							Type Of Questions</label> <input id="typeOfQuestion" name="typeOfQuestion" type="text" required="required"
-							style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8">
+						<label style="font-size: 13px; font-weight: 900; margin-bottom: 7px">Enter
+							Type Of Questions</label> <lebel id="typeOfQuestion" name="typeOfQuestion" type="text" required="required"
+							style="padding: 13px; border-radius: 5px; border: none; border-bottom: 1px solid #bfb8b8"></lebel>
 					</div>
 				</div>
-				<div
-					style="display: flex; justify-content: center; gap: 50px; margin-top: 30px">
-					<button id="saveButton"
-						style="cursor: pointer; font-size: 14px; font-weight: 700; background-color: #59f7f1; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none">Update</button>
-					
-				</div>
+				
 			</div>
 		</main>
 	</section>
@@ -88,7 +83,8 @@
 
         function populateForm(question) {
             $("#id").val(question.id);
-            $("#typeOfQuestion").val(question.typeOfQuestion);
+           
+            document.getElementById("typeOfQuestion").innerText = question.typeOfQuestion;
         }
 
         function getUrlParameter(name) {
@@ -100,33 +96,6 @@
     });
 </script>
 
-	<script>
-    $(document).ready(function() {
-        $("#saveButton").click(function() {
-            var id = $("#id").val();
-            var typeOfQuestion = $("#typeOfQuestion").val();
-           
-            var questionsData = {
-                id: id,
-                typeOfQuestion: typeOfQuestion
-            };
-
-            $.ajax({
-                url: "upadateQueType",
-                type: "PUT", 
-                contentType: "application/json",
-                data: JSON.stringify(questionsData),
-                success: function(response) {
-                    alert(response);
-                    window.location.href = "managequestype";
-                },
-                error: function(error) {
-                    alert("Failed to update Questions Type");
-                }
-            });
-        });
-    });
-</script>
-
+	
 </body>
 </html>
