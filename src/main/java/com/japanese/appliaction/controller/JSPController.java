@@ -215,5 +215,15 @@ public class JSPController {
 	public String viewBatch() {
 		return "batch/viewBatch";
 	}
+	
+	@GetMapping("/viewcategory")
+	public String viewcategory() {
+		return "studymaterial/viewCategory";
+	}
+	
+	@GetMapping("/viewQuestionType")
+	public String viewQuestionType() {
+		return "studymaterial/viewQuestiontype";
+	}
 
 }
