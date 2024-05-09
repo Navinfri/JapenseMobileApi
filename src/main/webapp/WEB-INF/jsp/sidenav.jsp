@@ -151,9 +151,13 @@
 <script>
 
 	function asideMenu(){
+		
+		//alert("Side nav !!!")
 		// Get references to the <li> elements
 		
 		var session = "<%=session.getAttribute("module")%>";
+		
+		
 		
 		const SubUser = document.getElementById('SubUser');
 		const Teacher = document.getElementById('Teacher');
@@ -170,20 +174,7 @@
 		const Enquiry = document.getElementById('Enquiry');
 		const Logs = document.getElementById('Logs');
 		
-		//DashBoard
-		const totalEnrolledStudents = document.getElementById('totalEnrolledStudents');
-		const totalSubscriptionStudents = document.getElementById('totalSubscriptionStudents');
-		const noofTeachers = document.getElementById('noofTeachers');
-		const totalCourses = document.getElementById('totalCourses');
-		const totalBatches = document.getElementById('totalBatches');
-		const subscriptions = document.getElementById('subscriptions');
 		
-		totalEnrolledStudents.style.display = 'none';
-		totalSubscriptionStudents.style.display = 'none';
-		noofTeachers.style.display = 'none';
-		totalCourses.style.display = 'none';
-		totalBatches.style.display = 'none';
-		subscriptions.style.display = 'none';
 		
 		
 		
@@ -259,6 +250,52 @@
 		if (session.includes("Logs")) {
 			Logs.style.display = 'block'; // Or use 'list-item' to display as a list item
 		} 
+		
+		
+		
+		
+		
+		//DashBoard
+		const totalEnrolledStudents = document.getElementById('totalEnrolledStudents');
+		const totalSubscriptionStudents = document.getElementById('totalSubscriptionStudents');
+		const noofTeachers = document.getElementById('noofTeachers');
+		const totalCourses = document.getElementById('totalCourses');
+		const totalBatches = document.getElementById('totalBatches');
+		const subscriptions = document.getElementById('subscriptions');
+		
+		totalEnrolledStudents.style.display = 'none';
+		totalSubscriptionStudents.style.display = 'none';
+		noofTeachers.style.display = 'none';
+		totalCourses.style.display = 'none';
+		totalBatches.style.display = 'none';
+		subscriptions.style.display = 'none';
+		
+		
+		if (session.includes("Teacher")) {
+			
+			noofTeachers.style.display = 'block';
+		}
+		
+		if (session.includes("Student")) {
+			
+			totalEnrolledStudents.style.display = 'block';
+			totalSubscriptionStudents.style.display = 'block';
+		}
+		
+		if (session.includes("Course")) {
+			
+			totalCourses.style.display = 'block';
+		} 
+		
+		if (session.includes("Batches")) {
+			totalBatches.style.display = 'block';
+		} 
+		
+		if (session.includes("Subscription")) {
+			totalSubscriptionStudents.style.display = 'block';
+			subscriptions.style.display = 'block';
+		} 
+		
 
 	}
 
