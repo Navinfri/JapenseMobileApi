@@ -4,7 +4,7 @@
 
     <head>
         <meta charset="ISO-8859-1">
-        <title>Update Batch</title>
+        <title>View Batch</title>
         <link rel="stylesheet" href="css/admin.css">
         <script src="https://kit.fontawesome.com/ae73087723.js" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -98,7 +98,7 @@
                         <!-- 					</div> -->
                         <input type="hidden" id="id" name="id">
                         <div style="display: flex; flex-direction: column;">
-                            <label style="font-size: 13px; font-weight: 600;">
+                            <label style="font-size: 13px; font-weight: 900;">
                                 Course</label> <label id="course" name="course"
                                 style="padding: 13px; border-radius: 5px; background-color: none; border: none; border-bottom: 1px solid #bfb8b8">
                                 
@@ -107,13 +107,13 @@
                             </label>
                         </div>
                         <div style="display: flex; flex-direction: column;">
-                            <label style="font-size: 13px; font-weight: 600;">Enter
+                            <label style="font-size: 13px; font-weight: 900;">
                                 Batch Name</label> <label id="batchName" name="batchName" type="text"
                                 required="required"
                                 style="padding: 16px; border-radius: 5px; background-color: none; border: none; border-bottom: 1px solid #bfb8b8"></label>
                         </div>
                         <div style="display: flex; flex-direction: column;">
-                            <label style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Enter
+                            <label style="font-size: 13px; font-weight: 900; margin-bottom: 7px">Enter
                                 Batch Demo Date</label>
                             <div style="display: flex;">
                                 <div>
@@ -134,7 +134,7 @@
                             </div>
                         </div>
                         <div style="display: flex; flex-direction: column;">
-                            <label style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Enter
+                            <label style="font-size: 13px; font-weight: 900; margin-bottom: 7px">Enter
                                 Batch Start Date</label>
                             <div style="display: flex;">
                                 <div>
@@ -155,7 +155,7 @@
                             </div>
                         </div>
                         <div style="display: flex; flex-direction: column;">
-                            <label style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Enter
+                            <label style="font-size: 13px; font-weight: 900; margin-bottom: 7px">Enter
                                 Batch End Date</label>
                             <div style="display: flex;">
                                 <div>
@@ -176,18 +176,18 @@
                             </div>
                         </div>
                         <div style="display: flex; flex-direction: column;">
-                            <label style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Enter
+                            <label style="font-size: 13px; font-weight: 900; margin-bottom: 7px">Enter
                                 Assign Teacher Name</label> <label id="teacher" name="teacher" type="text"
                                 required="required"
                                 style="padding: 16px; border-radius: 5px; background-color: none; border: none; border-bottom: 1px solid #bfb8b8"></label>
                         </div>
                         <div style="display: flex; flex-direction: column;">
-                            <label style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Enter
+                            <label style="font-size: 13px; font-weight: 900; margin-bottom: 7px">Enter
                                 Batch Fee</label> <label id="batchFees" name="batchFees" type="text" required="required"
                                 style="padding: 16px; border-radius: 5px; background-color: none; border: none; border-bottom: 1px solid #bfb8b8"></label>
                         </div>
                         <div style="display: flex; flex-direction: column;">
-                            <label style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Enter
+                            <label style="font-size: 13px; font-weight: 900; margin-bottom: 7px">Enter
                                 Zoom Details</label>
                             <label id="zoomDetails" name="zoomDetails" type="text" rows="6" required="required"
                                 style="padding: 16px; border-radius: 5px; background-color: none; border: none; border-bottom: 1px solid #bfb8b8"></label>
@@ -200,7 +200,7 @@
                         <!-- 					</div> -->
                     </div>
                     <div style="display: flex; flex-direction: column;">
-                        <label style="font-size: 14px; font-weight: 500;margin-left: 18px;">Select
+                        <label style="font-size: 14px; font-weight: 900;margin-left: 18px;">Select
                             Classes Days</label>
                         <div class="container3" style="padding-left: 15px ">
                             <div class="tablestyle">
