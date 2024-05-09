@@ -89,7 +89,7 @@ right: 14.5rem;
 }
 </style>
 
-<body>
+<body onload="onloadIdFetch()">
 	<jsp:include page="../sidenav.jsp"></jsp:include>
 	<section id="content">
 		<jsp:include page="../header.jsp"></jsp:include>
@@ -111,12 +111,12 @@ right: 14.5rem;
 							Email</label> <input id="email" name="email" type="email" required="required"
 							style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8;">
 					</div>
-					<div
-						style="display: flex; flex-direction: column; padding-left: 15px;">
-						<label style="font-size: 13px; margin-bottom: 7px; font-weight: 500;">Enter
-							Password</label> <input id="password" name="password" type="text"
-							style="padding: 13px; border: 2px solid black; border-radius: 5px; border: 1px solid #bfb8b8;">
-					</div>
+<!-- 					<div -->
+<!-- 						style="display: flex; flex-direction: column; padding-left: 15px;"> -->
+<!-- 						<label style="font-size: 13px; margin-bottom: 7px; font-weight: 500;">Enter -->
+<!-- 							Password</label> <input id="password" name="password" type="text" -->
+<!-- 							style="padding: 13px; border: 2px solid black; border-radius: 5px; border: 1px solid #bfb8b8;"> -->
+<!-- 					</div> -->
 <!-- 					<div -->
 <!-- 						style="display: flex; flex-direction: column; padding-left: 15px;"> -->
 <!-- 						<label style="font-size: 13px; margin-bottom: 7px; font-weight: 500;">Enter -->
@@ -177,7 +177,7 @@ right: 14.5rem;
 									<td style="font-weight: 500;">1</td>
 									<td style="font-weight: 500;">Teacher</td>
 									<td style="font-weight: 500;">
-									<input type="checkbox" name="module" value="Teacher" id="module" class="module">
+									<input type="checkbox" name="module" value="Teacher" id="teacher" class="module" >
 									</td>
 								</tr>
 								
@@ -185,7 +185,7 @@ right: 14.5rem;
 									<td style="font-weight: 500;">2</td>
 									<td style="font-weight: 500;">Student</td>
 									<td style="font-weight: 500;">
-									<input type="checkbox" name="module" value="Student" id="module" class="module">
+									<input type="checkbox" name="module" value="Student" id="student" class="module">
 									</td>
 								</tr>
 								
@@ -193,7 +193,7 @@ right: 14.5rem;
 									<td style="font-weight: 500;">3</td>
 									<td style="font-weight: 500;">Course</td>
 									<td style="font-weight: 500;">
-									<input type="checkbox" name="module" value="Course" id="module" class="module">
+									<input type="checkbox" name="module" value="Course" id="course" class="module">
 									</td>
 								</tr>
 								
@@ -201,7 +201,7 @@ right: 14.5rem;
 									<td style="font-weight: 500;">4</td>
 									<td style="font-weight: 500;">Batches</td>
 									<td style="font-weight: 500;">
-									<input type="checkbox" name="module" value="Batches" id="module" class="module">
+									<input type="checkbox" name="module" value="Batches" id="batches" class="module">
 									</td>
 								</tr>
 								
@@ -209,7 +209,7 @@ right: 14.5rem;
 									<td style="font-weight: 500;">5</td>
 									<td style="font-weight: 500;">Subscription</td>
 									<td style="font-weight: 500;">
-									<input type="checkbox" name="module" value="Subscription" id="module" class="module">
+									<input type="checkbox" name="module" value="Subscription" id="subscription" class="module">
 									</td>
 								</tr>
 								
@@ -217,7 +217,7 @@ right: 14.5rem;
 									<td style="font-weight: 500;">6</td>
 									<td style="font-weight: 500;">Study Material</td>
 									<td style="font-weight: 500;">
-									<input type="checkbox" name="module" value="StudyMaterial" id="module" class="module">
+									<input type="checkbox" name="module" value="StudyMaterial" id="studyMaterial" class="module">
 									</td>
 								</tr>
 								
@@ -225,7 +225,7 @@ right: 14.5rem;
 									<td style="font-weight: 500;">7</td>
 									<td style="font-weight: 500;">Allotment to StudyMaterial</td>
 									<td style="font-weight: 500;">
-									<input type="checkbox" name="module" value="AllotmenttoStudyMaterial" id="module" class="module">
+									<input type="checkbox" name="module" value="AllotmenttoStudyMaterial" id="allotmenttoStudyMaterial" class="module">
 									</td>
 								</tr>
 								
@@ -233,7 +233,7 @@ right: 14.5rem;
 									<td style="font-weight: 500;">8</td>
 									<td style="font-weight: 500;">Attendance of Students</td>
 									<td style="font-weight: 500;">
-									<input type="checkbox" name="module" value="AttendanceofStudents" id="module" class="module">
+									<input type="checkbox" name="module" value="AttendanceofStudents" id="attendanceofStudents" class="module">
 									</td>
 								</tr>
 								
@@ -241,7 +241,7 @@ right: 14.5rem;
 									<td style="font-weight: 500;">9</td>
 									<td style="font-weight: 500;">Enquiry</td>
 									<td style="font-weight: 500;">
-									<input type="checkbox" name="module" value="Enquiry" id="module" class="module">
+									<input type="checkbox" name="module" value="Enquiry" id="enquiry" class="module">
 									</td>
 								</tr>
 								
@@ -249,7 +249,7 @@ right: 14.5rem;
 									<td style="font-weight: 500;">10</td>
 									<td style="font-weight: 500;">Logs</td>
 									<td style="font-weight: 500;">
-									<input type="checkbox" name="module" value="Logs" id="module" class="module">
+									<input type="checkbox" name="module" value="Logs" id="logs" class="module">
 									</td>
 								</tr>
 							</tbody>
@@ -262,7 +262,7 @@ right: 14.5rem;
 				<div
 					style="display: flex; justify-content: center; margin-top: 30px">
 					<button id="saveButton"
-						style="cursor: pointer; font-weight: 700; font-size: 14px; background-color: #59f7f1; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none">Save</button>
+						style="cursor: pointer; font-weight: 700; font-size: 14px; background-color: #59f7f1; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none">UPDATE</button>
 				</div>
 			</div>
 		</main>
@@ -273,12 +273,14 @@ right: 14.5rem;
 	$(document).ready(function() {
 	    $("#saveButton").click(function() {
 	    	event.preventDefault(); 
+	    	
+	    	//alert("Hello !!!")
 	     
-	    
+	    var id = "<%=session.getAttribute("updateUserID")%>";
 
 	        var name = $("#name").val();
 	        var email = $("#email").val();
-	        var password = $("#password").val();
+	      //  var password = $("#password").val();
 	        var mobileNumber = $("#mobileNumber").val();
 	        var roleName = $("#roleName").val();
 	        
@@ -291,13 +293,14 @@ right: 14.5rem;
 	        var moduleString = selectedModules.join(",");
 
 	        var data = {
+	        		id: parseInt(id),
 	            name: name,
 	            email: email,
-	            password: password,
+	          //  password: password,
 	            mobileNumber: mobileNumber,
 	            roleName: roleName,
 	            module: moduleString,
-	            flag : true,
+	           // flag : true,
 	            authorities: [
 	                {
 	                  email: email,
@@ -305,6 +308,8 @@ right: 14.5rem;
 	                }
 	              ]
 	        };
+	        
+	    //  console.log(data);
 	        
 	        // Email validation
 	        var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -314,10 +319,10 @@ right: 14.5rem;
 	        }
 
 	        // Password validation (add more criteria if needed)
-	        if (password.length < 6) {
-	            alert("Password must be at least 6 characters long.");
-	            return;
-	        }
+// 	        if (password.length < 6) {
+// 	            alert("Password must be at least 6 characters long.");
+// 	            return;
+// 	        }
 
 	        // Mobile number validation (add more criteria if needed)
 	        var mobilePattern = /^\d{10}$/;
@@ -341,25 +346,23 @@ right: 14.5rem;
 	        	return
 	        }
 	        
-	      //  console.log(data);
+	      
 
 	        $.ajax({
-				url : "createUser",
-				type : "POST",
+				url : "updateUser",
+				type : "PUT",
 				contentType : "application/json",
 				data : JSON.stringify(data),
 				 success: function(response, textStatus, xhr) {
 					 
-				        if (xhr.status === 201) { // Check the status code directly from the xhr object
-				            alert("Data Saved Successfully !!!");
-				            window.location.href = "createuser";
-				        } else if(xhr.status === 208) {
-				            alert(response.message);
-				        }
+				        if (xhr.status === 200) { // Check the status code directly from the xhr object
+				            alert("Data Updated Successfully !!!");
+				            window.location.href = "manageuserlist";
+				        } 
 				    },
 				    error: function(jqXHR, textStatus, errorThrown) {
-				        if (jqXHR.responseJSON && jqXHR.responseJSON.statusCode === 4001) {
-				            alert(jqXHR.responseJSON.message);
+				        if (jqXHR.status === 404) {
+				            alert("User Not Found !!!");
 				        } else if (jqXHR.status === 403) {
 				            alert("YOU DON'T HAVE THE PERMISSION !!!");
 				        } else {
@@ -376,6 +379,126 @@ right: 14.5rem;
 	});
 
 
+	</script>
+	
+	<script type="text/javascript">
+	function onloadIdFetch(){
+		var id = "<%=session.getAttribute("updateUserID")%>";
+		
+		
+		  $.ajax({
+				url : "/findUserById/"+id,
+				type : "GET",
+				contentType : "application/json",
+				//data : JSON.stringify(data),
+				 success: function(response, textStatus, xhr) {
+					 
+					
+						
+						
+					 
+					 $("#name").val(response.name);
+					 $("#email").val(response.email);
+					 $("#mobileNumber").val(response.mobileNumber);
+					 
+					 
+					 var roleName = response.authorities[0].roleName;
+					 var dropdown = document.getElementById("roleName");
+
+					 // Iterate through options to find and select the matching one
+					 for (var i = 0; i < dropdown.options.length; i++) {
+					     // Prepend "ROLE_" to the option value
+					     var prefixedValue = "ROLE_" + dropdown.options[i].value;
+					     
+					     // Compare with the roleName
+					     if (prefixedValue === roleName) {
+					         dropdown.selectedIndex = i;
+					         break;
+					     }
+					 }
+					 
+					 
+					    const Teacher = document.getElementById('teacher');
+					    
+						const Student = document.getElementById('student');
+						
+						const Course = document.getElementById('course');
+						const Batches = document.getElementById('batches');
+						const Subscription = document.getElementById('subscription');
+						
+						const StudyMaterial = document.getElementById('studyMaterial');
+						const AllotmenttoStudyMaterial = document.getElementById('allotmenttoStudyMaterial');
+						const AttendanceofStudents = document.getElementById('attendanceofStudents');
+						
+						const Enquiry = document.getElementById('enquiry');
+						const Logs = document.getElementById('logs');
+						
+					     var session = response.module;
+					 
+					
+						if (session.includes("Teacher")) {
+							Teacher.checked = true;
+						} 
+						
+						if (session.includes("Student")) {
+							Student.checked = true;
+						} 
+						
+						
+						if (session.includes("Course")) {
+							Course.checked = true;
+						} 
+						
+						if (session.includes("Batches")) {
+							Batches.checked = true;
+						} 
+						
+						if (session.includes("Subscription")) {
+							Subscription.checked = true;
+						} 
+						
+						
+						if (session.includes("StudyMaterial")) {
+							StudyMaterial.checked = true;
+						} 
+						
+						if (session.includes("AllotmenttoStudyMaterial")) {
+							AllotmenttoStudyMaterial.checked = true;
+						} 
+						
+						if (session.includes("AttendanceofStudents")) {
+							AttendanceofStudents.checked = true;
+						} 
+						
+						
+						
+						if (session.includes("Enquiry")) {
+							Enquiry.checked = true;
+						} 
+						
+						if (session.includes("Logs")) {
+							Logs.checked = true;
+						} 
+
+
+					 
+					 
+					 
+				    },
+				    error: function(jqXHR, textStatus, errorThrown) {
+				        if (jqXHR.responseJSON && jqXHR.responseJSON.statusCode === 4001) {
+				            alert(jqXHR.responseJSON.message);
+				        } else if (jqXHR.status === 403) {
+				            alert("YOU DON'T HAVE THE PERMISSION !!!");
+				        } else {
+				            alert("SERVER IS NOT RESPONDING")
+				        }
+				    }
+			});
+		
+		
+	}
+	
 	</script>
 </body>
 </html>

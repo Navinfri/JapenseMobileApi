@@ -2,6 +2,11 @@ package com.japanese.appliaction.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class JSPController {
@@ -215,5 +220,19 @@ public class JSPController {
 	public String viewBatch() {
 		return "batch/viewBatch";
 	}
+	
+	@GetMapping("/")
+	public String index() {
+		return "index";
+	}
+	
+	@GetMapping("/updateuser")
+	public String updateuser(@RequestParam("id")long id,HttpServletRequest request) {
+		 HttpSession session = request.getSession();
+		 session.setAttribute("updateUserID", id);
+		return "user/updateuser";
+	}
+	
+	
 
 }
