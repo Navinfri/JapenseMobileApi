@@ -9,30 +9,30 @@
 <script src="https://kit.fontawesome.com/ae73087723.js"
 	crossorigin="anonymous"></script>
 </head>
-<body>
+<body onload="asideMenu()">
 	<section id="sidebar">
 		<div class="brandHead">
 			<a href="/" class="brand" style="color: rgb(16, 8, 92);"><img
-				src="uploadfiles/logo2.png" style="width: 50px; margin-right: 10px;" />Admin</a>
+				src="uploadfiles/logo2.png" style="width: 50px; margin-right: 10px;" /><%=session.getAttribute("roleName")%></a>
 		</div>
 		<ul class="side-menu">
-			<li><a href="#" style="color: rgb(16, 8, 92); font-weight: 500"><i
+			<li id="SubUser"><a href="#" style="color: rgb(16, 8, 92); font-weight: 500"><i
 					class="fa-solid fa-user icon"></i>Sub User <i
 					class="fa-solid fa-caret-down icon-right"></i></a>
 				<ul class="side-dropdown">
 					<li><a href="manageuserlist"
 						style="color: rgb(16, 8, 92); font-weight: 500"><i
 							class="fa-solid fa-list" style="margin-right: 15px"></i>User List</a></li>
-					<li><a href="managecreaterole"
-						style="color: rgb(16, 8, 92); font-weight: 500"><i
-							class="fa-regular fa-user" style="margin-right: 15px"></i>Create
-							Roles</a></li>
+<!-- 					<li><a href="managecreaterole" -->
+<!-- 						style="color: rgb(16, 8, 92); font-weight: 500"><i -->
+<!-- 							class="fa-regular fa-user" style="margin-right: 15px"></i>Create -->
+<!-- 							Roles</a></li> -->
 					<li><a href="createuser"
 						style="color: rgb(16, 8, 92); font-weight: 500"><i
 							class="fa-solid fa-user-plus" style="margin-right: 15px"></i>Create
 							User</a></li>
 				</ul></li>
-			<li><a href="#" style="color: rgb(16, 8, 92); font-weight: 500"><i
+			<li id="Teacher" ><a href="#" style="color: rgb(16, 8, 92); font-weight: 500"><i
 					class="fa-solid fa-clipboard-list icon"></i>Teacher <i
 					class="fa-solid fa-caret-down icon-right"></i></a>
 				<ul class="side-dropdown">
@@ -52,7 +52,7 @@
 							class="fa-solid fa-clipboard-user" style="margin-right: 15px"></i>Attendance
 							of Students</a></li>
 				</ul></li>
-			<li><a href="#" style="color: rgb(16, 8, 92); font-weight: 500"><i
+			<li id = "Student"><a href="#" style="color: rgb(16, 8, 92); font-weight: 500"><i
 					class="fa-regular fa-user icon"></i>Student<i
 					class="fa-solid fa-caret-down icon-right"></i></a>
 				<ul class="side-dropdown">
@@ -61,7 +61,7 @@
 							class="fa-solid fa-person-circle-plus" style="margin-right: 15px"></i>Add
 							Students</a></li>
 				</ul></li>
-			<li><a href="#" style="color: rgb(16, 8, 92); font-weight: 500">
+			<li id = "Course"><a href="#" style="color: rgb(16, 8, 92); font-weight: 500">
 					<i class="fa-regular fa-book icon"></i>Course <i
 					class="fa-solid fa-caret-down icon-right"></i></a>
 				<ul class="side-dropdown">
@@ -74,7 +74,7 @@
 							class="fa-solid fa-cogs" style="margin-right: 15px"></i>Manage
 							Course</a></li>
 				</ul></li>
-			<li><a href="#" style="color: rgb(16, 8, 92); font-weight: 500"><i
+			<li id = "Batches"><a href="#" style="color: rgb(16, 8, 92); font-weight: 500"><i
 					class="fa-solid fa-calendar-days icon"></i>Batches<i
 					class="fa-solid fa-caret-down icon-right"></i></a>
 				<ul class="side-dropdown">
@@ -87,12 +87,12 @@
 							class="fa-solid fa-people-roof" style="margin-right: 15px"></i>Manage
 							Batch</a></li>
 				</ul></li>		
-			<li><a href="subscription"
+			<li id = "Subscription"><a href="subscription"
 				style="color: rgb(16, 8, 92); font-weight: 500"><i
 					class="fa-solid fa-cart-plus"
 					style="margin-left: 12px; font-size: 15px"></i><span
 					style="margin-left: 30px">Subscription</span></a></li>
-			<li><a href="#" style="color: rgb(16, 8, 92); font-weight: 500"><i
+			<li id = "StudyMaterial" ><a href="#" style="color: rgb(16, 8, 92); font-weight: 500"><i
 					class="fa-solid fa-user icon"></i>Study Material<i
 					class="fa-solid fa-caret-down icon-right"></i></a>
 				<ul class="side-dropdown">
@@ -113,7 +113,7 @@
 							class="fa-solid fa-address-book" style="margin-right: 15px"></i>Add
 							Question </a></li>
 				</ul></li>
-			<li><a href="#" style="color: rgb(16, 8, 92); font-weight: 500"><i
+			<li id = "AllotmenttoStudyMaterial"><a href="#" style="color: rgb(16, 8, 92); font-weight: 500"><i
 					class="fa-solid fa-user icon"></i>Allotment to Study Material <i
 					class="fa-solid fa-caret-down icon-right"></i></a>
 				<ul class="side-dropdown">
@@ -129,17 +129,17 @@
 							class="fa-solid fa-people-roof" style="margin-right: 15px"></i>Manage
 							Subscription Student</a></li>
 				</ul></li>
-			<li><a href="attendance"
+			<li id = "AttendanceofStudents"><a href="attendance"
 				style="color: rgb(16, 8, 92); font-weight: 500"><i
 					class="fa-solid fa-clipboard-user"
 					style="margin-left: 12px; font-size: 15px"></i><span
 					style="margin-left: 30px">Attendance of Students</span></a></li>
-			<li><a href="enquiry"
+			<li id = "Enquiry"><a href="enquiry"
 				style="color: rgb(16, 8, 92); font-weight: 500"><i
 					class="fa-solid fa-phone"
 					style="margin-left: 12px; font-size: 15px"></i><span
 					style="margin-left: 30px">Enquiry</span></a></li>
-			<li><a href="logs"
+			<li id = "Logs"><a href="logs"
 				style="color: rgb(16, 8, 92); font-weight: 500"><i
 					class="fa-solid fa-database"
 					style="margin-left: 12px; font-size: 15px"></i><span
@@ -147,4 +147,122 @@
 		</ul>
 	</section>
 </body>
+
+<script>
+
+	function asideMenu(){
+		// Get references to the <li> elements
+		
+		var session = "<%=session.getAttribute("module")%>";
+		
+		const SubUser = document.getElementById('SubUser');
+		const Teacher = document.getElementById('Teacher');
+		const Student = document.getElementById('Student');
+		
+		const Course = document.getElementById('Course');
+		const Batches = document.getElementById('Batches');
+		const Subscription = document.getElementById('Subscription');
+		
+		const StudyMaterial = document.getElementById('StudyMaterial');
+		const AllotmenttoStudyMaterial = document.getElementById('AllotmenttoStudyMaterial');
+		const AttendanceofStudents = document.getElementById('AttendanceofStudents');
+		
+		const Enquiry = document.getElementById('Enquiry');
+		const Logs = document.getElementById('Logs');
+		
+		//DashBoard
+		const totalEnrolledStudents = document.getElementById('totalEnrolledStudents');
+		const totalSubscriptionStudents = document.getElementById('totalSubscriptionStudents');
+		const noofTeachers = document.getElementById('noofTeachers');
+		const totalCourses = document.getElementById('totalCourses');
+		const totalBatches = document.getElementById('totalBatches');
+		const subscriptions = document.getElementById('subscriptions');
+		
+		totalEnrolledStudents.style.display = 'none';
+		totalSubscriptionStudents.style.display = 'none';
+		noofTeachers.style.display = 'none';
+		totalCourses.style.display = 'none';
+		totalBatches.style.display = 'none';
+		subscriptions.style.display = 'none';
+		
+		
+		
+		SubUser.style.display = 'none';
+		Teacher.style.display = 'none';
+		Student.style.display = 'none';
+	 	
+		Course.style.display = 'none';
+		Batches.style.display = 'none';
+		Subscription.style.display = 'none';
+	 	
+		StudyMaterial.style.display = 'none';
+		AllotmenttoStudyMaterial.style.display = 'none';
+		AttendanceofStudents.style.display = 'none';
+		
+		
+	 	
+		Enquiry.style.display = 'none';
+		Logs.style.display = 'none';
+		
+		
+		if (session.includes("SubUser")) {
+			SubUser.style.display = 'block'; // Or use 'list-item' to display as a list item
+		} 
+		
+		if (session.includes("Teacher")) {
+			Teacher.style.display = 'block'; // Or use 'list-item' to display as a list item
+			noofTeachers.style.display = 'block';
+		} 
+		
+		if (session.includes("Student")) {
+			Student.style.display = 'block'; // Or use 'list-item' to display as a list item
+			totalEnrolledStudents.style.display = 'block';
+			totalSubscriptionStudents.style.display = 'block';
+		} 
+		
+		
+		if (session.includes("Course")) {
+			Course.style.display = 'block'; // Or use 'list-item' to display as a list item
+			totalCourses.style.display = 'block';
+		} 
+		
+		if (session.includes("Batches")) {
+			Batches.style.display = 'block'; // Or use 'list-item' to display as a list item
+			totalBatches.style.display = 'block';
+		} 
+		
+		if (session.includes("Subscription")) {
+			Subscription.style.display = 'block'; // Or use 'list-item' to display as a list item
+			totalSubscriptionStudents.style.display = 'block';
+			subscriptions.style.display = 'block';
+		} 
+		
+		
+		if (session.includes("StudyMaterial")) {
+			StudyMaterial.style.display = 'block'; // Or use 'list-item' to display as a list item
+		} 
+		
+		if (session.includes("AllotmenttoStudyMaterial")) {
+			AllotmenttoStudyMaterial.style.display = 'block'; // Or use 'list-item' to display as a list item
+		} 
+		
+		if (session.includes("AttendanceofStudents")) {
+			AttendanceofStudents.style.display = 'block'; // Or use 'list-item' to display as a list item
+		} 
+		
+		
+		
+		if (session.includes("Enquiry")) {
+			Enquiry.style.display = 'block'; // Or use 'list-item' to display as a list item
+		} 
+		
+		if (session.includes("Logs")) {
+			Logs.style.display = 'block'; // Or use 'list-item' to display as a list item
+		} 
+
+	}
+
+
+
+	</script>
 </html>

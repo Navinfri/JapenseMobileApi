@@ -73,7 +73,7 @@
 		<main>
 			<div class="container">
 				<div class="container2">
-					<div class='smallCard' onclick="navigateenroll()">
+					<div id="totalEnrolledStudents" class='smallCard' onclick="navigateenroll()">
 						<div class='cardContent'>
 							<h2>250</h2>
 							<span>Total Enrolled Students</span>
@@ -82,7 +82,7 @@
 							<i class="fa-solid fa-clipboard-user icons"></i>
 						</div>
 					</div>
-					<div class='smallCard' onclick="navigatetoSubs()">
+					<div id = "totalSubscriptionStudents" class='smallCard' onclick="navigatetoSubs()">
 						<div class='cardContent'>
 							<h2>150</h2>
 							<span>Total Subscription Students</span>
@@ -92,7 +92,7 @@
 								style="font-size: 4.5rem"></i>
 						</div>
 					</div>
-					<div class='smallCard' onclick="navigatetoTeach()">
+					<div id="noofTeachers" class='smallCard' onclick="navigatetoTeach()">
 						<div class='cardContent'>
 							<h2>72</h2>
 							<span>No of Teachers</span>
@@ -101,7 +101,7 @@
 							<i class="fa-solid fa-chalkboard-user icons"></i>
 						</div>
 					</div>
-					<div class='smallCard' onclick="navigatetoCourse()">
+					<div id ="totalCourses" class='smallCard' onclick="navigatetoCourse()">
 						<div class='cardContent'>
 							<h2>25</h2>
 							<span>Total Courses</span>
@@ -110,7 +110,7 @@
 							<i class="fa-solid fa-book-open icons"></i>
 						</div>
 					</div>
-					<div class='smallCard' onclick="navigatetoBatch()">
+					<div id="totalBatches" class='smallCard' onclick="navigatetoBatch()">
 						<div class='cardContent'>
 							<h2>30</h2>
 							<span>Total Batches</span>
@@ -119,7 +119,7 @@
 							<i class="fa-solid fa-people-group icons"></i>
 						</div>
 					</div>
-					<div class='smallCard' onclick="navigatetoTeach()">
+					<div id ="subscriptions" class='smallCard' onclick="navigatetoTeach()">
 						<div class='cardContent'>
 							<h2>5</h2>
 							<span>Subscriptions</span>
@@ -154,43 +154,8 @@
 		}
 	</script>
 	<script src="js/adminscript.js"></script>
-	<script>
-
-	function asideMenu(){
-		// Get references to the <li> elements
-		
-		
-		var session = "<%=session.getAttribute("user")%>";
-		
-		
-		const enquiryFormLi = document.getElementById('admin');
-		const proposalOrderLi = document.getElementById('marketing');
-		const designOrderLi = document.getElementById('Design');
-		
-	 	enquiryFormLi.style.display = 'none';
-	 	proposalOrderLi.style.display = 'none';
-	 	designOrderLi.style.display = 'none';
-	 	
-	   
-
-
-		// Display the corresponding <li> based on the presence of the elements
-		if (session.includes("User Create")) {
-		    enquiryFormLi.style.display = 'block'; // Or use 'list-item' to display as a list item
-		} 
-		
-		if (session.includes("Enquiry Form")){
-			proposalOrderLi.style.display = 'block';		
-		}
-		
-		if (session.includes("Team Task")){
-			designOrderLi.style.display = 'block';
-		}
-
-	}
-
-
-
-	</script>
+	
+	
+	
 </body>
 </html>

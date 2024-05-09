@@ -119,8 +119,10 @@
 						var response = jqXHR.responseJSON; // Parse JSON response
 						if (response && response.statusCode === 4001) {
 							alert(response.message);
-						} else {
-							alert("Failed to communicate with the server");
+						} else if (jqXHR.status === 403){
+							alert("YOU DON'T HAVE THE PERMMISSION");
+						} else{
+							alert("Server NOT Responding !!!");
 						}
 					}
 				});
