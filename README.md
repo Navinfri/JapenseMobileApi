@@ -1,10 +1,8 @@
 - ## Backend Api Details                                                                                                    
 
 
-1 . DONE WITH  Login and Regiter Api
+1 . DONE WITH  Login Functionality Through Spring Security
 
-    - /register
-    - /login
 
 2 . Done With the Add Student Sub Api
 
@@ -71,6 +69,7 @@
       - Done With the Batch Module (All Operation.)
       - Done With the Category Module (All Operation.)
       - Done With the Teacher Role / Permission Module (All Operation.)
+      - Done With Sub-User (All Operation)
 
   
 
