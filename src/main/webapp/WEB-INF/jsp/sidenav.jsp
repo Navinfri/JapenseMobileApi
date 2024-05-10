@@ -152,11 +152,12 @@
 
 	function asideMenu(){
 		
-		//alert("Side nav !!!")
+		alert("Side nav !!!")
 		// Get references to the <li> elements
 		
 		var session = "<%=session.getAttribute("module")%>";
 		
+		alert(session)
 		
 		
 		const SubUser = document.getElementById('SubUser');
@@ -202,30 +203,28 @@
 		
 		if (session.includes("Teacher")) {
 			Teacher.style.display = 'block'; // Or use 'list-item' to display as a list item
-			noofTeachers.style.display = 'block';
+			
 		} 
 		
 		if (session.includes("Student")) {
 			Student.style.display = 'block'; // Or use 'list-item' to display as a list item
-			totalEnrolledStudents.style.display = 'block';
-			totalSubscriptionStudents.style.display = 'block';
+			
 		} 
 		
 		
 		if (session.includes("Course")) {
 			Course.style.display = 'block'; // Or use 'list-item' to display as a list item
-			totalCourses.style.display = 'block';
+			
 		} 
 		
 		if (session.includes("Batches")) {
 			Batches.style.display = 'block'; // Or use 'list-item' to display as a list item
-			totalBatches.style.display = 'block';
+			
 		} 
 		
 		if (session.includes("Subscription")) {
 			Subscription.style.display = 'block'; // Or use 'list-item' to display as a list item
-			totalSubscriptionStudents.style.display = 'block';
-			subscriptions.style.display = 'block';
+			
 		} 
 		
 		

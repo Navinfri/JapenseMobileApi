@@ -38,8 +38,9 @@
     margin-right: 8px;
 }
 </style>
+<jsp:include page="../sidenav.jsp"></jsp:include>
 <body onload="getTeacher(); getCourse(); getBatch();">
-	<jsp:include page="../sidenav.jsp"></jsp:include>
+	
 	<section id="content">
 		<jsp:include page="../header.jsp"></jsp:include>
 		<main class="mainCont">
