@@ -58,11 +58,12 @@ public class UserControllerAdmin {
         // Invalidate the authentication session
         SecurityContextLogoutHandler logoutHandler = new SecurityContextLogoutHandler();
         logoutHandler.logout(request, response, SecurityContextHolder.getContext().getAuthentication());
-        
-        // You can add additional logic here if needed
-        
-        return ResponseEntity.ok("Logged out successfully");
+        // Redirect to /JapaneseAdminWebApp
+        return ResponseEntity.status(HttpStatus.FOUND)
+                .header("Location", "/JapaneseAdminWebApp")
+                .body("Logged out successfully");
     }
+
 
     @GetMapping("/getAllUsers")
     public ResponseEntity<List<User>> getAllUsers() {

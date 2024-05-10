@@ -146,7 +146,7 @@
 
 		function loadTheTable() {
 			$.ajax({
-				url: "getAllUsers",
+				url: "/JapaneseAdminWebApp/getAllUsers",
 				type: "GET",
 				contentType: "application/json",
 				success: function (response, textStatus, xhr) {
@@ -165,7 +165,7 @@
 						row.append("<td style='font-weight: 500;'> <label class=\"switch\"> <input id=\"\" name=\"\" type=\"checkbox\" onclick=\"toggleAndCallAPI(" + user.id + ")\" " + (user.flag ? "checked" : "") + "> <span class=\"slider round\"></span> </label></td>");
 
 
-						row.append("<td style='font-size: 20px;'><a href= '/updateuser?id=" + user.id + "'><i class='fa-regular fa-pen-to-square' style='color: #12e068; font-weight: 900; padding-right: 10px'></i></a><a onclick='deleteUser(" + user.id + ")'><i class='fa-solid fa-trash' style='color: #eb070f; font-weight: 900;'></i></a></td>");
+						row.append("<td style='font-size: 20px;'><a href= '/JapaneseAdminWebApp/updateuser?id=" + user.id + "'><i class='fa-regular fa-pen-to-square' style='color: #12e068; font-weight: 900; padding-right: 10px'></i></a><a onclick='deleteUser(" + user.id + ")'><i class='fa-solid fa-trash' style='color: #eb070f; font-weight: 900;'></i></a></td>");
 						tableBody.append(row);
 					});
 				},
@@ -190,7 +190,7 @@
 
 
 			if (confirm('Are you sure you want to delete this user?')) {
-				fetch('/deleteUsers/' + userId, {
+				fetch('/JapaneseAdminWebApp/deleteUsers/' + userId, {
 					method: 'DELETE'
 				})
 					.then(response => {
@@ -215,7 +215,7 @@
 		function toggleFlag(userId) {
 			$.ajax({
 				type: "PUT",
-				url: "/toggle-flag/" + userId,
+				url: "/JapaneseAdminWebApp/toggle-flag/" + userId,
 				success: function (response) {
 					console.log(response); // Log success message
 					// Update UI if needed
@@ -237,7 +237,7 @@
 			var searchfielld = $("#searchfielld").val();
 
 			$.ajax({
-				url: "getAllUsers",
+				url: "/JapaneseAdminWebApp/getAllUsers",
 				type: "GET",
 				contentType: "application/json",
 				//    data : JSON.stringify(data),
@@ -281,7 +281,7 @@
 						row.append("<td style='font-weight: 500;'> <label class=\"switch\"> <input id=\"\" name=\"\" type=\"checkbox\" onclick=\"toggleAndCallAPI(" + user.id + ")\" " + (user.flag ? "checked" : "") + "> <span class=\"slider round\"></span> </label></td>");
 
 
-						row.append("<td style='font-size: 20px;'><a href= '/updateuser?id=" + user.id + "'><i class='fa-regular fa-pen-to-square' style='color: #12e068; font-weight: 900; padding-right: 10px'></i></a><a onclick='deleteUser(" + user.id + ")'><i class='fa-solid fa-trash' style='color: #eb070f; font-weight: 900;'></i></a></td>");
+						row.append("<td style='font-size: 20px;'><a href= '/JapaneseAdminWebApp/updateuser?id=" + user.id + "'><i class='fa-regular fa-pen-to-square' style='color: #12e068; font-weight: 900; padding-right: 10px'></i></a><a onclick='deleteUser(" + user.id + ")'><i class='fa-solid fa-trash' style='color: #eb070f; font-weight: 900;'></i></a></td>");
 						tableBody.append(row);
 					});
 				},

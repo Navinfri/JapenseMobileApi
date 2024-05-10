@@ -344,7 +344,7 @@ right: 14.5rem;
 	      //  console.log(data);
 
 	        $.ajax({
-				url : "createUser",
+				url : "/JapaneseAdminWebApp/createUser",
 				type : "POST",
 				contentType : "application/json",
 				data : JSON.stringify(data),

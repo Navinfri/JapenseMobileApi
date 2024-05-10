@@ -349,7 +349,7 @@ right: 14.5rem;
 	      
 
 	        $.ajax({
-				url : "updateUser",
+				url : "/JapaneseAdminWebApp/updateUser",
 				type : "PUT",
 				contentType : "application/json",
 				data : JSON.stringify(data),
@@ -387,7 +387,7 @@ right: 14.5rem;
 		
 		
 		  $.ajax({
-				url : "/findUserById/"+id,
+				url : "/JapaneseAdminWebApp/findUserById/"+id,
 				type : "GET",
 				contentType : "application/json",
 				//data : JSON.stringify(data),

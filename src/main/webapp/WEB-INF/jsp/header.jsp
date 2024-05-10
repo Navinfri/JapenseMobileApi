@@ -22,7 +22,7 @@
                         <li
                             style="text-transform: uppercase; font-size: 10.5px; margin-left: 10px; padding: .4rem; font-weight: 600;">
                             Welcome! <%=session.getAttribute("name")%></li>
-                        <li><a href="/logout"><i class="fa-solid fa-person-running icon"></i>Logout</a></li>
+                        <li><a href="/JapaneseAdminWebApp/logout"><i class="fa-solid fa-person-running icon"></i>Logout</a></li>
                     </ul>
                 </div>
             </div>

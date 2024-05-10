@@ -100,8 +100,8 @@ public class SecurityConfiguration {
             .successHandler(authenticationSuccessHandler())
             .and()
             .logout()
-                .logoutUrl("/logout") // Specify the logout URL
-                .logoutSuccessUrl("/ ") // Redirect to form login page after logout
+                .logoutUrl("/JapaneseAdminWebApp/logout") // Specify the logout URL
+                .logoutSuccessUrl("/JapaneseAdminWebApp/") // Redirect to form login page after logout
                 .invalidateHttpSession(true)
                 .deleteCookies("JSESSIONID");
 
@@ -135,7 +135,7 @@ public class SecurityConfiguration {
 	                    session.setAttribute("roleName", trimmedRoleName);
 	            
 	                }
-	                response.sendRedirect("/"); // Redirect to home page after successful login
+	                response.sendRedirect("/JapaneseAdminWebApp/"); // Redirect to home page after successful login
 	            }
 	        };
 	    }
