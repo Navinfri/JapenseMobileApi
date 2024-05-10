@@ -152,12 +152,12 @@
 
 	function asideMenu(){
 		
-		alert("Side nav !!!")
+		//alert("Side nav !!!")
 		// Get references to the <li> elements
 		
 		var session = "<%=session.getAttribute("module")%>";
 		
-		alert(session)
+		//alert(session)
 		
 		
 		const SubUser = document.getElementById('SubUser');
