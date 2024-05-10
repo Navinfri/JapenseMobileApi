@@ -2,6 +2,10 @@ package com.japanese.appliaction.config;
 
 import java.io.IOException;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,10 +27,7 @@ import com.japanese.appliaction.service.UserService;
 
 import org.springframework.security.core.userdetails.User;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
+
 
 //Sahil
  
@@ -87,11 +88,11 @@ public class SecurityConfiguration {
             authorizeHttpRequests(authorize -> {
 					
 		  			authorize
-		  			.requestMatchers(delete).hasRole(ADMIN)
-		  			.requestMatchers(find).hasAnyRole(ADMIN,MODERATOR,CREATOR,VIEWER)
-				    .requestMatchers(create).hasAnyRole(ADMIN,MODERATOR,CREATOR)
-				    .requestMatchers(update).hasAnyRole(MODERATOR,ADMIN)
-				    .requestMatchers("/logout").permitAll() 
+		  			.antMatchers(delete).hasRole(ADMIN)
+		  			.antMatchers(find).hasAnyRole(ADMIN,MODERATOR,CREATOR,VIEWER)
+				    .antMatchers(create).hasAnyRole(ADMIN,MODERATOR,CREATOR)
+				    .antMatchers(update).hasAnyRole(MODERATOR,ADMIN)
+				    .antMatchers("/logout").permitAll() 
 				    .anyRequest().authenticated();
 						    
 					

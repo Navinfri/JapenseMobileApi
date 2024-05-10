@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
@@ -19,7 +20,7 @@ import com.japanese.appliaction.repository.TeacherRepo;
 import com.japanese.appliaction.repository.TeacherRoleRepo;
 import com.japanese.appliaction.service.serviceInterface.TeacherService;
 
-import jakarta.transaction.Transactional;
+
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

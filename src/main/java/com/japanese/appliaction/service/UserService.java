@@ -3,7 +3,7 @@ package com.japanese.appliaction.service;
 import java.util.List;
 import java.util.Optional;
 
-
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
@@ -16,7 +16,7 @@ import com.japanese.appliaction.model.User;
 import com.japanese.appliaction.repository.AuthoritiesRepository;
 import com.japanese.appliaction.repository.UserRepository;
 
-import jakarta.transaction.Transactional;
+
 
 
 
