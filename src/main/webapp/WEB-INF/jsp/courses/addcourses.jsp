@@ -94,22 +94,25 @@
 				};
 
 				$.ajax({
-					url : "saveCourse",
-					type : "POST",
-					contentType : "application/json",
-					data : JSON.stringify(course),
-					success : function(response) {
-						alert(response.message);
-						window.location.href = "courses";
-					},
-					error : function(error) {
-						if (error.responseJSON && error.responseJSON.message) {
-							alert(error.responseJSON.message);
-						} else {
-							alert("Failed to save course information");
-						}
-					}
+				    url: "/JapaneseAdminWebApp/saveCourse",
+				    type: "POST",
+				    contentType: "application/json",
+				    data: JSON.stringify(course),
+				    success: function(response) {
+				        alert(response.message);
+				        window.location.href = "courses";
+				    },
+				    error: function(jqXHR, textStatus, errorThrown) {
+				        if (jqXHR.status === 403) {
+				            alert("YOU DON'T HAVE THE PERMISSION");
+				        } else if (jqXHR.responseJSON && jqXHR.responseJSON.message) {
+				            alert(jqXHR.responseJSON.message);
+				        } else {
+				            alert("Failed to save course information");
+				        }
+				    }
 				});
+
 			});
 		});
 	</script>

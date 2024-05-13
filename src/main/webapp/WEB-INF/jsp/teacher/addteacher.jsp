@@ -103,7 +103,7 @@
 				};
 
 				$.ajax({
-					url : "saveTeacher",
+					url : "/JapaneseAdminWebApp/saveTeacher",
 					type : "POST",
 					contentType : "application/json",
 					data : JSON.stringify(teacher),

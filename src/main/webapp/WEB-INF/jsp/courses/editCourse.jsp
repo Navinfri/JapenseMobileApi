@@ -92,22 +92,26 @@
 					}
 
 					function getCourseDetails(id) {
-						$.ajax({
-							url : "courses/" + id,
-							type : "GET",
-							contentType : "application/json",
-							success : function(response) {
-								console.log("Response Data:", response);
-								if (response.status === "SUCCESS") {
-									populateForm(response.data);
-								} else {
-									alert(response.message);
-								}
-							},
-							error : function(error) {
-								alert("Failed to fetch course data");
-							}
-						});
+					    $.ajax({
+					        url: "/JapaneseAdminWebApp/courses/" + id,
+					        type: "GET",
+					        contentType: "application/json",
+					        success: function(response) {
+					            console.log("Response Data:", response);
+					            if (response.status === "SUCCESS") {
+					                populateForm(response.data);
+					            } else {
+					                alert(response.message);
+					            }
+					        },
+					        error: function(jqXHR, textStatus, errorThrown) {
+					            if (jqXHR.status === 403) {
+					                alert("YOU DON'T HAVE THE PERMISSION");
+					            } else {
+					                alert("Failed to fetch course data");
+					            }
+					        }
+					    });
 					}
 
 					function populateForm(course) {
@@ -132,23 +136,27 @@
 					});
 
 					function updateCourse(data) {
-						$.ajax({
-							url : "updateCourse/" + data.id,
-							type : "PUT",
-							contentType : "application/json",
-							data : JSON.stringify(data),
-							success : function(response) {
-								if (response.status === "SUCCESS") {
-									alert(response.message);
-									window.location.href = "managecourse"; // Redirect to the correct URL
-								} else {
-									alert(response.message);
-								}
-							},
-							error : function(error) {
-								alert("Failed to update course information");
-							}
-						});
+					    $.ajax({
+					        url: "/JapaneseAdminWebApp/updateCourse/" + data.id,
+					        type: "PUT",
+					        contentType: "application/json",
+					        data: JSON.stringify(data),
+					        success: function(response) {
+					            if (response.status === "SUCCESS") {
+					                alert(response.message);
+					                window.location.href = "managecourse"; // Redirect to the correct URL
+					            } else {
+					                alert(response.message);
+					            }
+					        },
+					        error: function(jqXHR, textStatus, errorThrown) {
+					            if (jqXHR.status === 403) {
+					                alert("YOU DON'T HAVE THE PERMISSION");
+					            } else {
+					                alert("Failed to update course information");
+					            }
+					        }
+					    });
 					}
 
 					function getUrlParameter(name) {
