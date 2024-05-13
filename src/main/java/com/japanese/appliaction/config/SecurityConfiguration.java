@@ -94,6 +94,7 @@ public class SecurityConfiguration {
 				    .antMatchers(update).hasAnyRole(MODERATOR,ADMIN)
 				    .antMatchers("/logout").permitAll() 
 				    .anyRequest().authenticated();
+		  		//	.anyRequest().permitAll(); // For Disable the spring security. Un-comment this line and comment above 7 line for using the postman ... 
 						    
 					
 				}
