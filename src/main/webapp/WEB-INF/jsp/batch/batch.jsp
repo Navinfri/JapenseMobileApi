@@ -117,15 +117,15 @@ tbody tr:nth-child(odd) {background: #0000000b}
 							Batch Demo Date</label>
 						<div style="display: flex;">
 							<div>
-								<select style="padding: 8px; border: 1px solid lightgrey"
+								<select style="padding: 13px; border: 1px solid lightgrey"
 									name="day" id="day"></select>
 							</div>
 							<div>
-								<select style="padding: 8px; border: 1px solid lightgrey"
+								<select style="padding: 13px; border: 1px solid lightgrey"
 									name="month" id="month"></select>
 							</div>
 							<div>
-								<select style="padding: 8px; border: 1px solid lightgrey"
+								<select style="padding: 13px; border: 1px solid lightgrey"
 									name="year" id="year"></select>
 							</div>
 						</div>
@@ -136,15 +136,15 @@ tbody tr:nth-child(odd) {background: #0000000b}
 							Batch Start Date</label>
 						<div style="display: flex;">
 							<div>
-								<select style="padding: 8px; border: 1px solid lightgrey"
+								<select style="padding: 13px; border: 1px solid lightgrey"
 									name="day1" id="day1"></select>
 							</div>
 							<div>
-								<select style="padding: 8px; border: 1px solid lightgrey"
+								<select style="padding: 13px; border: 1px solid lightgrey"
 									name="month1" id="month1"></select>
 							</div>
 							<div>
-								<select style="padding: 8px; border: 1px solid lightgrey"
+								<select style="padding: 13px; border: 1px solid lightgrey"
 									name="year1" id="year1"></select>
 							</div>
 						</div>
@@ -155,15 +155,15 @@ tbody tr:nth-child(odd) {background: #0000000b}
 							Batch End Date</label>
 						<div style="display: flex;">
 							<div>
-								<select style="padding: 8px; border: 1px solid lightgrey"
+								<select style="padding: 13px; border: 1px solid lightgrey"
 									name="day2" id="day2"></select>
 							</div>
 							<div>
-								<select style="padding: 8px; border: 1px solid lightgrey"
+								<select style="padding: 13px; border: 1px solid lightgrey"
 									name="month2" id="month2"></select>
 							</div>
 							<div>
-								<select style="padding: 8px; border: 1px solid lightgrey"
+								<select style="padding: 13px; border: 1px solid lightgrey"
 									name="year2" id="year2"></select>
 							</div>
 						</div>
@@ -188,8 +188,8 @@ tbody tr:nth-child(odd) {background: #0000000b}
 							Zoom Details</label>
 						<textarea id="zoomDetails" name="zoomDetails" type="text"
 							required="required"
-							style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8"></textarea>
-						.
+							style="padding: 25px; border-radius: 5px; border: 1px solid #bfb8b8"></textarea>
+						
 					</div>
 					<!-- 					<div style="display: flex; flex-direction: column;"> -->
 					<!-- 						<label style="font-size: 13px; margin-bottom: 7px">Add -->
@@ -311,7 +311,7 @@ tbody tr:nth-child(odd) {background: #0000000b}
 	            var day = $(this).val();
 	            var startTime = $("#" + day.toLowerCase() + "StartTime").val();
 	            var endTime = $("#" + day.toLowerCase() + "EndTime").val();
-	            
+
 	            // Check if the checkbox is checked before pushing data into the array
 	            if ($(this).is(":checked")) {
 	                classesData.push({
@@ -337,7 +337,7 @@ tbody tr:nth-child(odd) {background: #0000000b}
 
 	        // Send AJAX request to save batch data
 	        $.ajax({
-	            url: "saveBatches",
+	            url: "/JapaneseAdminWebApp/saveBatches",
 	            type: "POST",
 	            contentType: "application/json",
 	            data: JSON.stringify(batchData),
@@ -345,34 +345,43 @@ tbody tr:nth-child(odd) {background: #0000000b}
 	                alert(response);
 	                window.location.href = "batches";
 	            },
-	            error: function(error) {
-	                alert("Failed to save Batch Details");
+	            error: function(jqXHR, status, errorThrown) {
+	                if (jqXHR.status === 403) {
+	                    alert("YOU DON'T HAVE THE PERMISSION");
+	                } else {
+	                    alert("Failed to communicate with the server");
+	                }
 	            }
 	        });
 	    });
-
-	    // Function to asynchronously fetch course data
-	     function getCourseData() {
-	        $.ajax({
-	            type: "GET",
-	            url: 'course',
-	            dataType: 'json', // Specify the expected data type
-	            success: function(response) {
-	                var appenddata1 = "";
-	                for (var i = 0; i < response.data.length; i++) {
-	                    appenddata1 += "<option value='" + response.data[i].courses + "'>" + response.data[i].courses + "</option>";
-	                }
-	                $("#course").append(appenddata1);
-	            },
-	            error: function() {
-	                alert("Failed to fetch courses");
-	            }
-	        });
-	    }
-
-	    // Call the function to fetch course data
-	    getCourseData();
 	});
+	    // Function to asynchronously fetch course data
+	    function getCourseData() {
+        $.ajax({
+            type: "GET",
+            url: '/JapaneseAdminWebApp/course',
+            dataType: 'json', 
+            success: function(response) {
+                var appenddata1 = "";
+                for (var i = 0; i < response.data.length; i++) {
+                    appenddata1 += "<option value='" + response.data[i].courses + "'>" + response.data[i].courses + "</option>";
+                }
+                $("#course").append(appenddata1);
+            },
+            error: function (jqXHR, status, errorThrown) {
+                if (jqXHR.status === 403) {
+                    alert("YOU DON'T HAVE THE PERMISSION");
+                } else {
+                    alert("Failed to communicate with the server");
+                }
+            }
+        });
+    }
+
+    // Call the function after its declaration
+    $(document).ready(function() {
+        getCourseData();
+    });
 
 	</script>
 
