@@ -10,6 +10,8 @@ import javax.persistence.Id;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.Data;
 
 @Entity
@@ -23,12 +25,13 @@ public class StudyMaterial {
 	private Long id;
 	private String title;
 	private String meterialUsed;
+	private String course;
 	private String category;
 	private String chapterName;
 	private String typeOfQuestion;
 	private String timeLimit;
-	private LocalDate startDate;
-	private LocalDate endDate;
+	private String startDate;
+	private String endDate;
 	private String queLimitToDisplay;
 	private String score;
 	private String note;
