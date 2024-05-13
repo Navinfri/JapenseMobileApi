@@ -70,7 +70,7 @@
             };
 
             $.ajax({
-                url: "saveTypeOfQuestions",
+                url: "/JapaneseAdminWebApp/saveTypeOfQuestions",
                 type: "POST",
                 contentType: "application/json",
                 data: JSON.stringify(typeOfQuestionData),
@@ -78,9 +78,15 @@
                     alert(response);
                     window.location.href = "questiontype";
                 },
-                error: function(error) {
-                    alert("Failed to save Question Type");
+                error: function(xhr, status, error) {
+                    console.error("Failed to Save Question Type:", error);
+                    if (xhr.status === 403) {
+                        alert("YOU DON'T HAVE THE PERMISSION");
+                    } else {
+                        alert("Failed to communicate with the server");
+                    }
                 }
+
             });
         });
     });

@@ -68,7 +68,7 @@
 
         function getQuestionType(id) {
             $.ajax({
-                url: "questionFindById/" + id,
+                url: "/JapaneseAdminWebApp/questionFindById/" + id,
                 type: "GET",
                 contentType: "application/json",
                 success: function(response) {
@@ -81,8 +81,13 @@
                 },
                 error: function(xhr, status, error) {
                     console.error("Failed to fetch Question Type:", error);
-                    alert("Failed to fetch Question Type");
+                    if (xhr.status === 403) {
+                        alert("YOU DON'T HAVE THE PERMISSION");
+                    } else {
+                        alert("Failed to communicate with the server");
+                    }
                 }
+
             });
         }
 
@@ -112,7 +117,7 @@
             };
 
             $.ajax({
-                url: "upadateQueType",
+                url: "/JapaneseAdminWebApp/upadateQueType",
                 type: "PUT", 
                 contentType: "application/json",
                 data: JSON.stringify(questionsData),
@@ -120,9 +125,15 @@
                     alert(response);
                     window.location.href = "managequestype";
                 },
-                error: function(error) {
-                    alert("Failed to update Questions Type");
+                error: function(xhr, status, error) {
+                    console.error("Failed to Save Question Type:", error);
+                    if (xhr.status === 403) {
+                        alert("YOU DON'T HAVE THE PERMISSION");
+                    } else {
+                        alert("Failed to communicate with the server");
+                    }
                 }
+
             });
         });
     });

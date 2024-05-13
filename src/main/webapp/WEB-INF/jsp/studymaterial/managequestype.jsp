@@ -129,7 +129,7 @@ right: 12rem;
 
 	    function fetchAllQuestion() {
 	        $.ajax({
-	            url: "listAllQuestions",
+	            url: "/JapaneseAdminWebApp/listAllQuestions",
 	            type: "GET",
 	            contentType: "application/json",
 	            success: function(response) {
@@ -190,7 +190,7 @@ right: 12rem;
 
 	    function deleteCategory(id) {
 	        $.ajax({
-	            url: "deleteQueType/" + id,
+	            url: "/JapaneseAdminWebApp/deleteQueType/" + id,
 	            type: "DELETE",
 	            contentType: "application/json",
 	            success: function(response) {
@@ -203,9 +203,14 @@ right: 12rem;
 	                }
 	            },
 	            error: function(xhr, status, error) {
-	                console.error("Failed to delete category:", error);
-	                alert("Failed to delete category");
+	                console.error("Failed to delete Question Type:", error);
+	                if (xhr.status === 403) {
+	                    alert("YOU DON'T HAVE THE PERMISSION");
+	                } else {
+	                    alert("Failed to communicate with the server");
+	                }
 	            }
+
 	        });
 	    }
 	});

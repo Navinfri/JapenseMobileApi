@@ -63,7 +63,7 @@
 
         function getQuestionType(id) {
             $.ajax({
-                url: "questionFindById/" + id,
+                url: "/JapaneseAdminWebApp/questionFindById/" + id,
                 type: "GET",
                 contentType: "application/json",
                 success: function(response) {
@@ -76,8 +76,13 @@
                 },
                 error: function(xhr, status, error) {
                     console.error("Failed to fetch Question Type:", error);
-                    alert("Failed to fetch Question Type");
+                    if (xhr.status === 403) {
+                        alert("YOU DON'T HAVE THE PERMISSION");
+                    } else {
+                        alert("Failed to communicate with the server");
+                    }
                 }
+
             });
         }
 
