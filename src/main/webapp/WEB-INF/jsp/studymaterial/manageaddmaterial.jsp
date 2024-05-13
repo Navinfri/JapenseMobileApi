@@ -178,7 +178,7 @@ right: 12rem;
 		            });
 
 		            var deleteIcon = $("<i>").addClass("fa-solid fa-trash").attr("title", "Delete").css("color", "#eb070f").css("cursor", "pointer").css("font-size","18px").css("font.width","900").click(function () {
-		                deleteMaterial(material.id);
+		            	deleteMaterial(material.id);
 		            });
 
 		            actionCell.append(viewIcon).append(" ");
@@ -196,19 +196,19 @@ right: 12rem;
 		        window.location.href = "viewAddMaterial?id=" + id;
 		    }
 
-		    function editBatch(id) {
+		    function editMaterial(id) {
 		        window.location.href = "editAddMaterial?id=" + id;
 		    }
 
 		    function deleteMaterial(id) {
 		        $.ajax({
-		            url: "JapaneseAdminWebApp/deleteAddMaterial/" + id,
-		            type: "POST",
+		            url: "/JapaneseAdminWebApp/deleteAddMaterial/" + id,
+		            type: "DELETE",
 		            contentType: "application/json",
 		            success: function (response) {
 		                if (response) {
 		                    alert(response);
-		                    fetchAllBatches();
+		                    fetchAllMaterial();
 		                } else {
 		                    alert("Failed to delete batch");
 		                }
