@@ -310,8 +310,12 @@
                                 alert("No batch data found");
                             }
                         },
-                        error: function (error) {
-                            alert("Failed to fetch batch data");
+                        error: error: function(jqXHR, status, errorThrown) {
+        	                if (jqXHR.status === 403) {
+        	                    alert("YOU DON'T HAVE THE PERMISSION");
+        	                } else {
+        	                    alert("Failed to communicate with the server");
+        	                }
                         }
                     });
                 }
