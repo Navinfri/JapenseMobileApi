@@ -4,7 +4,11 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>ADD QUESTION TYPE</title>
+<link rel="stylesheet" href="css/admin.css">
+<script src="https://kit.fontawesome.com/ae73087723.js"
+	crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <style>
 .Container {
@@ -37,17 +41,14 @@
 					style="margin-left: 20px; margin-right: 20px">
 					<div style="display: flex; flex-direction: column;">
 						<label style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Select
-							Course</label> <select id="" name=""
+							Course</label> <input id="typeOfQuestion" name="typeOfQuestion"
 							style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8;">
-							<option>Select</option>
-							<option>Permission</option>
-							<option>Roles</option>
-						</select>
+							
 					</div>
 				</div>
 				<div
 					style="display: flex; justify-content: center; gap: 50px; margin-top: 30px">
-					<button
+					<button id="saveButton"
 						style="cursor: pointer; font-size: 14px; font-weight: 700; background-color: #59f7f1; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none">Add</button>
 					<a href="managequestiontype">
 						<button
@@ -58,5 +59,37 @@
 		</main>
 		</section>
 		<script src="js/adminscript.js"></script>
+		
+		<script>
+    $(document).ready(function() {
+        $("#saveButton").click(function() {
+            var typeOfQuestion = $("#typeOfQuestion").val();
+           
+            var typeOfQuestionData = {
+            		typeOfQuestion: typeOfQuestion
+            };
+
+            $.ajax({
+                url: "/JapaneseAdminWebApp/saveTypeOfQuestions",
+                type: "POST",
+                contentType: "application/json",
+                data: JSON.stringify(typeOfQuestionData),
+                success: function(response) {
+                    alert(response);
+                    window.location.href = "questiontype";
+                },
+                error: function(xhr, status, error) {
+                    console.error("Failed to Save Question Type:", error);
+                    if (xhr.status === 403) {
+                        alert("YOU DON'T HAVE THE PERMISSION");
+                    } else {
+                        alert("Failed to communicate with the server");
+                    }
+                }
+
+            });
+        });
+    });
+</script>
 </body>
 </html>

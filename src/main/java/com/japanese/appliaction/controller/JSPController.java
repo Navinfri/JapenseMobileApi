@@ -222,17 +222,19 @@ public class JSPController {
 	public String viewBatch() {
 		return "batch/viewBatch";
 	}
-	
+
 	@GetMapping("/")
 	public String index() {
 		return "index";
 	}
 	
+
 	@GetMapping("/viewcategory")
 	public String viewcategory() {
 		return "studymaterial/viewCategory";
 	}
 	
+
 	@GetMapping("/updateuser")
 	public String updateuser(@RequestParam("id")long id,HttpServletRequest request) {
 		 HttpSession session = request.getSession();
@@ -240,10 +242,12 @@ public class JSPController {
 		return "user/updateuser";
 	}
 	
+
 	@GetMapping("/viewQuestionType")
 	public String viewQuestionType() {
 		return "studymaterial/viewQuestiontype";
 	}
+
 	
 	@GetMapping("/editAddMaterial")
 	public String editAddMaterial() {
@@ -254,8 +258,6 @@ public class JSPController {
 	public String viewAddMaterial() {
 		return "studymaterial/viewAddMaterial";
 	}
-	
-	
 	
 
 }
