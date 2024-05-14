@@ -300,8 +300,12 @@ tbody tr:nth-child(odd) {background: #0000000b}
                             alert("No batch data found");
                         }
                     },
-                    error: function (error) {
-                        alert("Failed to fetch batch data");
+                    error: function(jqXHR, status, errorThrown) {
+    	                if (jqXHR.status === 403) {
+    	                    alert("YOU DON'T HAVE THE PERMISSION");
+    	                } else {
+    	                    alert("Failed to communicate with the server");
+    	                }
                     }
                 });
             }
@@ -458,8 +462,12 @@ tbody tr:nth-child(odd) {background: #0000000b}
                 alert(response);
                 window.location.href = "managebatch";
             },
-            error: function (error) {
-                alert("Failed to Update Batch Details");
+            error: error: function(jqXHR, status, errorThrown) {
+                if (jqXHR.status === 403) {
+                    alert("YOU DON'T HAVE THE PERMISSION");
+                } else {
+                    alert("Failed to communicate with the server");
+                }
             }
         });
     });
@@ -477,8 +485,12 @@ tbody tr:nth-child(odd) {background: #0000000b}
                 }
                 $("#course").append(appenddata1);
             },
-            error: function () {
-                alert("Failed to fetch courses");
+            error: function(jqXHR, status, errorThrown) {
+                if (jqXHR.status === 403) {
+                    alert("YOU DON'T HAVE THE PERMISSION");
+                } else {
+                    alert("Failed to communicate with the server");
+                }
             }
         });
     }

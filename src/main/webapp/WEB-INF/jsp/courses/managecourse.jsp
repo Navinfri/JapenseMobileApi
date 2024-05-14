@@ -153,7 +153,7 @@ right: 12rem;
 
 	    function fetchAllCourse() {
 	        $.ajax({
-	            url: "course",
+	            url: "/JapaneseAdminWebApp/course",
 	            type: "GET",
 	            contentType: "application/json",
 	            success: function(response) {
@@ -163,15 +163,19 @@ right: 12rem;
 	                    alert(response.message);
 	                }
 	            },
-	            error: function(error) {
-	                alert("Failed to fetch course data");
+	            error: function(jqXHR, textStatus, errorThrown) {
+	                if (jqXHR.status === 403) {
+	                    alert("YOU DON'T HAVE THE PERMISSION");
+	                } else {
+	                    alert("Failed to fetch course data.");
+	                }
 	            }
 	        });
 	    }
 
 	    function fetchCourseByName(courseName) {
 	        $.ajax({
-	            url: "course/" + encodeURIComponent(courseName),
+	            url: "/JapaneseAdminWebApp/course/" + encodeURIComponent(courseName),
 	            type: "GET",
 	            contentType: "application/json",
 	            success: function(response) {
@@ -182,8 +186,12 @@ right: 12rem;
 	                    alert("Course not found");
 	                }
 	            },
-	            error: function(error) {
-	                alert("Failed to fetch course data");
+	            error: function(xhr, textStatus, errorThrown) {
+	                if (xhr.status === 403) {
+	                    alert("YOU DON'T HAVE THE PERMISSION");
+	                } else {
+	                    alert("Failed to fetch course data. Please type proper course name.");
+	                }
 	            }
 	        });
 	    }
@@ -224,16 +232,16 @@ right: 12rem;
 	    }
 
 	    function viewCourseDetails(id) {
-	        window.location.href = "viewCourses?id=" + id;
+	        window.location.href = "/JapaneseAdminWebApp/viewCourses?id=" + id;
 	    }
 
 	    function editCourse(id) {
-	        window.location.href = "editCourse?id=" + id;
+	        window.location.href = "/JapaneseAdminWebApp/editCourse?id=" + id;
 	    }
 
 	    function deleteCourse(id) {
 	        $.ajax({
-	            url: "deleteCourse/" + id,
+	            url: "/JapaneseAdminWebApp/deleteCourse/" + id,
 	            type: "DELETE",
 	            contentType: "application/json",
 	            success: function(response) {
@@ -244,11 +252,16 @@ right: 12rem;
 	                    alert(response.message);
 	                }
 	            },
-	            error: function(error) {
-	                alert("Failed to delete course");
+	            error: function(xhr, textStatus, errorThrown) {
+	                if (xhr.status === 403) {
+	                    alert("YOU DON'T HAVE THE PERMISSION");
+	                } else {
+	                    alert("Failed to delete course");
+	                }
 	            }
 	        });
 	    }
+
 	});
 	</script>
 	<script src="js/adminscript.js"></script>

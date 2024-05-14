@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="css/admin.css">
 <script src="https://kit.fontawesome.com/ae73087723.js"
 	crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <style>
 .Container {
@@ -62,7 +63,7 @@
 .iconmag {
 position: absolute;
 top: 12.5rem;
-right: 2rem;
+right: 12rem;
 }
 </style>
 <body>
@@ -77,13 +78,7 @@ right: 2rem;
 					<div
 					style="display: flex; justify-content: space-between; flex-wrap: wrap;">
 					<div style="margin-left: 20px;">
-						<h6 style="display: inline-block; font-size: 14px">Records</h6>
-						<select
-							style="padding: 10px; width: 70px; border-radius: 7px; height: 40px">
-							<option>1</option>
-							<option>2</option>
-							<option>3</option>
-						</select>
+						
 					</div>
 					<div style="margin-right: 20px;">
 						<div style="display: inline;">
@@ -91,6 +86,11 @@ right: 2rem;
 								style="background: none; border: none; border-bottom: 2px solid grey; padding: 12px;">
 							<span class="fa-solid fa-magnifying-glass iconmag"></span>
 						</div>
+						<a href="batches" style="margin-left: 20px;">
+        <button style="font-weight: 700; font-size: 14px; cursor: pointer; background-color: #20d42c; color: #ffffff; border-radius: 5px; padding: 12px; border: none;">
+            <i style="margin-right: 5px" class="fa-solid fa-plus"></i>Add Batch
+        </button>
+    </a>
 					</div>
 				</div>
 				<div class='TableContainer'>
@@ -112,33 +112,120 @@ right: 2rem;
 								</tr>
 							</thead>
 							<tbody class='tablebody'>
-								<tr>
-									<td style="font-weight: 500;">1</td>
-									<td style="font-weight: 500;">Material 1</td>
-									<td style="font-weight: 500;"></td>
-									<td style="font-weight: 500;"></td>
-									<td style="font-weight: 500;"></td>
-									<td style="font-weight: 500;"></td>
-									<td style="font-weight: 500;"></td>
-									<td style="font-weight: 500;"></td>
-									<td style="font-weight: 500;"></td>
-									<td style="font-weight: 500;"></td>
-									<td style="font-size: 20px;"><a><i class="fa-regular fa-pen-to-square"
-											style="color: #12e068; padding-right: 10px; font-weight: 900;"></i></a> <a><i
-											class="fa-solid fa-trash" style="color: #eb070f; font-weight: 900;"></i></a></td>
-								</tr>
+								
 							</tbody>
 						</table>
 					</div>
 				</div>
-				<div
-					style="display: flex; justify-content: center; margin-top: 20px">
-					<button
-						style="cursor: pointer; background-color: green; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none">Update</button>
-				</div>
+				
 			</div>
 		</main>
 	</section>
 	<script src="js/adminscript.js"></script>
+	
+	<script>
+		$(document).ready(function () {
+		    fetchAllMaterial();
+
+		    function fetchAllMaterial() {
+		        $.ajax({
+		            url: "/JapaneseAdminWebApp/getAddMaterial",
+		            type: "GET",
+		            contentType: "application/json",
+		            success: function (response) {
+		                if (response && response.length > 0) {
+		                    populateTable(response);
+		                } else {
+		                    alert("No data found");
+		                }
+		            },
+		            error: function (jqXHR, status, errorThrown) {
+	                    if (jqXHR.status === 403) {
+	                        alert("YOU DON'T HAVE THE PERMISSION");
+	                    } else {
+	                        alert("Failed to communicate with the server");
+	                    }
+	                }
+		        });
+		    }
+
+		    function populateTable(material) {
+		        var tableBody = $(".tablebody");
+		        tableBody.empty();
+
+		        material.forEach(function (material, index) {
+		            var row = $("<tr>");
+		            row.append($("<td>").text(index + 1));
+		            row.append($("<td>").text(material.title));
+		            row.append($("<td>").text(material.meterialUsed));
+		            row.append($("<td>").text(material.category));
+		            row.append($("<td>").text(material.chapterName));
+		            row.append($("<td>").text(material.typeOfQuestion));
+		            row.append($("<td>").text(material.timeLimit));
+		            row.append($("<td>").text(material.queLimitToDisplay));
+		            row.append($("<td>").text(material.startDate));
+		            row.append($("<td>").text(material.endDate));
+		            
+
+		            var actionCell = $("<td>");
+		            
+		            var viewIcon = $("<i>").addClass("fa-solid fa-eye").attr("title", "View").css("color", "#007BFF").css("cursor", "pointer").css("font-size","18px").css("font.width","900").click(function() {
+		                viewMaterialDetails(material.id);
+		            });
+
+		            var updateIcon = $("<i>").addClass("fa-regular fa-pen-to-square").attr("title", "Edit").css("color", "#12e068").css("cursor", "pointer").css("font-size","18px").css("font.width","900").click(function () {
+		                editMaterial(material.id);
+		            });
+
+		            var deleteIcon = $("<i>").addClass("fa-solid fa-trash").attr("title", "Delete").css("color", "#eb070f").css("cursor", "pointer").css("font-size","18px").css("font.width","900").click(function () {
+		            	deleteMaterial(material.id);
+		            });
+
+		            actionCell.append(viewIcon).append(" ");
+		            actionCell.append(updateIcon).append(" ");
+		            actionCell.append(deleteIcon);
+
+		            row.append(actionCell);
+
+		            tableBody.append(row);
+		        });
+		    }
+
+		    
+		    function viewMaterialDetails(id) {
+		        window.location.href = "viewAddMaterial?id=" + id;
+		    }
+
+		    function editMaterial(id) {
+		        window.location.href = "editAddMaterial?id=" + id;
+		    }
+
+		    function deleteMaterial(id) {
+		        $.ajax({
+		            url: "/JapaneseAdminWebApp/deleteAddMaterial/" + id,
+		            type: "DELETE",
+		            contentType: "application/json",
+		            success: function (response) {
+		                if (response) {
+		                    alert(response);
+		                    fetchAllMaterial();
+		                } else {
+		                    alert("Failed to delete batch");
+		                }
+		            },
+		            error: function (jqXHR, status, errorThrown) {
+	                    if (jqXHR.status === 403) {
+	                        alert("YOU DON'T HAVE THE PERMISSION");
+	                    } else {
+	                        alert("Failed to communicate with the server");
+	                    }
+	                }
+	            });
+	        }
+
+	    });
+
+
+		</script>
 </body>
 </html>

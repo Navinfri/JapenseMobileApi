@@ -1,7 +1,14 @@
 package com.japanese.appliaction.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
+
+
 
 @Controller
 public class JSPController {
@@ -215,15 +222,42 @@ public class JSPController {
 	public String viewBatch() {
 		return "batch/viewBatch";
 	}
+
+	@GetMapping("/")
+	public String index() {
+		return "index";
+	}
 	
+
 	@GetMapping("/viewcategory")
 	public String viewcategory() {
 		return "studymaterial/viewCategory";
 	}
 	
+
+	@GetMapping("/updateuser")
+	public String updateuser(@RequestParam("id")long id,HttpServletRequest request) {
+		 HttpSession session = request.getSession();
+		 session.setAttribute("updateUserID", id);
+		return "user/updateuser";
+	}
+	
+
 	@GetMapping("/viewQuestionType")
 	public String viewQuestionType() {
 		return "studymaterial/viewQuestiontype";
 	}
+
+	
+	@GetMapping("/editAddMaterial")
+	public String editAddMaterial() {
+		return "studymaterial/editAddMaterial";
+	}
+	
+	@GetMapping("viewAddMaterial")
+	public String viewAddMaterial() {
+		return "studymaterial/viewAddMaterial";
+	}
+	
 
 }

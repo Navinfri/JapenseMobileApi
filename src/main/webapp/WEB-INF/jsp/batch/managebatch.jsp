@@ -6,7 +6,7 @@
 		<meta charset="ISO-8859-1">
 		<title>Manage Batch</title>
 		<link rel="stylesheet" href="css/admin.css" />
-		<link rel="stylesheet" href="css/admin.css">
+		
 		<script src="https://kit.fontawesome.com/ae73087723.js" crossorigin="anonymous"></script>
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	</head>
@@ -156,7 +156,7 @@ right: 12rem;
 
 		    function fetchAllBatches() {
 		        $.ajax({
-		            url: "getAllBatchesData",
+		            url: "/JapaneseAdminWebApp/getAllBatchesData",
 		            type: "GET",
 		            contentType: "application/json",
 		            success: function (response) {
@@ -166,9 +166,12 @@ right: 12rem;
 		                    alert("No data found");
 		                }
 		            },
-		            error: function (xhr, status, error) {
-		                console.error("Failed to fetch batch data:", error);
-		                alert("Failed to fetch batch data");
+		            error: function(jqXHR, status, errorThrown) {
+		                if (jqXHR.status === 403) {
+		                    alert("YOU DON'T HAVE THE PERMISSION");
+		                } else {
+		                    alert("Failed to communicate with the server");
+		                }
 		            }
 		        });
 		    }
@@ -252,7 +255,7 @@ right: 12rem;
 
 		    function deleteBatch(id) {
 		        $.ajax({
-		            url: "deleteBatches/" + id,
+		            url: "/JapaneseAdminWebApp/deleteBatches/" + id,
 		            type: "POST",
 		            contentType: "application/json",
 		            success: function (response) {
@@ -263,9 +266,12 @@ right: 12rem;
 		                    alert("Failed to delete batch");
 		                }
 		            },
-		            error: function (xhr, status, error) {
-		                console.error("Failed to delete batch:", error);
-		                alert("Failed to delete batch");
+		            error: function(jqXHR, status, errorThrown) {
+		                if (jqXHR.status === 403) {
+		                    alert("YOU DON'T HAVE THE PERMISSION");
+		                } else {
+		                    alert("Failed to communicate with the server");
+		                }
 		            }
 		        });
 		    }

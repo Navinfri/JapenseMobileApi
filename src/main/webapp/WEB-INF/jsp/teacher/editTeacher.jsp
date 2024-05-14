@@ -271,7 +271,7 @@
 
         function getTeacherDetails(id) {
             $.ajax({
-                url: "teacher/" + id,
+                url: "/JapaneseAdminWebApp/teacher/" + id,
                 type: "GET",
                 contentType: "application/json",
                 success: function(response) {
@@ -282,8 +282,13 @@
                         alert(response.message);
                     }
                 },
-                error: function(error) {
-                    alert("Failed to fetch teacher data");
+                error: function(jqXHR, textStatus, errorThrown) {
+                    var response = jqXHR.responseJSON; // Parse JSON response
+                    if (response && response.message) {
+                        alert(response.message);
+                    } else {
+                        alert("Failed to fetch teacher data. Please try again later.");
+                    }
                 }
             });
         }
@@ -318,18 +323,26 @@
             // Send AJAX PUT request to update the teacher data
             $.ajax({
                 type: "PUT",
-                url: "/updateTeacherDataInBothTable/" + formData.id,
+                url: "/JapaneseAdminWebApp/updateTeacherDataInBothTable/" + formData.id,
                 contentType: "application/json",
                 data: JSON.stringify(formData),
                 success: function(response) {
                     // Handle success response
-                    alert("Teacher updated successfully");
+                    if (response && response.message) {
+                        alert(response.message);
+                    } else {
+                        alert("Teacher updated successfully");
+                    }
                     // Redirect to the correct URL
                     window.location.href = "manageteacher";
                 },
                 error: function(xhr, textStatus, errorThrown) {
                     // Handle error response
-                    alert("Failed to update teacher: " + errorThrown);
+                    if (xhr && xhr.responseJSON && xhr.responseJSON.message) {
+                        alert(xhr.responseJSON.message);
+                    } else {
+                        alert("Failed to update teacher: " + errorThrown);
+                    }
                 }
             });
         });

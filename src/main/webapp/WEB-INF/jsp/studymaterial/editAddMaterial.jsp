@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Add Material</title>
+<title>Edit Material</title>
 <link rel="stylesheet" href="css/admin.css">
 <script src="https://kit.fontawesome.com/ae73087723.js"
 	crossorigin="anonymous"></script>
@@ -35,8 +35,9 @@
 		<main>
 			<div>
 				<h1
-					style="margin-bottom: 30px; text-align: center; font-weight: 600; font-size: 30px">ADD
+					style="margin-bottom: 30px; text-align: center; font-weight: 600; font-size: 30px">Edit
 					STUDY MATERIAL</h1>
+					<input type="hidden" id="id" name="id">
 				<div class="container2"
 					style="margin-left: 20px; margin-right: 20px">
 					<div style="display: flex; flex-direction: column;">
@@ -137,15 +138,12 @@
 							style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8">
 					</div>
 				</div>
-				<div
-					style="display: flex; justify-content: center; gap: 50px; margin-top: 30px">
-					<button id="saveButton"
-						style="cursor: pointer; font-size: 14px; font-weight: 700; background-color: #59f7f1; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none">Add</button>
-					<a href="manageaddmaterial">
-						<button
-							style="cursor: pointer; font-size: 14px; font-weight: 700; background-color: #12e068; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none">Manage</button>
-					</a>
-				</div>
+				<div style="display: flex; justify-content: center; gap: 50px; margin-top: 30px">
+                        <button
+                            style="cursor: pointer; font-size: 14px; font-weight: 700; background-color: #59f7f1; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none"
+                            id="saveButton">Update</button>
+
+                    </div>
 			</div>
 		</main>
 	</section>
@@ -344,6 +342,7 @@ $(document).ready(function() {
 <script>
 $("#saveButton").click(function() {
     // Gather input values
+     const id = $("#id").val();
     const title = $("#title").val();
     const meterialUsed = $("#meterialUsed").val();
     const course = $("#course").val();
@@ -359,9 +358,10 @@ $("#saveButton").click(function() {
 
     // Construct data object
     const materialData = {
+    		id:id,
         title: title,
         meterialUsed: meterialUsed,
-        course:course,
+        course: course,
         category: category,
         chapterName: chapterName,
         typeOfQuestion: typeOfQuestion,
@@ -375,13 +375,13 @@ $("#saveButton").click(function() {
 
     // Send AJAX request to save data
     $.ajax({
-        url: "/JapaneseAdminWebApp/saveAddMaterial",
-        type: "POST",
+        url: "/JapaneseAdminWebApp/updatematerial",
+        type: "PUT",
         contentType: "application/json",
         data: JSON.stringify(materialData),
         success: function(response) {
-            alert(response); // Alert response message
-            window.location.href = "addmaterial"; // Redirect after success
+            alert(response); 
+            window.location.href = "manageaddmaterial"; 
         },
         error: function (jqXHR, status, errorThrown) {
             if (jqXHR.status === 403) {
@@ -394,6 +394,92 @@ $("#saveButton").click(function() {
 });
 
 </script>
+
+<script type="text/javascript">
+            $(document).ready(function () {
+                var materialId = getUrlParameter('id');
+
+                if (materialId) {
+                    getMaterialDetails(materialId);
+                } else {
+                    alert("Material ID is missing");
+                }
+
+                function getMaterialDetails(id) {
+                    $.ajax({
+                        url: "/JapaneseAdminWebApp/findMaterialById/" + id,
+                        type: "GET",
+                        contentType: "application/json",
+                        success: function (response) {
+                            //console.log("Response Data:", response);
+                            if (response) {
+                                populateForm(response);
+
+                            } else {
+                                alert("No batch data found");
+                            }
+                        },
+                        error: function (jqXHR, status, errorThrown) {
+    	                    if (jqXHR.status === 403) {
+    	                        alert("YOU DON'T HAVE THE PERMISSION");
+    	                    } else {
+    	                        alert("Failed to communicate with the server");
+    	                    }
+    	                }
+                    });
+                }
+
+                function populateForm(material) {
+                    
+                    $("#id").val(material.id);
+                    $("#title").val(material.title);
+                    $("#meterialUsed").val(material.meterialUsed);
+                    $("#course").val(material.course);
+                    $("#category").val(material.category);
+                    $("#chapterName").val(material.chapterName);
+                    $("#typeOfQuestion").val(material.typeOfQuestion);
+                    $("#timeLimit").val(material.timeLimit);
+                    $("#queLimitToDisplay").val(material.queLimitToDisplay);
+                    $("#score").val(material.score);
+                    $("#note").val(material.note);
+                    $("#startDate").val(material.startDate);
+                    $("#endDate").val(material.endDate);
+                    
+
+                    // Call displayDates function to set the date dropdown values
+                    displayDates(material.startDate, material.endDate);
+                }
+
+                function displayDates(startDate, endDate) {
+                    // Split the date strings into year, month, and day
+                    var startDateParts = startDate.split("-");
+                    var endDateParts = endDate.split("-");
+
+                    // Set the selected options for start date
+                    $("#day").val(startDateParts[2]); 
+                    $("#month").val(startDateParts[1]); 
+                    $("#year").val(startDateParts[0]); 
+
+                    // Set the selected options for start date
+                    $("#day1").val(endDateParts[2]); 
+                    $("#month1").val(endDateParts[1]); 
+                    $("#year1").val(endDateParts[0]); 
+                }
+
+
+
+
+                function getUrlParameter(name) {
+                    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+                    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+                    var results = regex.exec(location.search);
+                    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+                }
+            });
+
+
+        </script>
+
 
 </body>
 </html>

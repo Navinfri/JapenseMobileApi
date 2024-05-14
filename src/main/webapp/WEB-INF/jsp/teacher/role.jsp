@@ -150,7 +150,7 @@
 	    $.ajax({
 	        type: "get",
 	        contentType: "application/json",
-	        url: 'getAllTeacher',
+	        url: '/JapaneseAdminWebApp/getAllTeacher',
 	        async: true,  // Make it asynchronous
 	        success: function(response) {
 	            var appenddata1 = "";
@@ -163,8 +163,13 @@
 	            }
 	            $("#teacher").append(appenddata1);
 	        },
-	        error: function() {
-	            alert("Failed to fetch teachers");
+	        error: function(jqXHR, textStatus, errorThrown) {
+	            var response = jqXHR.responseJSON;
+	            if (jqXHR.status === 403) {
+	                alert("YOU DON'T HAVE THE PERMISSION");
+	            } else {
+	                alert("Failed to fetch teachers. Server not responding.");
+	            }
 	        },
 	        complete: function() {
 	            // Capture change event of dropdown after options are populated
@@ -181,7 +186,7 @@
 	    $.ajax({
 	        type: "get",
 	        contentType: "application/json",
-	        url: 'course',
+	        url: '/JapaneseAdminWebApp/course',
 	        async: false,
 	        success: function(response) {
 	            if (response && response.status === 'SUCCESS' && Array.isArray(response.data) && response.data.length > 0) {
@@ -200,8 +205,12 @@
 	                alert("No data found or invalid response structure for Courses");
 	            }
 	        },
-	        error: function() {
-	            alert("Failed to fetch courses");
+	        error: function(jqXHR, textStatus, errorThrown) {
+	            if (jqXHR.status === 403) {
+	                alert("YOU DON'T HAVE THE PERMISSION");
+	            } else {
+	                alert("Failed to fetch courses. Server not responding.");
+	            }
 	        }
 	    });
 	}
@@ -222,11 +231,9 @@
 	    $.ajax({
 	        type: "get",
 	        contentType: "application/json",
-	        url: 'getAllBatchesData',
+	        url: '/JapaneseAdminWebApp/getAllBatchesData',
 	        async: false,
 	        success: function(response) {
-	            //console.log("Batches Response:", response);
-
 	            if (Array.isArray(response) && response.length > 0) {
 	                var batches = response;
 	                var selectOptions = [];
@@ -243,8 +250,12 @@
 	                alert("No data found or invalid response structure for Batches");
 	            }
 	        },
-	        error: function() {
-	            alert("Failed to fetch batches");
+	        error: function(jqXHR, textStatus, errorThrown) {
+	            if (jqXHR.status === 403) {
+	                alert("YOU DON'T HAVE THE PERMISSION");
+	            } else {
+	                alert("Failed to fetch batches. Server not responding.");
+	            }
 	        }
 	    });
 	}
@@ -280,7 +291,7 @@
 	    };
 
 	    // Send data to backend API using Fetch API
-	    fetch('updateRole', {
+	    fetch('/JapaneseAdminWebApp/updateRole', {
 	        method: 'POST',
 	        headers: {
 	            'Content-Type': 'application/json',
@@ -295,7 +306,7 @@
 	    })
 	    .then(data => {
 	        // Handle success response
-	        console.log('Success:', data);
+	        //console.log('Success:', data);
 	        if (data.success) {
 	            alert(data.message || 'Teacher Role Saved Successfully');
 	            window.location.reload(); // Reload the page after successful save
@@ -310,7 +321,7 @@
 	        alert(data.message || 'Teacher Role Saved Successfully');
             window.location.reload(); // Reload the page after successful save
 	    });
-	}
+	} 
 	</script>
 	<script src="js/adminscript.js"></script>
 </body>
