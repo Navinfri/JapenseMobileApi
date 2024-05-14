@@ -303,10 +303,10 @@
 				        }
 				    });
 
-				    // Function to fetch teacher data by full name
+				 // Function to fetch teacher data by full name
 				    function fetchTeacherByFullName(firstName, lastName) {
 				        // Check if lastName exists
-				        var url = "getTeacherByFullName?firstName=" + firstName;
+				        var url = "/JapaneseAdminWebApp/getTeacherByFullName?firstName=" + firstName;
 				        if (lastName) {
 				            url += "&lastName=" + lastName;
 				        }
@@ -320,8 +320,18 @@
 				                    alert("No teacher found with the provided full name.");
 				                }
 				            },
-				            error: function(error) {
-				                alert("Failed to fetch teacher data. Please try again later.");
+				            error: function(xhr, status, error) {
+				                // Handle different error cases
+				                if (xhr.status === 400 && xhr.responseText.includes("lastName")) {
+				                    alert("Please enter both first name and last name.");
+				                } else {
+				                    var response = xhr.responseJSON;
+				                    if (response && response.message) {
+				                        alert(response.message);
+				                    } else {
+				                        alert("Failed to fetch teacher data. Please write proper full teacher name.");
+				                    }
+				                }
 				            }
 				        });
 				    }
@@ -335,21 +345,27 @@
 					fetchAllTeachers();
 					
 					function fetchAllTeachers() {
-						$.ajax({
-							url : "getAllTeacher",
-							type : "GET",
-							contentType : "application/json",
-							success : function(response) {
-								if (response.status === "SUCCESS") {
-									populateTable(response.data);
-								} else {
-									alert(response.message);
-								}
-							},
-							error : function(error) {
-								alert("Failed to fetch teachers data");
-							}
-						});
+					    $.ajax({
+					        url: "/JapaneseAdminWebApp/getAllTeacher",
+					        type: "GET",
+					        contentType: "application/json",
+					        success: function(response) {
+					            if (response.status === "SUCCESS") {
+					                populateTable(response.data);
+					            } else {
+					                alert(response.message);
+					            }
+					        },
+					        error: function(xhr, status, error) {
+					            // Handle different error cases
+					            var response = xhr.responseJSON;
+					            if (response && response.message) {
+					                alert(response.message);
+					            } else {
+					                alert("Failed to fetch teachers data");
+					            }
+					        }
+					    });
 					}
 
 					function populateTable(teachers) {
@@ -493,12 +509,12 @@
 					}
 
 					function editTeacher(id) {
-						window.location.href = "editTeacher?id=" + id;
+						window.location.href = "/JapaneseAdminWebApp/editTeacher?id=" + id;
 					}
 
 					function deleteTeacher(id) {
 					    $.ajax({
-					        url: "deleteTeacherAndTeacherRole/" + id,
+					        url: "/JapaneseAdminWebApp/deleteTeacherAndTeacherRole/" + id,
 					        type: "DELETE",
 					        contentType: "application/json",
 					        success: function(response) {
@@ -512,10 +528,19 @@
 					            }
 					        },
 					        error: function(xhr, status, error) {
-					            alert("Failed to delete teacher: " + error);
+					            // Handle different error cases
+					            var response = xhr.responseJSON;
+					            if (response && response.message) {
+					                alert(response.message);
+					            } else if (xhr.status === 403) {
+					                alert("YOU DON'T HAVE THE PERMISSION");
+					            } else {
+					                alert("Server NOT Responding !!!");
+					            }
 					        }
 					    });
 					}
+
 				});
 	</script>
 	<script src="js/adminscript.js"></script>
