@@ -70,7 +70,7 @@
             };
 
             $.ajax({
-                url: "saveCategoryData",
+                url: "/JapaneseAdminWebApp/saveCategoryData",
                 type: "POST",
                 contentType: "application/json",
                 data: JSON.stringify(categoryData),
@@ -78,9 +78,16 @@
                     alert(response);
                     window.location.href = "addcategory";
                 },
-                error: function(error) {
-                    alert("Failed to save category");
+                error: function(jqXHR, status, errorThrown) {
+                    console.error("Failed to Save Category:", errorThrown);
+                    if (jqXHR.status === 403) {
+                        alert("YOU DON'T HAVE THE PERMISSION");
+                    } else {
+                        alert("Failed to communicate with the server");
+                    }
                 }
+
+                
             });
         });
     });
