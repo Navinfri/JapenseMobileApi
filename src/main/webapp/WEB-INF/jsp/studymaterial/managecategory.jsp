@@ -137,7 +137,7 @@ right: 12rem;
 
 	    function fetchAllCategory() {
 	        $.ajax({
-	            url: "listCategory",
+	            url: "/JapaneseAdminWebApp/listCategory",
 	            type: "GET",
 	            contentType: "application/json",
 	            success: function(response) {
@@ -147,10 +147,13 @@ right: 12rem;
 	                    alert("No data found");
 	                }
 	            },
-	            error: function(xhr, status, error) {
-	                console.error("Failed to fetch category data:", error);
-	                alert("Failed to fetch category data");
-	            }
+	            error: function(jqXHR, status, errorThrown) {
+                    console.error("Failed to Fetch Category:", errorThrown);
+                    if (jqXHR.status === 403) {
+                        alert("YOU DON'T HAVE THE PERMISSION");
+                    } else {
+                        alert("Failed to communicate with the server");
+                    }
 	        });
 	    }
 
@@ -198,7 +201,7 @@ right: 12rem;
 
 	    function deleteCategory(id) {
 	        $.ajax({
-	            url: "deleteCategory/" + id,
+	            url: "/JapaneseAdminWebApp/deleteCategory/" + id,
 	            type: "DELETE",
 	            contentType: "application/json",
 	            success: function(response) {
@@ -210,10 +213,13 @@ right: 12rem;
 	                    alert(response);
 	                }
 	            },
-	            error: function(xhr, status, error) {
-	                console.error("Failed to delete category:", error);
-	                alert("Failed to delete category");
-	            }
+	            error: function(jqXHR, status, errorThrown) {
+                    console.error("Failed to Delete Category:", errorThrown);
+                    if (jqXHR.status === 403) {
+                        alert("YOU DON'T HAVE THE PERMISSION");
+                    } else {
+                        alert("Failed to communicate with the server");
+                    }
 	        });
 	    }
 	});

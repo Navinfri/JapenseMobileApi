@@ -70,7 +70,7 @@
 
         function getCategoryDetails(id) {
             $.ajax({
-                url: "categoryFindById/" + id,
+                url: "/JapaneseAdminWebApp/categoryFindById/" + id,
                 type: "GET",
                 contentType: "application/json",
                 success: function(response) {
@@ -81,8 +81,13 @@
                         alert("No category data found");
                     }
                 },
-                error: function(error) {
-                    alert("Failed to fetch category data");
+                error: function(jqXHR, status, errorThrown) {
+                    console.error("Failed to Fetch Category:", errorThrown);
+                    if (jqXHR.status === 403) {
+                        alert("YOU DON'T HAVE THE PERMISSION");
+                    } else {
+                        alert("Failed to communicate with the server");
+                    }
                 }
             });
         }
