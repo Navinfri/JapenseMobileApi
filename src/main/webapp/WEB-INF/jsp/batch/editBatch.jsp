@@ -454,7 +454,7 @@ tbody tr:nth-child(odd) {background: #0000000b}
        // console.log("Batch Data:", batchData);
 
         $.ajax({
-            url: "editBatches/" + id,
+            url: "/JapaneseAdminWebApp/editBatches/" + id,
             type: "POST",
             contentType: "application/json",
             data: JSON.stringify(batchData),
@@ -462,7 +462,7 @@ tbody tr:nth-child(odd) {background: #0000000b}
                 alert(response);
                 window.location.href = "managebatch";
             },
-            error: error: function(jqXHR, status, errorThrown) {
+            error: function(jqXHR, status, errorThrown) {
                 if (jqXHR.status === 403) {
                     alert("YOU DON'T HAVE THE PERMISSION");
                 } else {
@@ -476,7 +476,7 @@ tbody tr:nth-child(odd) {background: #0000000b}
         $.ajax({
             type: "get",
             contentType: "application/json",
-            url: 'course',
+            url: '/JapaneseAdminWebApp/course',
             async: false,
             success: function (response) {
                 var appenddata1 = "";

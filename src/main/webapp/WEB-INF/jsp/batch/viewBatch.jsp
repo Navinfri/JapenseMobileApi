@@ -80,6 +80,9 @@
         tbody tr:nth-child(odd) {
             background: #0000000b
         }
+        input[name="dayCheckbox"] {
+        display: none;
+    }
     </style>
 
     <body>
@@ -298,7 +301,7 @@
 
                 function getBatchDetails(id) {
                     $.ajax({
-                        url: "getBatchesDataById/" + id,
+                        url: "/JapaneseAdminWebApp/getBatchesDataById/" + id,
                         type: "POST",
                         contentType: "application/json",
                         success: function (response) {
@@ -310,7 +313,7 @@
                                 alert("No batch data found");
                             }
                         },
-                        error: error: function(jqXHR, status, errorThrown) {
+                        error: function(jqXHR, status, errorThrown) {
         	                if (jqXHR.status === 403) {
         	                    alert("YOU DON'T HAVE THE PERMISSION");
         	                } else {
