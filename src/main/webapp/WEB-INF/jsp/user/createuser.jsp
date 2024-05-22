@@ -144,9 +144,9 @@ right: 14.5rem;
 						 <select id="roleName" name="roleName"
 							style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8;">
 							<option value ="">Select ROLE</option>
-							<option value="MODERATOR">MODERATOR</option>
-							<option value="CREATOR">CREATOR</option>
-							<option value="VIEWER">VIEWER</option>
+							<option value="MODERATOR">MODERATOR (Update,Create,View)</option>
+							<option value="CREATOR">CREATOR (Create,View)</option>
+							<option value="VIEWER">VIEWER (View)</option>
 						</select>
 					</div>
 				</div>
