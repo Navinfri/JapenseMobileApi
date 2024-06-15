@@ -107,16 +107,6 @@
 					</div>
 					<div style="display: flex; flex-direction: column;">
 						<label style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Enter
-							Nationality</label> <input id="" name="" type="text" required="required"
-							style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8">
-					</div>
-					<div style="display: flex; flex-direction: column;">
-						<label style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Enter
-							Current Japanese Skill</label> <input id="" name="" type="text"3							required="required"
-							style="padding: 10px; border-radius: 5px; border: 1px solid #bfb8b8">
-					</div>
-					<div style="display: flex; flex-direction: column;">
-						<label style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Enter
 							Note </label> <input id="" name="" type="text" required="required"
 							style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8">
 					</div>

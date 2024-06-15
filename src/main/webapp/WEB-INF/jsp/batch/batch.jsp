@@ -186,7 +186,7 @@ tbody tr:nth-child(odd) {background: #0000000b}
 						<label
 							style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Enter
 							Zoom Details</label>
-						<textarea id="zoomDetails" name="zoomDetails" type="text"
+						<textarea id="zoomDetails" name="zoomDetails" type="text" cols="20" rows="8"
 							required="required"
 							style="padding: 25px; border-radius: 5px; border: 1px solid #bfb8b8"></textarea>
 						

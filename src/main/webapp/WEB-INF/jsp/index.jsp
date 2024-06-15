@@ -36,7 +36,7 @@
 }
 
 .smallCard:hover {
-	background: #66e0ff;
+	background: rgb(16, 8, 92);
 	transition: .8s ease;
 }
 
@@ -53,17 +53,17 @@
 }
 
 .cardContent h2 {
-	color: #66e0ff;
+	color: rgb(16, 8, 92);
 }
 
 .cardContent span {
-	color: gray;
+	color: rgb(16, 8, 92);
 	font-size: 13px;
 }
 
 .icons {
 	font-size: 5rem;
-	color: #66e0ff;
+	color: rgb(16, 8, 92);
 }
 </style>
 <body>

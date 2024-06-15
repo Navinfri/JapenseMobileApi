@@ -5,7 +5,6 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
@@ -254,9 +253,14 @@ public class JSPController {
 		return "studymaterial/editAddMaterial";
 	}
 	
-	@GetMapping("viewAddMaterial")
+	@GetMapping("/viewAddMaterial")
 	public String viewAddMaterial() {
 		return "studymaterial/viewAddMaterial";
+	}
+
+	@GetMapping("/help")
+	public String viewhelp() {
+		return "help";
 	}
 	
 
