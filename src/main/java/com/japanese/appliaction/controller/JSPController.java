@@ -3,15 +3,22 @@ package com.japanese.appliaction.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import com.japanese.appliaction.repository.AddQuestionsRepo;
 
 
 
 @Controller
 public class JSPController {
+	
+	@Autowired 
+	private AddQuestionsRepo addQuestionsRepo;
 
 	@GetMapping("/userlist")
 	public String getsubuser() {
@@ -119,9 +126,18 @@ public class JSPController {
 	}
 
 	@GetMapping("/addquestion")
-	public String getaddquestion() {
-		return "studymaterial/addquestion";
+	public String getAddQuestion(Model model) {
+	    // Retrieve the maximum questionPaperId from the repository
+	    Long maxQuestionPaperId = addQuestionsRepo.findMaxQuestionPaperId();
+	    Long nextQuestionPaperId = maxQuestionPaperId + 1;
+
+	    // Add the next questionPaperId to the model
+	    model.addAttribute("questionPaperId", nextQuestionPaperId.toString());
+
+	    // Return the name of the view
+	    return "studymaterial/addquestion";
 	}
+
 
 	@GetMapping("/manageaddquestion")
 	public String getmanageaddquestion() {
@@ -258,6 +274,8 @@ public class JSPController {
 	public String viewAddMaterial() {
 		return "studymaterial/viewAddMaterial";
 	}
+	
+	
 	
 
 }
