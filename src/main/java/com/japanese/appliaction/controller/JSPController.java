@@ -167,6 +167,11 @@ public class JSPController {
 		return "student/subs";
 	}
 
+	@GetMapping("/managesubsription")
+	public String getmanagesubscription() {
+		return "Subscription/managesubsription";
+	}
+
 	@GetMapping("/enroll")
 	public String getenroll() {
 		return "student/enroll";
@@ -262,6 +267,10 @@ public class JSPController {
 	public String viewhelp() {
 		return "help";
 	}
-	
 
+	@GetMapping("/attendance")
+	public String viewattendance() {
+		return "student/attendance";
+	}
+	
 }

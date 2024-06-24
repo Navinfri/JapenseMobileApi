@@ -192,7 +192,7 @@
                         <div style="display: flex; flex-direction: column;">
                             <label style="font-size: 13px; font-weight: 900; margin-bottom: 7px">Enter
                                 Zoom Details</label>
-                            <label id="zoomDetails" name="zoomDetails" type="text" rows="6" required="required"
+                            <label id="zoomDetails" name="zoomDetails" type="text" rows="7" required="required"
                                 style="padding: 16px; border-radius: 5px; background-color: none; border: none; border-bottom: 1px solid #bfb8b8"></label>
                             .
                         </div>

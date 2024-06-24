@@ -36,27 +36,6 @@ pageEncoding="ISO-8859-1"%>
         z-index: 1;
       }
 
-      /* .custom-underline {
-        display: inline-block;
-        position: relative;
-      } */
-
-      /* .custom-underline::after {
-        content: "";
-        position: absolute;
-        left: -4%;
-        bottom: 3px;
-        width: 110%;
-        height: 5px;
-        border-radius: 50px;
-        background-color: #afe1e4;
-        z-index: -1;
-      } */
-
-      /* .help-support-heading > h1:hover .custom-underline::after {
-        box-shadow: 0px 0px 7px 1px #9adee3;
-      } */
-
       .input-main-container {
         width: 80%;
         margin: auto;
@@ -70,8 +49,6 @@ pageEncoding="ISO-8859-1"%>
         box-shadow: 0px 0px 22px 0px #55d0ff;
         border-radius: 10px;
       }
-
-      /*add name and contact style start.......................................*/
 
       .input-name-number-main-div {
         width: 100%;
@@ -142,10 +119,6 @@ pageEncoding="ISO-8859-1"%>
         box-shadow: 1px 3px 0px 3px #9adee3;
       }
 
-      /*add name and contact style end.......................................*/
-
-      /*add mail style start.......................................*/
-
       .input-mail-main-div {
         width: 100%;
         padding: 20px 0;
@@ -170,9 +143,6 @@ pageEncoding="ISO-8859-1"%>
         align-items: center;
       }
 
-      /*add mail style end.......................................*/
-
-      /*button style  start..............................................*/
       .submit-div {
         width: 100%;
         padding: 1.5%;
@@ -219,8 +189,6 @@ pageEncoding="ISO-8859-1"%>
         position: relative;
         z-index: 99;
       }
-
-      /*button style end..............................................*/
 
       @media (max-width: 1000px) {
         * {

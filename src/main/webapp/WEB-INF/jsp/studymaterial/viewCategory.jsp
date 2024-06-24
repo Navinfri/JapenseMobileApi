@@ -35,7 +35,7 @@
 		<main>
 			<div>
 				<h1
-					style="margin-bottom: 30px; text-align: center; font-weight: 600; font-size: 30px">UPDATE
+					style="margin-bottom: 30px; text-align: center; font-weight: 600; font-size: 30px">VIEW
 					CATEGORY</h1>
 
 				<div class="container2"

@@ -248,7 +248,7 @@ pageEncoding="ISO-8859-1"%>
         </li>
         <li id="AttendanceofStudents">
           <a
-            href="attendanceofstudents"
+            href="attendance"
             style="color: rgb(16, 8, 92); font-weight: 500"
             ><i
               class="fa-solid fa-clipboard-user"

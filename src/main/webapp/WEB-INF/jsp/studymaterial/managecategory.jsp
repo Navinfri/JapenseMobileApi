@@ -132,98 +132,98 @@ right: 12rem;
 	</section>
 	<script src="js/adminscript.js"></script>
 	<script>
-	$(document).ready(function() {
-		fetchAllCategory();
-
-	    function fetchAllCategory() {
-	        $.ajax({
-	            url: "/JapaneseAdminWebApp/listCategory",
-	            type: "GET",
-	            contentType: "application/json",
-	            success: function(response) {
-	                if (response && response.length > 0) {
-	                    populateTable(response);
-	                } else {
-	                    alert("No data found");
-	                }
-	            },
-	            error: function(jqXHR, status, errorThrown) {
-                    console.error("Failed to Fetch Category:", errorThrown);
-                    if (jqXHR.status === 403) {
-                        alert("YOU DON'T HAVE THE PERMISSION");
-                    } else {
-                        alert("Failed to communicate with the server");
-                    }
-	        });
-	    }
-
-	    function populateTable(batches) {
-	        var tableBody = $(".tablebody");
-	        tableBody.empty();
-
-	        batches.forEach(function(category, index) {
-	            var row = $("<tr>");
-	            row.append($("<td>").text(index + 1));
-	            row.append($("<td>").text(category.category));
-	           
-	            var actionCell = $("<td>");
-	            
-	            var viewIcon = $("<i>").addClass("fa-solid fa-eye").attr("title", "View").css("color", "#007BFF").css("cursor", "pointer").css("font-size","18px").css("font.width","900").click(function() {
-	            	viewCategoryDetails(category.id);
-	            });
-
-	            var updateIcon = $("<i>").addClass("fa-regular fa-pen-to-square").attr("title", "Edit").css("color", "#12e068").css("cursor", "pointer").css("font-size","18px").css("font.width","900").click(function() {
-	                editCategory(category.id);
-	            });
-
-	            var deleteIcon = $("<i>").addClass("fa-solid fa-trash").css("color", "#eb070f").attr("title", "Delete").css("cursor", "pointer").css("font-size","18px").css("font.width","900").click(function() {
-	                deleteCategory(category.id);
-	            });
-
-	            actionCell.append(viewIcon).append(" ");
-	            actionCell.append(updateIcon).append(" ");
-	            actionCell.append(deleteIcon);
-
-	            row.append(actionCell);
-
-	            tableBody.append(row);
-	        });
-	    }
-	    
-	    
-	    function viewCategoryDetails(id) {
-	        window.location.href = "viewcategory?id=" + id;
-	    }
-
-	    function editCategory(id) {
-	        window.location.href = "editcategory?id=" + id;
-	    }
-
-	    function deleteCategory(id) {
-	        $.ajax({
-	            url: "/JapaneseAdminWebApp/deleteCategory/" + id,
-	            type: "DELETE",
-	            contentType: "application/json",
-	            success: function(response) {
-	                if (response) {
-	                	
-	                    alert(response);
-	                    fetchAllCategory();
-	                } else {
-	                    alert(response);
-	                }
-	            },
-	            error: function(jqXHR, status, errorThrown) {
-                    console.error("Failed to Delete Category:", errorThrown);
-                    if (jqXHR.status === 403) {
-                        alert("YOU DON'T HAVE THE PERMISSION");
-                    } else {
-                        alert("Failed to communicate with the server");
-                    }
-	        });
-	    }
-	});
-
+		$(document).ready(function() {
+			fetchAllCategory();
+	
+			function fetchAllCategory() {
+				$.ajax({
+					url: "/JapaneseAdminWebApp/listCategory",
+					type: "GET",
+					contentType: "application/json",
+					success: function(response) {
+						if (response && response.length > 0) {
+							populateTable(response);
+						} else {
+							alert("No data found");
+						}
+					},
+					error: function(jqXHR, status, errorThrown) {
+						console.error("Failed to Fetch Category:", errorThrown);
+						if (jqXHR.status === 403) {
+							alert("YOU DON'T HAVE THE PERMISSION");
+						} else {
+							alert("Failed to communicate with the server");
+						}
+					}
+				});
+			}
+	
+			function populateTable(batches) {
+				var tableBody = $(".tablebody");
+				tableBody.empty();
+	
+				batches.forEach(function(category, index) {
+					var row = $("<tr>");
+					row.append($("<td>").text(index + 1));
+					row.append($("<td>").text(category.category));
+	
+					var actionCell = $("<td>");
+	
+					var viewIcon = $("<i>").addClass("fa-solid fa-eye").attr("title", "View").css("color", "#007BFF").css("cursor", "pointer").css("font-size", "18px").css("font-weight", "900").css("padding", "10px").click(function() {
+						viewCategoryDetails(category.id);
+					});
+	
+					var updateIcon = $("<i>").addClass("fa-regular fa-pen-to-square").attr("title", "Edit").css("color", "#12e068").css("cursor", "pointer").css("font-size", "18px").css("font-weight", "900").css("padding", "10px").click(function() {
+						editCategory(category.id);
+					});
+	
+					var deleteIcon = $("<i>").addClass("fa-solid fa-trash").css("color", "#eb070f").attr("title", "Delete").css("cursor", "pointer").css("font-size", "18px").css("font-weight", "900").css("padding", "10px").click(function() {
+						deleteCategory(category.id);
+					});
+	
+					actionCell.append(viewIcon).append(" ");
+					actionCell.append(updateIcon).append(" ");
+					actionCell.append(deleteIcon);
+	
+					row.append(actionCell);
+	
+					tableBody.append(row);
+				});
+			}
+	
+			function viewCategoryDetails(id) {
+				window.location.href = "viewcategory?id=" + id;
+			}
+	
+			function editCategory(id) {
+				window.location.href = "editcategory?id=" + id;
+			}
+	
+			function deleteCategory(id) {
+				$.ajax({
+					url: "/JapaneseAdminWebApp/deleteCategory/" + id,
+					type: "DELETE",
+					contentType: "application/json",
+					success: function(response) {
+						if (response) {
+							alert(response);
+							fetchAllCategory();
+						} else {
+							alert(response);
+						}
+					},
+					error: function(jqXHR, status, errorThrown) {
+						console.error("Failed to Delete Category:", errorThrown);
+						if (jqXHR.status === 403) {
+							alert("YOU DON'T HAVE THE PERMISSION");
+						} else {
+							alert("Failed to communicate with the server");
+						}
+					}
+				});
+			}
+		});
 	</script>
+	
 </body>
 </html>

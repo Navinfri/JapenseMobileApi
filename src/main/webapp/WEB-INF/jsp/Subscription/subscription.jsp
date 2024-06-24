@@ -4,67 +4,27 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet" href="css/admin.css" />
+<title>Add Subscription</title>
+<link rel="stylesheet" href="css/admin.css">
 <script src="https://kit.fontawesome.com/ae73087723.js"
 	crossorigin="anonymous"></script>
-<title>Dashboard</title>
 </head>
 <style>
-.container {
+.Container {
 	width: 100%;
 	height: 100vh;
 }
 
 .container2 {
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	grid-gap: 80px;
-	margin-left: 20px;
-	margin-right: 20px;
-	margin-top: 30px;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-gap: 30px;
 }
 
-.smallCard {
-	width: 100%;
-	height: 50vh;
-	padding: 30px;
-	border-radius: 20px;
-	box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	cursor: pointer;
-}
-
-.smallCard:hover {
-	background: #66e0ff;
-	transition: .8s ease;
-}
-
-.smallCard:hover .cardContent h2 {
-	color: white;
-}
-
-.smallCard:hover .cardContent span {
-	color: white;
-}
-
-.smallCard:hover .icons {
-	color: white;
-}
-
-.cardContent h2 {
-	color: #66e0ff;
-}
-
-.cardContent span {
-	color: gray;
-	font-size: 13px;
-}
-
-.icons {
-	font-size: 5rem;
-	color: #66e0ff;
+@media screen and (max-width: 1000px) {
+	.container2 {
+		grid-template-columns: 1fr;
+	}
 }
 </style>
 <body>
@@ -72,95 +32,58 @@
 	<section id="content">
 		<jsp:include page="../header.jsp"></jsp:include>
 		<main>
-			<div class="container">
-				<div class="container2">
-					<div class='smallCard' onclick="navigateto3000()">
-						<div class='cardContent'>
-							
-						</div>
-						<div>
-							<i class="fa-solid fa-clipboard-user icons"></i>
-						</div>
+			<div>
+				<h1
+					style="margin-bottom: 30px; text-align: center; font-weight: 600; font-size: 30px">ADD
+					SUBSCRIPTION</h1>
+				<div style="margin-bottom: 30px; margin-left: 30px">
+					<label class="switch"> <input id="" name="" type="checkbox"
+						checked> <span class="slider round"></span>
+					</label>
+				</div>
+				<div class="container2"
+					style="margin-left: 20px; margin-right: 20px">
+
+					<div style="display: flex; flex-direction: column;">
+						<label
+							style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Enter
+							Package Name</label> <input id="" name="" type="text" required="required"
+							style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8;">
 					</div>
-					<div class='smallCard' onclick="navigateto5000()">
-						<div class='cardContent'>
-							
-						</div>
-						<div>
-							<i class="fa-solid fa-credit-card icons"
-								style="font-size: 4.5rem"></i>
-						</div>
+					<div style="display: flex; flex-direction: column;">
+						<label
+							style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Enter
+							Package Price</label> <input id="" name="" type="number"
+							required="required"
+							style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8">
 					</div>
-					<div class='smallCard' onclick="navigateto10000()">
-						<div class='cardContent'>
-							
-						</div>
-						<div>
-							<i class="fa-solid fa-chalkboard-user icons"></i>
-						</div>
+					<div style="display: flex; flex-direction: column;">
+						<label
+							style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Enter
+							Package Start Date</label> <input id="" name="" type="date"
+							required="required"
+							style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8">
 					</div>
-					<div class='smallCard' onclick="navigateto20000()">
-						<div class='cardContent'>
-							
-						</div>
+					<div style="display: flex; flex-direction: column;">
+						<label
+							style="font-size: 13px; font-weight: 500; margin-bottom: 7px">Enter
+							Package End Date</label> <input id="" name="" type="date"
+							required="required"
+							style="padding: 13px; border-radius: 5px; border: 1px solid #bfb8b8">
 					</div>
+				</div>
+				<div
+					style="display: flex; justify-content: center; gap: 50px; margin-top: 50px">
+					<button
+						style="cursor: pointer; font-weight: 700; font-size: 14px; background-color: #59f7f1; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none">Save</button>
+					<a href="managesubsription">
+						<button
+							style="cursor: pointer; font-weight: 700; font-size: 14px; background-color: #12e068; color: #ffffff; border-radius: 5px; padding: 15px; width: 100px; border: none">Manage</button>
+					</a>
 				</div>
 			</div>
 		</main>
 	</section>
-
-	<script>
-		function navigateto3000() {
-			window.location.href = "enroll";
-		}
-		function navigateto5000() {
-			window.location.href = "subs";
-		}
-		function navigateto10000() {
-			window.location.href = "manageteacher";
-		}
-		function navigateto10000() {
-			window.location.href = "managecourse";
-		}
-	</script>
 	<script src="js/adminscript.js"></script>
-	<script>
-
-	function asideMenu(){
-		// Get references to the <li> elements
-		
-		
-		var session = "<%=session.getAttribute("user")%>";
-		
-		
-		const enquiryFormLi = document.getElementById('admin');
-		const proposalOrderLi = document.getElementById('marketing');
-		const designOrderLi = document.getElementById('Design');
-		
-	 	enquiryFormLi.style.display = 'none';
-	 	proposalOrderLi.style.display = 'none';
-	 	designOrderLi.style.display = 'none';
-	 	
-	   
-
-
-		// Display the corresponding <li> based on the presence of the elements
-		if (session.includes("User Create")) {
-		    enquiryFormLi.style.display = 'block'; // Or use 'list-item' to display as a list item
-		} 
-		
-		if (session.includes("Enquiry Form")){
-			proposalOrderLi.style.display = 'block';		
-		}
-		
-		if (session.includes("Team Task")){
-			designOrderLi.style.display = 'block';
-		}
-
-	}
-
-
-
-	</script>
 </body>
 </html>
