@@ -349,5 +349,6 @@ pageEncoding="ISO-8859-1"%>
         </div>
       </main>
     </section>
+    <script src="js/adminscript.js"></script>
   </body>
 </html>
