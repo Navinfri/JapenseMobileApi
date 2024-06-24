@@ -169,15 +169,15 @@ right: 12rem;
 	
 					var actionCell = $("<td>");
 	
-					var viewIcon = $("<i>").addClass("fa-solid fa-eye").attr("title", "View").css("color", "#007BFF").css("cursor", "pointer").css("font-size", "18px").css("font-weight", "900").css("padding", "10px").click(function() {
+					var viewIcon = $("<i>").addClass("fa-solid fa-eye").attr("title", "View").css("color", "#007BFF").css("cursor", "pointer").css("font-size", "18px").css("font-weight", "900").click(function() {
 						viewCategoryDetails(category.id);
 					});
 	
-					var updateIcon = $("<i>").addClass("fa-regular fa-pen-to-square").attr("title", "Edit").css("color", "#12e068").css("cursor", "pointer").css("font-size", "18px").css("font-weight", "900").css("padding", "10px").click(function() {
+					var updateIcon = $("<i>").addClass("fa-regular fa-pen-to-square").attr("title", "Edit").css("color", "#12e068").css("cursor", "pointer").css("font-size", "18px").css("font-weight", "900").click(function() {
 						editCategory(category.id);
 					});
 	
-					var deleteIcon = $("<i>").addClass("fa-solid fa-trash").css("color", "#eb070f").attr("title", "Delete").css("cursor", "pointer").css("font-size", "18px").css("font-weight", "900").css("padding", "10px").click(function() {
+					var deleteIcon = $("<i>").addClass("fa-solid fa-trash").css("color", "#eb070f").attr("title", "Delete").css("cursor", "pointer").css("font-size", "18px").css("font-weight", "900").click(function() {
 						deleteCategory(category.id);
 					});
 	
@@ -225,5 +225,6 @@ right: 12rem;
 		});
 	</script>
 	
+
 </body>
 </html>
